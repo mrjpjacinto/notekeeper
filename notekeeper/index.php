@@ -11,17 +11,44 @@
 </head>
 <body>
     <div class="main-container">
-        <div class="topnav">
+
+    <!-- NAVBAR -->
+        <div class="navbar">
+
+        <!-- LEFT-NAV -->
             <div class="left-nav">
                 <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
             </div>
+        
+        <!-- RIGHT-NAV -->
             <div class="right-nav">
                 <a class="option" href="/notekeeper/notekeeper/client/php/note-login.php">LOG IN</a>
                 <a class="option" href="/notekeeper/notekeeper/client/php/note-signup.php">SIGN UP</a>
             </div>
         </div>
-        
-        </div>
+    <!-- NAVBAR -->
+
+    <!-- HERO-SECTION -->
+        <div class="hero-container">
+
+            <div class="content">
+                <h1> Welcome to NoteKeeper!</h1>
+                <p> Write it down before you forget it.</p>
+                <p>Take notes, save ideas, and make a reminders </p>
+            </div>
+
+            <div class="photo">
+                <img src="/notekeeper/notekeeper/client/assets/indexphoto.png" alt="welcome photo">
+            </div>
+
+            <div class="hero-buttom">
+                <a href="/notekeeper/notekeeper/client/php/note-signup.php">
+                <button class="button"> Try NoteKeeper </button>
+                </a>
+            </div>
+        </div>   
+    <!-- HERO-SECTION -->
+
     </div>
 </body>
 </html>
