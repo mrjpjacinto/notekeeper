@@ -1,6 +1,6 @@
 body{
     font-family: Inter;
-    font-size: 17px;
+    font-size: 15px;
     background-color: #EBF4F6;
     display: flex;
     justify-content: center;
@@ -10,13 +10,13 @@ body{
     margin: auto;
 }
 
-.login img{
+.signup img{
     width: 80px;
 }
 
-.login{
-    height: 500px;
-    width: 350px;
+.signup{
+    height: 600px;
+    width: 650px;
     padding: 50px;
     background-color: white;
     border-radius: 15px;
@@ -28,6 +28,22 @@ body{
     position: fixed;
 }
 
+.input-name{
+    display: flex;
+    justify-content: space-between;
+}
+.input-uname{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-name input{
+    width: 275px;
+}
+.input-uname input{
+    width: 275px;
+}
+
 .input{
     display: flex;
     flex-direction: column;
@@ -35,11 +51,19 @@ body{
     padding: 15px;
 }
 
+.input label{
+    padding-left: 5px;
+}
+
 input{
     border: none;
     border-radius: 10px;
     padding: 10px;
     background-color: #f2f2f2;
+}
+
+.show-password{
+    padding-top: 5px;
 }
 
 button{
