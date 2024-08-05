@@ -48,7 +48,7 @@
                         <input type="checkbox" onclick="showConfirmPassword()">Show Password
                     </div>
                 </div>
-                <button type="submit">Sign Up</button>
+                <button class="click" type="submit">Sign Up</button>
                 <p>Already have an account? <a href="/notekeeper/notekeeper/client/php/note-login.php">Log in!</a></p>
             </form>
         </div>
