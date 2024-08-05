@@ -42,7 +42,7 @@
             </div>
 
             <div class="hero-buttom">
-                <a href="/notekeeper/notekeeper/client/php/note-signup.php">
+                <a href="/notekeeper/notekeeper/client/php/note-login.php">
                 <button class="button"> Try NoteKeeper </button>
                 </a>
             </div>

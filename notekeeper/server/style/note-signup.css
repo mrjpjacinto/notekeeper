@@ -8,6 +8,8 @@ body{
     top: 0;
     left: 0;
     margin: auto;
+    height: 100vh;
+    width: 100vw;
 }
 
 .signup img{
@@ -15,9 +17,9 @@ body{
 }
 
 .signup{
-    height: 600px;
-    width: 650px;
-    padding: 50px;
+    height: 80%;
+    width: 50%;
+    padding: 30px;
     background-color: white;
     border-radius: 15px;
     top: 0;
@@ -64,6 +66,10 @@ input{
 
 .show-password{
     padding-top: 5px;
+}
+
+.click{
+    color: #f2f2f2;
 }
 
 button{
