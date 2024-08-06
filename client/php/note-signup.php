@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/notekeeper/notekeeper/client/style/note-signup.css">
+    <link rel="stylesheet" href="/notekeeper/client/style/note-signup.css">
     <script src="/notekeeper/server/script/note-signup.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="main-container">
         <div class="signup">
-            <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
+            <img src="/notekeeper/client/assets/note-app-logo.png">
             <h2>Sign Up</h2>
-            <form action="/notekeeper/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post">
+            <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post">
                 <div class="input-name">
                     <div class="input">
                         <label for="fname">First Name</label>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <button class="click" type="submit">Sign Up</button>
-                <p>Already have an account? <a href="/notekeeper/notekeeper/client/php/note-login.php">Log in!</a></p>
+                <p>Already have an account? <a href="/notekeeper/client/php/note-login.php">Log in!</a></p>
             </form>
         </div>
     </div>

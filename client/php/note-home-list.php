@@ -2,7 +2,7 @@
  session_start();
 
  if(!isset($_SESSION['uname'])) {
-    header("Location: /notekeeper/notekeeper/client/php/note-login.php");
+    header("Location: /notekeeper/client/php/note-login.php");
 
     exit();
  }
@@ -13,8 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/notekeeper/notekeeper/client/style/note-home-list.css">
-    <script src="/notekeeper/notekeeper/server/script/note-home-list.js"></script>
+    <link rel="stylesheet" href="/notekeeper/client/style/note-home-list.css">
+    <script src="/notekeeper/server/script/note-home-list.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -23,16 +23,16 @@
     <div class="main-container">
         <div class="topnav">
             <div class="left-nav">
-                <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
+                <img src="/notekeeper/client/assets/note-app-logo.png">
             </div>
             <div class="right-nav">
-                <img src="/notekeeper/notekeeper/client/assets/Avatar-placeholder.png"onclick="toggleMenu()" class="dropbtn">
+                <img src="/notekeeper/client/assets/Avatar-placeholder.png"onclick="toggleMenu()" class="dropbtn">
             </div>
             <!-- DROPDOWN -->
             <div class="dropdown">
                 <div class="dropdown-content" id="myDropdown">
                     <div class="dropdown-display">
-                    <img src="/notekeeper/notekeeper/client/assets/Avatar-placeholder.png">
+                    <img src="/notekeeper/client/assets/Avatar-placeholder.png">
                     <p>Name<br>username@example.com</p>
                     </div>
                     <div class="dropdown-option">
@@ -61,7 +61,7 @@
                             help
                             </span>
                             Help</a>
-                        <a href="/notekeeper/notekeeper/server/sign-up-login-db-conn/log-out.php">
+                        <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
                         <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -84,7 +84,7 @@
                     </button>
                 <button>
                     <span class="material-symbols-outlined">
-                        <a href="/notekeeper/notekeeper/client/php/note-home-tiles.php">grid_view</a>
+                        <a href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
                         </span>
                     </button>
             </div>

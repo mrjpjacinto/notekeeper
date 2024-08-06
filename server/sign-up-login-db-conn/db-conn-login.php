@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['id'] = $row['id']; // Store the user ID in the session
                         $_SESSION['uname'] = $row['uname']; // Store the username in the session
 
-                        header("Location: /notekeeper/notekeeper/client/php/note-home-list.php"); // Redirect to the home page
+                        header("Location: /notekeeper/client/php/note-home-list.php"); // Redirect to the home page
                         exit(); // Stop further script execution
                     } else {
                         $_SESSION['error'] = "Invalid password"; // Store error message in session
@@ -46,6 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close(); // Close the database connection
-header("Location: /notekeeper/notekeeper/client/php/note-login.php"); // Redirect back to the login page
+header("Location: /notekeeper/client/php/note-login.php"); // Redirect back to the login page
 exit();
 ?>
