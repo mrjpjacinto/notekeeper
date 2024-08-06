@@ -154,6 +154,14 @@ input{
     color: white;
 }
 
+.dark-mode .dropdown-content{
+    background-color: #334249;
+}
+
+.dark-mode .dropdown-option{
+    background-color: #3d3d3d;
+}
+
  
 /* BODY */
 .note-card{
