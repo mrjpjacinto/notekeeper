@@ -73,3 +73,15 @@ button:hover{
     
     color: red;
 }
+
+.toast {
+    background-color: #27AAFF;
+    width: 250px;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
