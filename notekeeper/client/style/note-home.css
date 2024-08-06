@@ -16,6 +16,7 @@ body{
 /* NAVBAR */
 .topnav{
     padding: 20px;
+    margin-inline: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -64,20 +65,45 @@ button{
 
 input{
     width: 200px;
-    border: 2px solid gainsboro;
+    border: none;
     border-radius: 5px;
     font-size: 17px;
+    padding-left: 10px;
 }
 /* NAVBAR */
 
-/* .dark-mode{
+.dark-mode{
     background-color: #3d3d3d;
     color: white;
-} */
+}
+
+.dark-mode .note-template{
+    background-color: #006edd;
+    box-shadow: 0 1px 10px black;
+}
+
+.dark-mode .material-symbols-outlined{
+    color: white;
+}
+
+.dark-mode #darkmode{
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  color: #ffdc00;
+}
+
+.dark-mode input{
+    background-color: #515151;
+    color: white;
+}
+
  
 /* BODY */
 .note-card{
-    margin: 50px;
+    margin: 20px;
     display: flex;
     justify-content: space-around;
 }
@@ -86,7 +112,7 @@ input{
     width: 300px;
     height: 250px;
     border-radius: 25px;
-    box-shadow: 0 5px 10px #7aa6bb;
+    box-shadow: 0 1px 10px #7aa6bb;
 }
 .note-content{
     padding: 10px;

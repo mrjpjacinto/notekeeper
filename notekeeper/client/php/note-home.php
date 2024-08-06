@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/notekeeper/notekeeper/client/style/note-home.css">
-    <script src="notekeeper/notekeeper/server/script/note-home.js"></script>
+    <script src="/notekeeper/notekeeper/server/script/note-home.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -27,6 +27,16 @@
                     add_circle
                     </span>
                 </button>
+                <button onclick="darkMode()">
+                    <span class="material-symbols-outlined" id="darkmode">
+                        dark_mode
+                        </span>
+                    </button>
+                <button>
+                    <span class="material-symbols-outlined">
+                        list
+                        </span>
+                    </button>
             </div>
             <div class="right-nav1">
                 <div class="input">
@@ -39,15 +49,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="topnav2">
-            <div class="left-nav2">
-                <button  onclick="myFunction()">
-                <span class="material-symbols-outlined">
-                    dark_mode
-                    </span>
-                </button>
-            </div>
-        </div> -->
         <!-- NAVBAR -->
          <!-- BODY -->
         <div class="note-card">
