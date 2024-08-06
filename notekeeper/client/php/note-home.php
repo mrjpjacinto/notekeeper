@@ -231,6 +231,30 @@
                 </div>
             </div>
         </div>
+        <div class="note-list">
+            <div class="note-template-list">
+                <div class="note-content">
+                    <div class="note-heading">
+                        <h1>Title</h1>
+                        <div class="heading-tools">
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span>
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </div>
+                    </div>
+                    <div class="note-body">
+                        Content
+                    </div>
+                    <div class="note-footer">
+                    mm/dd/yyyy 00:00<br>
+                    mm/dd/yyyy 00:00
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- BODY -->
     </div>
 </body>
