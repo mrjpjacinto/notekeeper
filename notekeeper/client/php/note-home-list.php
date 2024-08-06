@@ -17,7 +17,48 @@
                 <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
             </div>
             <div class="right-nav">
-                <img src="/notekeeper/notekeeper/client/assets/Avatar-placeholder.png">
+                <img src="/notekeeper/notekeeper/client/assets/Avatar-placeholder.png"onclick="toggleMenu()" class="dropbtn">
+            </div>
+            <!-- DROPDOWN -->
+            <div class="dropdown">
+                <div class="dropdown-content" id="myDropdown">
+                    <div class="dropdown-display">
+                    <img src="/notekeeper/notekeeper/client/assets/Avatar-placeholder.png">
+                    <p>Name<br>username@example.com</p>
+                    </div>
+                    <div class="dropdown-option">
+                        <a href="#">
+                        <span class="material-symbols-outlined">
+                            account_circle
+                            </span>
+                            Profile</a>
+                        <a href="#">
+                        <span class="material-symbols-outlined">
+                            person_add
+                            </span>
+                            Add Account</a>
+                        <a href="#">
+                        <span class="material-symbols-outlined">
+                            switch_account
+                            </span>
+                            Switch Account</a>
+                        <a href="#">    
+                        <span class="material-symbols-outlined">
+                            settings
+                            </span>
+                            Settings</a>
+                        <a href="#">
+                        <span class="material-symbols-outlined">
+                            help
+                            </span>
+                            Help</a>
+                        <a href="#">
+                        <span class="material-symbols-outlined">
+                            logout
+                            </span>
+                            Log Out</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="topnav1">
