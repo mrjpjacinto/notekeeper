@@ -1,11 +1,3 @@
-
-<?php
- session_start();
- if (!isset($_SESSION['uname'])) {
-     header("location: /notekeeper/notekeeper/client/php/note-login.php");
-     exit();
- }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

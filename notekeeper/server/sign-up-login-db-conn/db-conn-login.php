@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['uname'] = $row['uname']; 
 
                         
-                        header("Location: /notekeeper/notekeeper/client/php/note-home.php");
+                        header("Location: /notekeeper/notekeeper/client/php/note-home-list.php");
                         exit(); 
                     } else {
                         echo "Invalid password";
