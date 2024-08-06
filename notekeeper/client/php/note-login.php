@@ -13,14 +13,14 @@
         <div class="login">
             <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
             <h2>Log In</h2>
-            <form>
+            <form action="/notekeeper/notekeeper/server/sign-up-login-db-conn/db-conn-login.php" method="post">
                 <div class="input">
                     <label for="uname">Username</label>
                     <input type="text" id="uname" name="uname" required>
                 </div>
                 <div class="input">
-                    <label for="psword">Password</label>
-                    <input type="password" id="psword" name="psword" required>
+                    <label for="passwd">Password</label>
+                    <input type="password" id="passwd" name="passwd" required>
                     <div class="show-password">
                         <input type="checkbox" onclick="showPassword()">Show Password
                     </div>

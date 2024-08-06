@@ -13,7 +13,7 @@
         <div class="signup">
             <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
             <h2>Sign Up</h2>
-            <form>
+            <form action="/notekeeper/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post">
                 <div class="input-name">
                     <div class="input">
                         <label for="fname">First Name</label>
@@ -35,8 +35,8 @@
                     </div>
                 </div>
                 <div class="input">
-                    <label for="psword">Password</label>
-                    <input type="password" id="psword" name="psword" required>
+                    <label for="passwd">Password</label>
+                    <input type="password" id="passwd" name="passwd" required>
                     <div class="show-password">
                         <input type="checkbox" onclick="showPassword()">Show Password
                     </div>

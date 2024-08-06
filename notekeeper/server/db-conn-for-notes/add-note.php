@@ -6,14 +6,14 @@
         $title = $_POST['title'];
         $content = $_POST['content'];
         $color = $_POST['color'];
-        $date_created = date("Y-m-d H:i:s");
 
-        $sql = "INSERT INTO notes (title, content, color, date_created) VALUES ($title, $content, $color, $date_created";
+        $sql = "INSERT INTO notes (title, content, color, date_created) VALUES ('$title', '$content', '$color', NOW())";
+        $stmt->bind_param("sss", $title, $content, $color);
 
-        if($conn->query($sql) === TRUE) {
+        if($stmt->execute()) {
             echo"Note added";
         } else {
-            echo"Error: " . $sql . "<br>" . $conn->error;
+            echo"Error: " . $stmt->error;
         }
     }
 ?>
