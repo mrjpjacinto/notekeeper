@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/notekeeper/notekeeper/client/style/note-home.css">
-    <script src="notekeeper/notekeeper/server/script/note-home.js"></script>
+    <script src="/notekeeper/notekeeper/server/script/note-home.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -226,6 +226,30 @@
                     <div class="note-footer">
                         mm/dd/yyyy 00:00<br>
                         mm/dd/yyyy 00:00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="note-list">
+            <div class="note-template-list">
+                <div class="note-content">
+                    <div class="note-heading">
+                        <h1>Title</h1>
+                        <div class="heading-tools">
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span>
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </div>
+                    </div>
+                    <div class="note-body">
+                        Content
+                    </div>
+                    <div class="note-footer">
+                    mm/dd/yyyy 00:00<br>
+                    mm/dd/yyyy 00:00
                     </div>
                 </div>
             </div>
