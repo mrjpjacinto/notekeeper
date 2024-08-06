@@ -1,3 +1,12 @@
+<?php
+ session_start();
+
+ if(!isset($_SESSION['uname'])) {
+    header("Location: /notekeeper/notekeeper/client/php/note-login.php");
+
+    exit();
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +61,7 @@
                             help
                             </span>
                             Help</a>
-                        <a href="#">
+                        <a href="/notekeeper/notekeeper/server/sign-up-login-db-conn/log-out.php">
                         <span class="material-symbols-outlined">
                             logout
                             </span>

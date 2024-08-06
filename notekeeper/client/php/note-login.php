@@ -1,4 +1,7 @@
+<?php
+    session_start();
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +17,12 @@
         <div class="login">
             <img src="/notekeeper/notekeeper/client/assets/note-app-logo.png">
             <h2>Log In</h2>
+            <?php
+                if(isset($_SESSION['error'])) {
+                    echo '<p class="error">' . ($_SESSION['error']) . '</p>';
+                    unset($_SESSION['error']);
+                }
+            ?>
             <form action="/notekeeper/notekeeper/server/sign-up-login-db-conn/db-conn-login.php" method="post">
                 <div class="input">
                     <label for="uname">Username</label>
