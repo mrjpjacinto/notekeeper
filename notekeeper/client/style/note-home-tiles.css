@@ -13,6 +13,11 @@ body{
     'opsz' 24;
     padding: 10px;
   }
+
+a{
+    text-decoration: none;
+    color: black;
+}
 /* NAVBAR */
 .topnav{
     padding: 20px;
@@ -97,6 +102,10 @@ input{
 
 .dark-mode input{
     background-color: #515151;
+    color: white;
+}
+
+.dark-mode a{
     color: white;
 }
 
