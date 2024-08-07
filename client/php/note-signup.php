@@ -1,3 +1,7 @@
+<?php
+  session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="toast success-toast" id="success-toast"></div>
+    <?php if (isset($_SESSION['success'])): ?>
+        <p class="hidden" id="success-msg"><?php echo $_SESSION['success']; ?></p>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
     <div class="main-container">
         <div class="signup">
             <img src="/notekeeper/client/assets/note-app-logo.png">

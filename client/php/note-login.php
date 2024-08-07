@@ -18,6 +18,11 @@
         <p class="hidden" id="error-msg"><?php echo $_SESSION['error']; ?></p>
         <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
+    <div class="toast success-toast" id="success-toast">Login Successful!</div>
+   <?php if (isset($_SESSION['success'])): ?>
+        <p class="hidden" id="success-msg"><?php echo $_SESSION['success']; ?></p>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
     <div class="main-container">
         <div class="login">
             <img src="/notekeeper/client/assets/note-app-logo.png">
@@ -39,10 +44,5 @@
             </form>
         </div>
    </div>
-   <div class="toast success-toast" id="success-toast">Login Successful!</div>
-   <?php if (isset($_SESSION['success'])): ?>
-        <p class="hidden" id="success-msg"><?php echo $_SESSION['success']; ?></p>
-        <?php unset($_SESSION['success']); ?>
-    <?php endif; ?>
 </body>
 </html>
