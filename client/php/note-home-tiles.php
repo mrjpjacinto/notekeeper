@@ -49,7 +49,7 @@
                     </span>
                 </button>
                 <button onclick="darkMode()">
-                    <span class="material-symbols-outlined" id="darkmode">
+                    <span class="material-symbols-outlined" id="darkmodeswitch">
                         dark_mode
                         </span>
                     </button>

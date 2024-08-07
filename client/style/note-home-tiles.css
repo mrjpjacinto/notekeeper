@@ -122,21 +122,21 @@ input{
 }
 /* NAVBAR */
 
-.dark-mode{
+.darkmode{
     background-color: #3d3d3d;
     color: white;
 }
 
-.dark-mode .note-template{
+.darkmode .note-template{
     background-color: #006edd;
     box-shadow: 0 1px 10px black;
 }
 
-.dark-mode .material-symbols-outlined{
+.darkmode .material-symbols-outlined{
     color: white;
 }
 
-.dark-mode #darkmode{
+.darkmode #darkmodeswitch{
     font-variation-settings:
     'FILL' 1,
     'wght' 400,
@@ -145,20 +145,20 @@ input{
   color: #ffdc00;
 }
 
-.dark-mode input{
+.darkmode input{
     background-color: #515151;
     color: white;
 }
 
-.dark-mode a{
+.darkmode a{
     color: white;
 }
 
-.dark-mode .dropdown-content{
+.darkmode .dropdown-content{
     background-color: #334249;
 }
 
-.dark-mode .dropdown-option{
+.darkmode .dropdown-option{
     background-color: #3d3d3d;
 }
 

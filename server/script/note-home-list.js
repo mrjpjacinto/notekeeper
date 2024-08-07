@@ -1,7 +1,26 @@
 function darkMode() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
- }
+  var element = document.body;
+  element.classList.toggle("darkmode");
+
+  if(element.classList.contains("darkmode")){
+    localStorage.setItem("theme", "dark");
+  }
+  else{
+    localStorage.setItem("theme", "light");
+  }
+}
+
+function applySavedTheme(){
+var theme = localStorage.getItem("theme");
+if(theme === "dark"){
+  document.body.classList.add("darkmode");
+}
+else{
+  document.body.classList.remove("darkmode")
+}
+}
+
+window.onload = applySavedTheme;
 
  function toggleMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
