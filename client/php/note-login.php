@@ -20,8 +20,12 @@
             <h2>Log In</h2>
             <?php
                 if(isset($_SESSION['error'])) {
-                    echo '<p class="error">' . ($_SESSION['error']) . '</p>';
+                    echo '<p class="error" id="error-msg">' . ($_SESSION['error']) . '</p>';
                     unset($_SESSION['error']);
+                }
+                if(isset($_SESSION['success'])) {
+                    echo '<p class="success" id="success-msg"' . ($_SESSION['success']) . '</p>';
+                    unset($_SESSION['success']);
                 }
             ?>
             <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-login.php" method="post">

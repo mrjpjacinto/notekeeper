@@ -1,51 +1,51 @@
 <?php
-session_start(); // Start the session at the beginning
+session_start(); 
 
-include '../db-conn.php'; // Include the database connection script
+include '../db-conn.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if both username and password are provided
     if (isset($_POST['uname']) && isset($_POST['passwd'])) {
-        $uname = $_POST['uname']; // Retrieve the username from POST data
-        $passwd = $_POST['passwd']; // Retrieve the password from POST data
+        $uname = $_POST['uname']; 
+        $passwd = $_POST['passwd']; 
 
-        // Prepare SQL statement to select user with the given username
+        
         $sql = "SELECT * FROM user WHERE uname=?";
-        if ($stmt = $conn->prepare($sql)) { // Prepare the SQL statement
-            $stmt->bind_param("s", $uname); // Bind the username parameter to the SQL statement
+        if ($stmt = $conn->prepare($sql)) { 
+            $stmt->bind_param("s", $uname); 
 
-            if ($stmt->execute()) { // Execute the SQL statement
-                $result = $stmt->get_result(); // Get the result set from the executed statement
+            if ($stmt->execute()) { 
+                $result = $stmt->get_result(); 
 
-                if ($result->num_rows > 0) { // Check if any user was found
-                    $row = $result->fetch_assoc(); // Fetch the user data from the result set
+                if ($result->num_rows > 0) { 
+                    $row = $result->fetch_assoc(); 
                     
-                    if (password_verify($passwd, $row['passwd'])) { // Verify the password
-                        $_SESSION['id'] = $row['id']; // Store the user ID in the session
-                        $_SESSION['uname'] = $row['uname']; // Store the username in the session
+                    if (password_verify($passwd, $row['passwd'])) { 
+                        $_SESSION['id'] = $row['id']; 
+                        $_SESSION['uname'] = $row['uname']; 
+                        $_SESSION['success'] = "Login successful!"; 
 
-                        header("Location: /notekeeper/client/php/note-home-list.php"); // Redirect to the home page
-                        exit(); // Stop further script execution
+                        header("Location: /notekeeper/client/php/note-login.php");
+                        exit(); 
                     } else {
-                        $_SESSION['error'] = "Invalid password"; // Store error message in session
+                        $_SESSION['error'] = "Invalid password"; 
                     }
                 } else {
-                    $_SESSION['error'] = "No user found with this username"; // Store error message in session
+                    $_SESSION['error'] = "No user found with this username"; 
                 }
             } else {
-                $_SESSION['error'] = "Error executing query: " . $stmt->error; // Store error message in session
+                $_SESSION['error'] = "Error executing query: " . $stmt->error; 
             }
 
-            $stmt->close(); // Close the prepared statement
+            $stmt->close(); 
         } else {
-            $_SESSION['error'] = "Error preparing statement: " . $conn->error; // Store error message in session
+            $_SESSION['error'] = "Error preparing statement: " . $conn->error; 
         }
     } else {
-        $_SESSION['error'] = "Required fields are missing."; // Store error message in session
+        $_SESSION['error'] = "Required fields are missing."; 
     }
 }
 
-$conn->close(); // Close the database connection
-header("Location: /notekeeper/client/php/note-login.php"); // Redirect back to the login page
+$conn->close(); 
+header("Location: /notekeeper/client/php/note-login.php"); 
 exit();
 ?>
