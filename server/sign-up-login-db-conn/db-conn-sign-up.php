@@ -1,20 +1,37 @@
 <?php
-include '../db-conn.php';
+session_start(); 
+
+include '../db-conn.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $uname = $_POST['uname'];
-    $email = $_POST['email'];
-    $passwd = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
+    if (isset($_POST['uname']) && isset($_POST['email']) && isset($_POST['passwd'])) {
+        $uname = $_POST['uname']; 
+        $email = $_POST['email'];
+        $passwd = password_hash($_POST['passwd'], PASSWORD_BCRYPT);
 
-    $stmt = $conn->prepare("INSERT INTO user (fname, lname, uname, email, passwd) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $fname, $lname, $uname, $email, $passwd);
+        $sql = "INSERT INTO user (uname, email, passwd) VALUES (?, ?, ?)";
+        if ($stmt = $conn->prepare($sql)) { 
+            $stmt->bind_param("sss", $uname, $email, $passwd); 
 
-    if ($stmt->execute()) {
-        echo "Registration successful";
+            if ($stmt->execute()) { 
+                $_SESSION['success'] = "Your account has been successfully created"; 
+
+                header("Location: /notekeeper/client/php/note-signup.php");
+                exit(); 
+            } else {
+                $_SESSION['error'] = "Error executing query: " . $stmt->error; 
+            }
+
+            $stmt->close(); 
+        } else {
+            $_SESSION['error'] = "Error preparing statement: " . $conn->error; 
+        }
     } else {
-        echo "Error: " . $stmt->error;
+        $_SESSION['error'] = "Required fields are missing."; 
     }
 }
+
+$conn->close(); 
+header("Location: /notekeeper/client/php/note-signup.php"); 
+exit();
 ?>

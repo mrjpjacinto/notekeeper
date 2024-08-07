@@ -71,18 +71,13 @@ button{
 button:hover{
     background-color: #6fc6ff;
 }
-.error{
-    color: red;
-}
-.success{
-    color: blue;
+.hidden{
+    display: none;
 }
 
 .toast {
-    background-color: #27AAFF;
     width: 250px;
     height: 40px;
-    color: #fff;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -91,7 +86,6 @@ button:hover{
 }
 
 /* MOBILE */
-
 @media only screen and (max-width: 600px) {
     body{
         font-family: Inter;
@@ -147,4 +141,5 @@ button:hover{
         font-size: 13px;
     }
 }
-/* MOBILE */
+
+
