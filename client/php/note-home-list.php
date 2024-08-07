@@ -38,29 +38,9 @@
                     <div class="dropdown-option">
                         <a href="#">
                         <span class="material-symbols-outlined">
-                            account_circle
+                            info
                             </span>
-                            Profile</a>
-                        <a href="#">
-                        <span class="material-symbols-outlined">
-                            person_add
-                            </span>
-                            Add Account</a>
-                        <a href="#">
-                        <span class="material-symbols-outlined">
-                            switch_account
-                            </span>
-                            Switch Account</a>
-                        <a href="#">    
-                        <span class="material-symbols-outlined">
-                            settings
-                            </span>
-                            Settings</a>
-                        <a href="#">
-                        <span class="material-symbols-outlined">
-                            help
-                            </span>
-                            Help</a>
+                            About</a>
                         <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
                         <span class="material-symbols-outlined">
                             logout
