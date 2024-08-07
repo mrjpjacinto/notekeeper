@@ -15,3 +15,17 @@ function showConfirmPassword() {
       x.type = "password";
     }
   }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const successToast = document.getElementById('success-toast');
+
+    const successMsg = document.getElementById('success-msg');
+    if (successMsg) {
+        successToast.textContent = successMsg.textContent;
+        successToast.style.display = 'flex';
+        setTimeout(() => {
+            successToast.style.display = 'none';
+            window.location.href = "/notekeeper/client/php/note-login.php"; 
+        }, 2000); 
+    }
+});
