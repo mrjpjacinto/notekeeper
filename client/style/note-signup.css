@@ -28,6 +28,7 @@ body{
     bottom: 0;
     margin: auto;
     position: fixed;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .input-name{
@@ -79,10 +80,92 @@ button{
     margin-top: 20px;
     width: 100px;
     height: 40px;
-    font-size: 20px
+    font-size: 20px;
+    color: white;
 }
 
 button:hover{
     background-color: #6fc6ff;
 }
 
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+    body{
+        font-size: 13px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        top: 0;
+        left: 0;
+        margin: auto;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .signup img{
+        width: 50px;
+    }
+
+    h2{
+        margin: 5px;
+    }
+
+    .signup{
+        height: 90%;
+        width: 80%;
+        padding: 20px;
+        background: none;
+        border-radius: 15px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        position: absolute;
+        box-shadow: none;
+    }
+
+    .input{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px;
+    }
+    
+    .input-name{
+        display: flex;
+        justify-content: space-around;
+    }
+    .input-uname{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input{
+        width: 90%;
+    }
+
+    .input-name input{
+        width: 79%;
+    }
+    .input-uname input{
+        width: 90%;
+    }
+    .signup img{
+        width: 50px;
+    }
+
+    .show-password input{
+        width: 20px;
+        height: 10px;
+    }
+
+    .button{
+        margin-top: 10x;
+        width: 100px;
+        height: 30px;
+        font-size: 15px
+    }
+}
+/* MOBILE */
