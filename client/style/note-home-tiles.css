@@ -265,8 +265,12 @@ input{
   .darkmode .textpad-icon{
     background-color: #354349;
 }
-.darkmode .textpad, textarea{
+.darkmode .textpad{
     background-color: #3d3d3d;
 }
+.darkmode textarea{
+    background-color: #3d3d3d;
+}
+
 
   /* NOTEPAD MODAL */
