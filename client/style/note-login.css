@@ -69,21 +69,34 @@ button{
 button:hover{
     background-color: #6fc6ff;
 }
-.error{
-    color: red;
-}
-.success{
-    color: blue;
+.hidden{
+    display: none;
 }
 
 .toast {
-    background-color: #27AAFF;
     width: 250px;
     height: 40px;
-    color: #fff;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    display: none; 
+    z-index: 1000; 
 }
+
+.error-toast {
+    top: 20px;
+    background-color: red;
+    color: #fff;
+}
+
+.success-toast {
+    bottom: 20px; 
+    background-color: #27AAFF;
+    color: #fff;
+}
+
