@@ -37,3 +37,10 @@ window.onload = applySavedTheme;
       }
     }
   }
+
+  function openNote() {
+    document.getElementById('noteTextPad').style.display = 'block';
+  }
+  function closeNote() {
+    document.getElementById('noteTextPad').style.display = 'none';
+  }
