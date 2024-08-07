@@ -58,6 +58,16 @@
                         <a href="/notekeeper/client/php/note-home-list.php">list</a>
                         </span>
                     </button>
+                    <button>
+                    <span class="material-symbols-outlined">
+                        notifications
+                    </span>
+                </button>
+                <button>
+                    <span class="material-symbols-outlined">
+                        select_check_box
+                    </span>
+                </button>
             </div>
             <div class="right-nav1">
                 <div class="input">
