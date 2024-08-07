@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="/notekeeper/client/style/note-login.css">
-    <script src="/notekeeper/server/script/note-login.js"></script>
+    <script src="/notekeeper/server/script/note-login.js/valid-login.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -40,6 +40,6 @@
                 <p>Don't have an account? <a href="/notekeeper/client/php/note-signup.php">Sign up</a> now!</p>
             </form>
         </div>
-    </div>
+   </div>
 </body>
 </html>
