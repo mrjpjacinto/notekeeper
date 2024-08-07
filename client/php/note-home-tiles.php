@@ -1,3 +1,12 @@
+<?php
+ session_start();
+
+ if(!isset($_SESSION['uname'])) {
+    header("Location: /notekeeper/client/php/note-login.php");
+
+    exit();
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
