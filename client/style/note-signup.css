@@ -88,6 +88,28 @@ button:hover{
     background-color: #6fc6ff;
 }
 
+.hidden{
+    display: none;
+}
+
+.success-toast {
+    top: 20px; 
+    background-color: #27AAFF;
+    color: #fff;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    display: none; 
+    z-index: 1000; 
+}
+
 
 /* MOBILE */
 @media only screen and (max-width: 600px) {
@@ -171,24 +193,4 @@ button:hover{
 }
 /* MOBILE */
 
-.hidden{
-    display: none;
-}
 
-.success-toast {
-    top: 20px; 
-    background-color: #27AAFF;
-    color: #fff;
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed; 
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    display: none; 
-    z-index: 1000; 
-}

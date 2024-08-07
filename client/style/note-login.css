@@ -71,6 +71,7 @@ button{
 button:hover{
     background-color: #6fc6ff;
 }
+
 .hidden{
     display: none;
 }
@@ -83,6 +84,17 @@ button:hover{
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+}
+.error-toast {
+    top: 20px;
+    background-color: red;
+    color: #fff;
+}
+
+.success-toast {
+    top: 20px; 
+    background-color: #27AAFF;
+    color: #fff;
 }
 
 /* MOBILE */
