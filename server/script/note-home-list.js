@@ -48,6 +48,38 @@ window.onload = function(){
     document.getElementById('noteTextPad').style.display = 'none';
   }
 
+
+  // New functions for handling note submission
+
+  function submitNote() {
+    var form = document.getElementById('noteForm');
+    var formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        if (result.includes('Error')) {
+            alert('Error: ' + result);
+        } else {
+            alert('Note saved successfully!');
+            closeNote();
+            location.reload(); // Reload the page to show the new note
+        }
+    })
+    .catch(error => {
+        alert('Error submitting the note: ' + error);
+    });
+}
+
+document.getElementById('noteForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    submitNote();
+});
+  
+
   document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('text-area');
     const noteTextPad = document.getElementById('noteTextPad');
@@ -68,3 +100,4 @@ window.onload = function(){
         document.body.classList.remove('modal-open'); 
     };
 });
+

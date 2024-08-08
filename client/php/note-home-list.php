@@ -2,15 +2,20 @@
 session_start();
 
 include '/xampp/htdocs/notekeeper/server/db-conn.php';
-include '/xampp/htdocs/notekeeper/server/db-conn-for-notes/fetch-user-info.php';
 
+// Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
     header("Location: /notekeeper/client/php/note-login.php");
     exit();
 }
+
 $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
 $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
+
+// Fetch notes from the database
+$sql = "SELECT * FROM notes ORDER BY date_created DESC";
+$result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,20 +36,28 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                 <img src="/notekeeper/client/assets/note-app-logo.png">
             </div>
             <div class="right-nav">
-                <img src="/notekeeper/client/assets/Avatar-placeholder.png"onclick="toggleMenu()" class="dropbtn">
+                <img src="/notekeeper/client/assets/Avatar-placeholder.png" onclick="toggleMenu()" class="dropbtn">
             </div>
             <!-- DROPDOWN -->
             <div class="dropdown">
                 <div class="dropdown-content" id="myDropdown">
                     
                     <div class="dropdown-display">
-                      <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                      <p> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
-                      <p><?php echo ($email); ?></p>
-
+                        <img src="/notekeeper/client/assets/Avatar-placeholder.png">
+                        <p> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
+                        <p><?php echo ($email); ?></p>
                     </div>
 
                     <div class="dropdown-option">
+                        <a href="#">
+                            <span class="material-symbols-outlined">info</span>
+                            About
+                        </a>
+                        <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
+                            <span class="material-symbols-outlined">logout</span>
+                            Log Out
+                        </a>
+
 
                         <div class="option-1"> 
                             <a href="#">
@@ -58,6 +71,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                             <p> Log Out </p>
                         </div>
 
+
                     </div>
 
                 </div>
@@ -68,32 +82,52 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         <div class="topnav1">
             <div class="left-nav1">
                 <button onclick="openNote()">
-                <span class="material-symbols-outlined">
-                    add_circle
-                    </span>
+                    <span class="material-symbols-outlined">add_circle</span>
                 </button>
                 <button onclick="darkMode()">
-                    <span class="material-symbols-outlined" id="darkmodeswitch">
-                        dark_mode
-                        </span>
-                    </button>
-                <button>
-                    <span class="material-symbols-outlined">
-                        <a href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
-                        </span>
-                    </button>
-                <button>
-                    <span class="material-symbols-outlined">
-                        notifications
-                    </span>
+                    <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
                 </button>
                 <button>
-                    <span class="material-symbols-outlined">
-                        select_check_box
-                    </span>
+                    <span class="material-symbols-outlined"><a href="/notekeeper/client/php/note-home-tiles.php">grid_view</a></span>
+                </button>
+                <button>
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button>
+                    <span class="material-symbols-outlined">select_check_box</span>
                 </button>
             </div>
             <div class="right-nav1">
+                <div class="input">
+                    <button>
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <input type="text" placeholder="Search notes...">
+                </div>
+            </div>
+        </div>
+        <div class="note-list">
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="note-template">';
+                    echo '<div class="note-content">';
+                    echo '<div class="note-heading">';
+                    echo '<h1>' . htmlspecialchars($row['title']) . '</h1>';
+                    echo '<div class="heading-tools">';
+                    echo '<span class="material-symbols-outlined">edit</span>';
+                    echo '<span class="material-symbols-outlined">delete</span>';
+                    echo '</div></div>';
+                    echo '<div class="note-body">' . htmlspecialchars($row['content']) . '</div>';
+                    echo '<div class="note-footer">' . $row['date_created'] . '</div>';
+                    echo '</div></div>';
+                }
+            } else {
+                echo '<div class="note-template">No notes available.</div>';
+            }
+            ?>
+        </div>
+    </div>
                 <div class="input-1">
                     <button class="search-icon">
                         <span class="material-symbols-outlined">
@@ -171,19 +205,19 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
     <!-- HERO-SECTION -->
 
+
     <!-- NOTEPAD MODAL -->
     <div class="note-text-pad" id="noteTextPad">
         <div class="note-text">
-
             <div class="textpad-icon">
                 <div class="textpad-icon-left">
                     <button onclick="closeNote()">
-                        <span class="material-symbols-outlined"> arrow_back </span>
+                        <span class="material-symbols-outlined">arrow_back</span>
                     </button>
                 </div>
                 <div class="textpad-icon-right">
                     <button>
-                        <span class="material-symbols-outlined"> undo </span>
+                        <span class="material-symbols-outlined">undo</span>
                     </button>
                     <button>
                         <span class="material-symbols-outlined"> redo </span>
@@ -196,25 +230,30 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                         <span class="material-symbols-outlined"> format_bold </span>
                     </button>
                     <button>
-                        <span class="material-symbols-outlined"> format_italic </span>
+                        <span class="material-symbols-outlined">format_bold</span>
                     </button>
                     <button>
-                        <span class="material-symbols-outlined"> format_underlined </span>
+                        <span class="material-symbols-outlined">format_italic</span>
                     </button>
                     <button>
-                        <span class="material-symbols-outlined"> format_color_text </span>
-                    </button>
-                    
-                    <button>
-                        <span class="material-symbols-outlined"> format_list_bulleted </span>
+                        <span class="material-symbols-outlined">format_underlined</span>
                     </button>
                     <button>
-
+                        <span class="material-symbols-outlined">format_color_text</span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined">format_list_bulleted</span>
                     </button>
                 </div>
             </div>
-
             <div class="textpad">
+                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/add-note.php" method="post">
+                    <h1>
+                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="25" required>
+                    </h1>
+                    <textarea id="noteContent" name="content" rows="25" cols="100" placeholder="Enter content..." required></textarea>
+                    <button type="submit">Save Note</button>
+                </form>
                 <h1><input type="text" placeholder="Enter title.." maxlength="50"></h1>
                 <textarea id="text-area" placeholder="Enter text">
                     
@@ -222,6 +261,8 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             </div>
         </div>
     </div>
-     <!-- NOTEPAD MODAL -->
 </body>
 </html>
+<?php
+$conn->close();
+?>
