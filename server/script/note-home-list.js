@@ -44,3 +44,24 @@ window.onload = applySavedTheme;
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('text-area');
+    const noteTextPad = document.getElementById('noteTextPad');
+    
+    textarea.addEventListener('input', () => {
+        textarea.style.height = 'auto';
+        const newHeight = Math.min(textarea.scrollHeight, window.innerHeight * 0.6);
+        textarea.style.height = `${newHeight}px`; 
+    });
+
+    window.openNote = function() {
+        noteTextPad.style.display = 'flex';
+        document.body.classList.add('modal-open'); 
+    };
+
+    window.closeNote = function() {
+        noteTextPad.style.display = 'none';
+        document.body.classList.remove('modal-open'); 
+    };
+});
