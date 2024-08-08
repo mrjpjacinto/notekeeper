@@ -32,13 +32,12 @@
         <div class="hero-container">
 
             <div class="content">
-                <h1> Welcome to NoteKeeper!</h1>
-                <p> Write it down before you forget it.</p>
-                <p>Take notes, save ideas, and make a reminders </p>
-            </div>
-
-            <div class="photo">
-                <img src="/notekeeper/client/assets/indexphoto.png" alt="welcome photo">
+                <img src="/notekeeper/client/assets/indexphoto.png" alt="welcome photo">                
+                <div class="overlay-text">
+                    <h1> Welcome to NoteKeeper!</h1>
+                    <p> Write it down before you forget it.</p>
+                    <p>Take notes, save ideas, and make a reminders </p>
+                </div>
             </div>
 
             <div class="hero-buttom">
@@ -46,6 +45,7 @@
                 <button class="button"> Try NoteKeeper </button>
                 </a>
             </div>
+
         </div>   
     <!-- HERO-SECTION -->
 

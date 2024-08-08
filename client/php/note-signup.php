@@ -20,7 +20,8 @@
     <?php endif; ?>
     <div class="main-container">
         <div class="signup">
-            <img src="/notekeeper/client/assets/note-app-logo.png">
+            <a href="/notekeeper/index.php">
+            <img src="/notekeeper/client/assets/note-app-logo.png"></a>
             <h2>Sign Up</h2>
             <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post">
                 <div class="input-name">

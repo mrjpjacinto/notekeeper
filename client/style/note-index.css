@@ -1,9 +1,14 @@
 body{
+    display: flex;
     font-family: Inter;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     background-color: #EBF4F6;
+}
+html{
+    width: 100vw;
+    height: 100vh;
 }
 
 /* NAVBAR */
@@ -42,14 +47,18 @@ a:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 h1{
     margin: 10px;
-    font-size: 50px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    font-size: 60px;
 }
 p{
     margin: 5px;
+    font-size: 20px;
 }
 
 .hero-container{
@@ -61,18 +70,28 @@ p{
 .hero-container img{
     width: 100%;
     height: 100%;
+    display: block;
 }
 
-.hero-buttom{
+.overlay-text{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 2%;
 }
+
+.hero-buttom { 
+    display: flex;
+    position: absolute;
+    top: 69%;
+    left: 2%;
+}
+
 .button{
-    background-color: #42C4FE;
+    background-color: black;
     color: white;
-    border: #42C4FE;
+    border: black;
     font-size: 30px;
     border-radius: 20px;
     padding: 10px;
@@ -80,6 +99,6 @@ p{
 }
 
 button:hover{
-    background-color: black;
+    background-color: #42C4FE;
     color: #f2f2f2;
 }

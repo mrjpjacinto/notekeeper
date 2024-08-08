@@ -25,7 +25,8 @@
     <?php endif; ?>
     <div class="main-container">
         <div class="login">
-            <img src="/notekeeper/client/assets/note-app-logo.png">
+            <a href="/notekeeper/index.php">
+            <img src="/notekeeper/client/assets/note-app-logo.png"></a>
             <h2>Log In</h2>
             <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-login.php" method="post">
                 <div class="input">
