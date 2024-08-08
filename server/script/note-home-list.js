@@ -42,7 +42,7 @@ window.onload = function(){
   }
 
   function openNote() {
-    document.getElementById('noteTextPad').style.display = 'block';
+    document.getElementById('noteTextPad').style.display = 'flex';
   }
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
@@ -79,25 +79,4 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
     submitNote();
 });
   
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const textarea = document.getElementById('text-area');
-    const noteTextPad = document.getElementById('noteTextPad');
-    
-    textarea.addEventListener('input', () => {
-        textarea.style.height = 'auto';
-        const newHeight = Math.min(textarea.scrollHeight, window.innerHeight * 0.6);
-        textarea.style.height = `${newHeight}px`; 
-    });
-
-    window.openNote = function() {
-        noteTextPad.style.display = 'flex';
-        document.body.classList.add('modal-open'); 
-    };
-
-    window.closeNote = function() {
-        noteTextPad.style.display = 'none';
-        document.body.classList.remove('modal-open'); 
-    };
-});
 
