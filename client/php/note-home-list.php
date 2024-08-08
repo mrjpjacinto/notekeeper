@@ -189,6 +189,9 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
 
+                    <button>
+                        <span class="material-symbols-outlined">add_alert</span>
+                    </button>
                     <button> 
                         <span class="material-symbols-outlined"> format_bold </span>
                     </button>
@@ -212,8 +215,8 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             </div>
 
             <div class="textpad">
-                <h1><input type="text" placeholder="Enter title.." maxlength="25"></h1>
-                <textarea id="text-area" rows=25 cols=100>
+                <h1><input type="text" placeholder="Enter title.." maxlength="50"></h1>
+                <textarea id="text-area" placeholder="Enter text">
                     
                 </textarea>
             </div>
