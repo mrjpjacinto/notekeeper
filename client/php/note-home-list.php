@@ -58,7 +58,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         </div>
         <div class="topnav1">
             <div class="left-nav1">
-                <button>
+                <button onclick="openNote()">
                 <span class="material-symbols-outlined">
                     add_circle
                     </span>
@@ -187,5 +187,54 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         </div>
         <!-- BODY -->
     </div>
+    <!-- NOTEPAD MODAL -->
+    <div class="note-text-pad" id="noteTextPad">
+        <div class="note-text">
+
+            <div class="textpad-icon">
+                <div class="textpad-icon-left">
+                    <button onclick="closeNote()">
+                        <span class="material-symbols-outlined"> arrow_back </span>
+                    </button>
+                </div>
+                <div class="textpad-icon-right">
+                    <button>
+                        <span class="material-symbols-outlined"> undo </span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined"> redo </span>
+                    </button>
+
+                    <button> 
+                        <span class="material-symbols-outlined"> format_bold </span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined"> format_italic </span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined"> format_underlined </span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined"> format_color_text </span>
+                    </button>
+                    
+                    <button>
+                        <span class="material-symbols-outlined"> format_list_bulleted </span>
+                    </button>
+                    <button>
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="textpad">
+                <h1><input type="text" placeholder="Enter title.." maxlength="25"></h1>
+                <textarea id="text-area" rows=25 cols=100>
+                    
+                </textarea>
+            </div>
+        </div>
+    </div>
+     <!-- NOTEPAD MODAL -->
 </body>
 </html>
