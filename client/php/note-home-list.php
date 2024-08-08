@@ -171,38 +171,6 @@ $result = $conn->query($sql);
                     </div>
                 </div>
             </div>
-
-            <div class="note-template note-content">
-
-                <div class="note-heading">
-                    
-                    <div class="title">
-                        <h1>Title</h1>
-                    </div>
-   
-                    <div class="heading-tools">
-                        <span class="material-symbols-outlined" id="text">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined" id="text">
-                            delete
-                            </span>
-                    </div>
-                </div>
-
-                <div class="content-1">
-                    
-                    <div class="note-body" id="text">
-                            Content
-                    </div>
-                    <div class="note-footer" id="text">
-                            mm/dd/yyyy 00:00<br>
-                            mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-        </div>
-
     <!-- HERO-SECTION -->
 
 
