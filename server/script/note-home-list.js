@@ -44,3 +44,34 @@ window.onload = applySavedTheme;
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
   }
+
+  // New functions for handling note submission
+
+  function submitNote() {
+    var form = document.getElementById('noteForm');
+    var formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        if (result.includes('Error')) {
+            alert('Error: ' + result);
+        } else {
+            alert('Note saved successfully!');
+            closeNote();
+            location.reload(); // Reload the page to show the new note
+        }
+    })
+    .catch(error => {
+        alert('Error submitting the note: ' + error);
+    });
+}
+
+document.getElementById('noteForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    submitNote();
+});
+  
