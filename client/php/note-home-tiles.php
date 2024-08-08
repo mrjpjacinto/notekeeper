@@ -67,8 +67,8 @@
                         <a href="/notekeeper/client/php/note-home-list.php">list</a>
                         </span>
                     </button>
-                    <button>
-                    <span class="material-symbols-outlined">
+                    <button onclick="openNotification()">
+                    <span class="material-symbols-outlined" id="notif-message">
                         notifications
                     </span>
                 </button>
@@ -322,5 +322,18 @@
         </div>
     </div>
      <!-- NOTEPAD MODAL -->
+     <div class="notification-window" id="notification">
+        <div class="notif">
+            <div class="notif-icon">
+            </div>
+
+            <div class="notif-content">
+                <h2>Reminders</h2>       
+                <p> Notes with upcoming Reminders <br> appear hear </p>
+                <span id="notif-message"></span>
+                <button onclick="closeNotification()">Close</button>
+            </div>
+        </div>
+     </div>
 </body>
 </html>
