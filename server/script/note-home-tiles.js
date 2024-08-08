@@ -20,7 +20,10 @@ else{
 }
 }
 
-window.onload = applySavedTheme;
+window.onload = function(){
+  applySavedTheme();
+  document.getElementById('noteTextPad').style.display = 'none';
+ }
 
  function toggleMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
