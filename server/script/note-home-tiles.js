@@ -22,6 +22,9 @@ else{
 
 window.onload = function(){
   applySavedTheme();
+
+  document.getElementById('notification').style.display = 'none';
+}
   document.getElementById('noteTextPad').style.display = 'none';
  }
 
@@ -47,6 +50,22 @@ window.onload = function(){
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
   }
+
+
+  
+  function openNotification() {
+    document.getElementById('notification').style.display = "flex";
+    document.getElementById('notif-icon').focus();
+}
+
+function closeNotification() {
+    document.getElementById('notification').style.display = "none";
+}
+
+function showNotification(message) {
+    document.getElementById('notif-message').textContent = message;
+    openNotification();
+}
 
   document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('text-area');

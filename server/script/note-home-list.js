@@ -22,6 +22,10 @@ else{
 
 window.onload = function(){
   applySavedTheme();
+
+  document.getElementById('notification').style.display = 'none';
+}
+
   document.getElementById('noteTextPad').style.display = 'none';
  }
 
@@ -48,6 +52,20 @@ window.onload = function(){
     document.getElementById('noteTextPad').style.display = 'none';
   }
 
+
+  function openNotification() {
+    document.getElementById('notification').style.display = "flex";
+    document.getElementById('notif-icon').focus();
+}
+
+function closeNotification() {
+    document.getElementById('notification').style.display = "none";
+}
+
+function showNotification(message) {
+    document.getElementById('notif-message').textContent = message;
+    openNotification();
+}
 
   // New functions for handling note submission
 
@@ -100,4 +118,3 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
         document.body.classList.remove('modal-open'); 
     };
 });
-
