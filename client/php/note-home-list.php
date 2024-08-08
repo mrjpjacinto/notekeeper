@@ -49,15 +49,6 @@ $result = $conn->query($sql);
                     </div>
 
                     <div class="dropdown-option">
-                        <a href="#">
-                            <span class="material-symbols-outlined">info</span>
-                            About
-                        </a>
-                        <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
-                            <span class="material-symbols-outlined">logout</span>
-                            Log Out
-                        </a>
-
 
                         <div class="option-1"> 
                             <a href="#">
@@ -81,32 +72,33 @@ $result = $conn->query($sql);
         
         <div class="topnav1">
             <div class="left-nav1">
-                <button onclick="openNote()">
+                <button id="nav-icon" onclick="openNote()">
                     <span class="material-symbols-outlined">add_circle</span>
                 </button>
-                <button onclick="darkMode()">
+                <button id="nav-icon"  onclick="darkMode()">
                     <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
                 </button>
-                <button>
+                <button >
                     <span class="material-symbols-outlined">
-                        <a href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
+                        <a id="nav-icon" href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
                         </span>
                     </button>
-                <button onclick="openNotification()">
+                <button id="nav-icon"  onclick="openNotification()">
                     <span class="material-symbols-outlined" id="notif-message">
                         notifications
                     </span>
                 </button>
-                <button>
+                <button id="nav-icon" >
                     <span class="material-symbols-outlined">select_check_box</span>
                 </button>
             </div>
+            
             <div class="right-nav1">
                 <div class="input">
-                    <button>
+                    <button id="nav-icon" >
                         <span class="material-symbols-outlined">search</span>
                     </button>
-                    <input type="text" placeholder="Search notes...">
+                    <input class="search-bar" type="text" placeholder="Search notes...">
                 </div>
             </div>
         </div>
@@ -156,9 +148,6 @@ $result = $conn->query($sql);
                     </button>
                     <button> 
                         <span class="material-symbols-outlined"> format_bold </span>
-                    </button>
-                    <button>
-                        <span class="material-symbols-outlined">format_bold</span>
                     </button>
                     <button>
                         <span class="material-symbols-outlined">format_italic</span>

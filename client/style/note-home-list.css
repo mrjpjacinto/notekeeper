@@ -126,6 +126,10 @@ button{
     background: none;
 }
 
+#nav-icon:hover{
+    color: #42C4FE;
+}
+
 .right-nav{
     display: flex;
 }
@@ -136,12 +140,12 @@ button{
 }
 
 input{
-    width: 200px;
     border: none;
     border-radius: 5px;
     font-size: 17px;
     padding-left: 10px;
 }
+
 
 /* NAVBAR */
 
