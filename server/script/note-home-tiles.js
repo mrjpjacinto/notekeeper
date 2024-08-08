@@ -45,13 +45,11 @@ window.onload = function(){
   }
 
   function openNote() {
-    document.getElementById('noteTextPad').style.display = 'block';
+    document.getElementById('noteTextPad').style.display = 'flex';
   }
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
   }
-
-
   
   function openNotification() {
     document.getElementById('notification').style.display = "flex";

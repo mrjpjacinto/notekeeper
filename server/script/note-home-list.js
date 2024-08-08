@@ -46,7 +46,7 @@ window.onload = function(){
   }
 
   function openNote() {
-    document.getElementById('noteTextPad').style.display = 'block';
+    document.getElementById('noteTextPad').style.display = 'flex';
   }
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
@@ -97,7 +97,6 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
     submitNote();
 });
   
-
   document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('text-area');
     const noteTextPad = document.getElementById('noteTextPad');

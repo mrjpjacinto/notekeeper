@@ -145,10 +145,13 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             </div>
 
             <div class="textpad">
-                <h1><input type="text" placeholder="Enter title.." maxlength="50"></h1>
-                <textarea id="text-area" placeholder="Enter text">
-                    
-                </textarea>
+                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/add-note.php" method="post">
+                    <h1>
+                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
+                    </h1>
+                    <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
+                    <button type="submit"><span class="material-symbols-outlined">save</span></button>
+                </form>
             </div>
         </div>
     </div>

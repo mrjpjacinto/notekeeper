@@ -138,50 +138,6 @@ $result = $conn->query($sql);
             ?>
         </div>
     </div>
-                <div class="input-1">
-                    <button class="search-icon">
-                        <span class="material-symbols-outlined">
-                            search
-                            </span>
-                        </button>
-                    <input class="search-bar" type="text" placeholder="Search notes...">
-                </div>
-            </div>
-        </div>
-
-    <!-- HERO-SECTION -->
-        <div class="note-list">
-
-            <div class="note-template note-content">
-
-                <div class="note-heading">
-                    
-                    <div class="title">
-                        <h1>Title</h1>
-                    </div>
-
-                    <div class="heading-tools">
-                        <span class="material-symbols-outlined" id="text">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined" id="text">
-                            delete
-                        </span>
-                    </div>
-                </div>
-
-                <div class="content-1" id="text">
-                    
-                    <div class="note-body" id="text">
-                            Content
-                    </div>
-                    <div class="note-footer" id="text">
-                            mm/dd/yyyy 00:00<br>
-                            mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-    <!-- HERO-SECTION -->
 
 
     <!-- NOTEPAD MODAL -->
@@ -227,15 +183,11 @@ $result = $conn->query($sql);
             <div class="textpad">
                 <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/add-note.php" method="post">
                     <h1>
-                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="25" required>
+                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
-                    <textarea id="noteContent" name="content" rows="25" cols="100" placeholder="Enter content..." required></textarea>
-                    <button type="submit">Save Note</button>
+                    <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
+                    <button type="submit"><span class="material-symbols-outlined">save</span></button>
                 </form>
-                <h1><input type="text" placeholder="Enter title.." maxlength="50"></h1>
-                <textarea id="text-area" placeholder="Enter text">
-                    
-                </textarea>
             </div>
         </div>
     </div>
