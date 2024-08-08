@@ -31,25 +31,33 @@
             <!-- DROPDOWN -->
             <div class="dropdown">
                 <div class="dropdown-content" id="myDropdown">
+                    
                     <div class="dropdown-display">
-                    <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                    <p>Name<br>username@example.com</p>
+                        <img src="/notekeeper/client/assets/Avatar-placeholder.png">
+                        <p>username<br>email@example.com</p>
                     </div>
+
                     <div class="dropdown-option">
-                        <a href="#">
-                        <span class="material-symbols-outlined">
-                            info
-                            </span>
-                            About</a>
-                        <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
-                        <span class="material-symbols-outlined">
-                            logout
-                            </span>
-                            Log Out</a>
+
+                        <div class="option-1"> 
+                            <a href="#">
+                                <span class="material-symbols-outlined"> info </span></a>
+                            <p> About </p>
+                        </div>
+                         
+                        <div class="option-2"> 
+                            <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
+                                <span class="material-symbols-outlined"> logout </span></a>
+                            <p> Log Out </p>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
+            <!-- DROPDOWN -->
         </div>
+        
         <div class="topnav1">
             <div class="left-nav1">
                 <button onclick="openNote()">
@@ -79,108 +87,83 @@
                 </button>
             </div>
             <div class="right-nav1">
-                <div class="input">
-                    <button>
+                <div class="input-1">
+                    <button class="search-icon">
                         <span class="material-symbols-outlined">
                             search
                             </span>
                         </button>
-                    <input type="text" placeholder="Search notes...">
+                    <input class="search-bar" type="text" placeholder="Search notes...">
                 </div>
             </div>
         </div>
-         <div class="note-list">
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
+
+    <!-- HERO-SECTION -->
+        <div class="note-list">
+
+            <div class="note-template note-content">
+
+                <div class="note-heading">
+                    
+                    <div class="title">
                         <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
+                    </div>
+
+                    <div class="heading-tools">
+                        <span class="material-symbols-outlined" id="text">
                             edit
                         </span>
-                        <span class="material-symbols-outlined">
+                        <span class="material-symbols-outlined" id="text">
                             delete
-                            </span>
-                        </div>
+                        </span>
                     </div>
-                    <div class="note-body">
-                        Content
+                </div>
+
+                <div class="content-1" id="text">
+                    
+                    <div class="note-body" id="text">
+                            Content
                     </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
+                    <div class="note-footer" id="text">
+                            mm/dd/yyyy 00:00<br>
+                            mm/dd/yyyy 00:00
                     </div>
                 </div>
             </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
+
+            <div class="note-template note-content">
+
+                <div class="note-heading">
+                    
+                    <div class="title">
                         <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
+                    </div>
+   
+                    <div class="heading-tools">
+                        <span class="material-symbols-outlined" id="text">
                             edit
                         </span>
-                        <span class="material-symbols-outlined">
+                        <span class="material-symbols-outlined" id="text">
                             delete
                             </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
                     </div>
                 </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
+
+                <div class="content-1">
+                    
+                    <div class="note-body" id="text">
+                            Content
                     </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
+                    <div class="note-footer" id="text">
+                            mm/dd/yyyy 00:00<br>
+                            mm/dd/yyyy 00:00
                     </div>
                 </div>
             </div>
         </div>
-        <!-- BODY -->
-    </div>
+
+    <!-- HERO-SECTION -->
+
     <!-- NOTEPAD MODAL -->
     <div class="note-text-pad" id="noteTextPad">
         <div class="note-text">
