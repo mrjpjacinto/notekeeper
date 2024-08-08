@@ -96,12 +96,6 @@ $result = $conn->query($sql);
                     <span class="material-symbols-outlined" id="notif-message">
                         notifications
                     </span>
-
-                    <span class="material-symbols-outlined"><a href="/notekeeper/client/php/note-home-tiles.php">grid_view</a></span>
-                </button>
-                <button>
-                    <span class="material-symbols-outlined">notifications</span>
-
                 </button>
                 <button>
                     <span class="material-symbols-outlined">select_check_box</span>

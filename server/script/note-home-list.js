@@ -22,10 +22,13 @@ else{
 
 window.onload = function(){
   applySavedTheme();
-
-  document.getElementById('notification').style.display = 'none';
+  document.getElementById('noteTextPad').style.display = 'none';
 }
 
+function openNotification(){
+  document.getElementById('notification').style.display = 'none';
+}
+function closeNotification(){
   document.getElementById('noteTextPad').style.display = 'none';
  }
 

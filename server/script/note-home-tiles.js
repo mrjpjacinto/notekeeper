@@ -22,9 +22,13 @@ else{
 
 window.onload = function(){
   applySavedTheme();
+  document.getElementById('noteTextPad').style.display = 'none';
+}
 
+function openNotification(){
   document.getElementById('notification').style.display = 'none';
 }
+function closeNotification(){
   document.getElementById('noteTextPad').style.display = 'none';
  }
 
@@ -50,6 +54,21 @@ window.onload = function(){
   function closeNote() {
     document.getElementById('noteTextPad').style.display = 'none';
   }
+
+
+  function openNotification() {
+    document.getElementById('notification').style.display = "flex";
+    document.getElementById('notif-icon').focus();
+}
+
+function closeNotification() {
+    document.getElementById('notification').style.display = "none";
+}
+
+function showNotification(message) {
+    document.getElementById('notif-message').textContent = message;
+    openNotification();
+}
   
   function openNotification() {
     document.getElementById('notification').style.display = "flex";

@@ -415,6 +415,9 @@ h2{
   background-color: #d32f2f;
 }
 
+.darkmode.notif{
+    background-color: #212121;
+}
     .right-nav img{
         width: auto;
         height: 40px;
