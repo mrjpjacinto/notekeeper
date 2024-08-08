@@ -324,30 +324,6 @@ body.modal-open{
 }
   /* NOTEPAD MODAL */
 
-
-  /* MOBILE STYLE */
-@media only screen and (max-width: 600px){
-    html{
-        width: 100vw;
-        height: 100vh;
-    }
-
-    /* NAVBAR-TOP */
-    .topnav{
-        margin: 0;
-        padding: 10px;
-        padding-right: 13px;
-    }
-
-    .left-nav img{
-        width: 50px;
-        height: 50px;
-
-    }
-
-
-  /* NOTEPAD MODAL */
-
   .notification-window {
     display: none;
     position: fixed;
@@ -407,17 +383,43 @@ h2{
   margin-bottom: 20px;
 }
 
-.icon-bell span{
- font-size: 100px;
-}
-
 .notif-content button:hover {
   background-color: #d32f2f;
 }
 
-.darkmode.notif{
-    background-color: #212121;
+.darkmode .notif{
+  background-color: #212121;
 }
+
+.darkmode h1 input{
+background: none;
+}
+.darkmode textarea{
+  background-color: #3d3d3d;
+  color: white;
+}
+
+  /* MOBILE STYLE */
+@media only screen and (max-width: 600px){
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /* NAVBAR-TOP */
+    .topnav{
+        margin: 0;
+        padding: 10px;
+        padding-right: 13px;
+    }
+
+    .left-nav img{
+        width: 50px;
+        height: 50px;
+
+    }
+
+
     .right-nav img{
         width: auto;
         height: 40px;

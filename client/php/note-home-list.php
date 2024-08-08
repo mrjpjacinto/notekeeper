@@ -187,19 +187,19 @@ $result = $conn->query($sql);
     </div>
 
      <!-- NOTEPAD MODAL -->
-     <div class="notification-window" id="notification">
-        <div class="notif">
-            <div class="notif-icon">
-            </div>
+        <div class="notification-window" id="notification">
+            <div class="notif">
+                <div class="notif-icon">
+                </div>
 
-            <div class="notif-content">
-                <h2>Reminders</h2>       
-                <p> Notes with upcoming Reminders <br> appear hear </p>
-                <span id="notif-message"></span>
-                <button onclick="closeNotification()">Close</button>
+                <div class="notif-content">
+                    <h2>Reminders</h2>       
+                    <p> Notes with upcoming Reminders <br> appear hear </p>
+                    <span id="notif-message"></span>
+                    <button onclick="closeNotification()">Close</button>
+                </div>
             </div>
         </div>
-     </div>
 </body>
 </html>
 <?php
