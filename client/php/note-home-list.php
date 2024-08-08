@@ -1,11 +1,16 @@
 <?php
- session_start();
+session_start();
 
- if(!isset($_SESSION['uname'])) {
+include '/xampp/htdocs/notekeeper/server/db-conn.php';
+include '/xampp/htdocs/notekeeper/server/db-conn-for-notes/fetch-user-info.php';
+
+if (!isset($_SESSION['uname'])) {
     header("Location: /notekeeper/client/php/note-login.php");
-
     exit();
- }
+}
+$fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
+$lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +38,10 @@
                 <div class="dropdown-content" id="myDropdown">
                     
                     <div class="dropdown-display">
-                        <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                        <p>username<br>email@example.com</p>
+                      <img src="/notekeeper/client/assets/Avatar-placeholder.png">
+                      <p> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
+                      <p><?php echo ($email); ?></p>
+
                     </div>
 
                     <div class="dropdown-option">
