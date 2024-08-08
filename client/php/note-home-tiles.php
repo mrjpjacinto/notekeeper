@@ -1,11 +1,17 @@
 <?php
  session_start();
 
+ include '/xampp/htdocs/notekeeper/server/db-conn.php';
+include '/xampp/htdocs/notekeeper/server/db-conn-for-notes/fetch-user-info.php';
+
  if(!isset($_SESSION['uname'])) {
     header("Location: /notekeeper/client/php/note-login.php");
 
     exit();
  }
+$fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
+$lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +39,8 @@
                 <div class="dropdown-content" id="myDropdown">
                     <div class="dropdown-display">
                     <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                    <p>Name<br>username@example.com</p>
+                    <p> <?php echo ($fname); ?> <?php echo ($lname); ?></p> 
+                    <p><?php echo ($email); ?></p>
                     </div>
                     <div class="dropdown-option">
                         <a href="#">
@@ -91,186 +98,7 @@
         </div>
         <!-- NAVBAR -->
          <!-- BODY -->
-        <div class="note-card">
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="note-card">
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-            <div class="note-template">
-                <div class="note-content">
-                    <div class="note-heading">
-                        <h1>Title</h1>
-                        <div class="heading-tools">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                        <span class="material-symbols-outlined">
-                            delete
-                            </span>
-                        </div>
-                    </div>
-                    <div class="note-body">
-                        Content
-                    </div>
-                    <div class="note-footer">
-                        mm/dd/yyyy 00:00<br>
-                        mm/dd/yyyy 00:00
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- BODY -->
     </div>
     <!-- NOTEPAD MODAL -->
@@ -291,6 +119,9 @@
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
 
+                    <button>
+                        <span class="material-symbols-outlined">add_alert</span>
+                    </button>
                     <button> 
                         <span class="material-symbols-outlined"> format_bold </span>
                     </button>
@@ -314,8 +145,8 @@
             </div>
 
             <div class="textpad">
-                <h1><input type="text" placeholder="Enter title.." maxlength="25"></h1>
-                <textarea id="text-area" rows=25 cols=100>
+                <h1><input type="text" placeholder="Enter title.." maxlength="50"></h1>
+                <textarea id="text-area" placeholder="Enter text">
                     
                 </textarea>
             </div>
