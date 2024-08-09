@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2024 at 07:30 AM
+-- Generation Time: Aug 09, 2024 at 05:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,8 @@ CREATE TABLE `notes` (
   `title` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `color` varchar(255) NOT NULL,
-  `date_created` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
+  `date_created` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `user_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,9 +56,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `passwd`, `fname`, `lname`, `uname`) VALUES
-(1, 'khylle@gmail.com', '$2y$10$3GDu7bx6T67K4ZJcVyjiNuQMi2r7xVIYB.q0AFAVaUMFfxCWxcHMy', 'Khylle Gabrielle ', 'Dino', 'khylle0'),
-(2, 'jp@gmail.com', '$2y$10$WldGng.PgJEJp1zmvnOIkOpmdbAenUPD6/apkyh/LCaDqZLNPz1rG', 'JP', 'Jacinto', 'jp'),
-(3, 'dgsdgsgdsdg@gmail.com', '$2y$10$qI8Je1O.UPqw1gHvltoIZuNOY5ZBi3oWoZMLGwm4AYzp2b4zmtQC.', 'dfgfdgfdg', 'gsgsg', 'gsdgsd');
+(13, 'khylle@gmail.com', '$2y$10$joAMZEHHXTL9ATkeImnVPO3s4YQRZx4jBxZzUNdo4zlRvBaDwgZ9.', 'Khylle', 'Dino', 'khylle0');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +66,8 @@ INSERT INTO `user` (`id`, `email`, `passwd`, `fname`, `lname`, `uname`) VALUES
 -- Indexes for table `notes`
 --
 ALTER TABLE `notes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user` (`user_id`);
 
 --
 -- Indexes for table `user`
@@ -83,13 +83,23 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `notes`
+--
+ALTER TABLE `notes`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
