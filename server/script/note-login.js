@@ -1,11 +1,12 @@
 function showPassword() {
-    var x = document.getElementById("passwd");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
-    }
+  var passwordField = document.getElementById("passwd");
+  var checkbox = document.querySelector(".show-password input[type='checkbox']");
+  if (checkbox.checked) {
+      passwordField.type = "text";
+  } else {
+      passwordField.type = "password";
   }
+}
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const errorToast = document.getElementById('error-toast');
