@@ -142,13 +142,13 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="textpad-icon-right">
-                    <button>
+                    <button id="undoButton">
                         <span class="material-symbols-outlined">undo</span>
                     </button>
-                    <button>
+                    <button id="redoButton">
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
-                    <button>
+                    <button id="reminderButton">
                         <span class="material-symbols-outlined">add_alert</span>
                     </button>
                     <button> 
@@ -174,7 +174,21 @@ if ($stmt = $conn->prepare($sql)) {
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
                     <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
+                    <div class="bottom-buttons">
+                    <button id="reminderButton1">
+                        <span class="material-symbols-outlined">add_alert</span>
+                    </button>
+                        <div class="undo-redo">
+                            <button id="undoButton1">
+                                <span class="material-symbols-outlined">undo</span>
+                            </button>
+                            <button id="redoButton1">
+                                <span class="material-symbols-outlined"> redo </span>
+                            </button>
+                        </div>
+                    </button id="saveButton">
                     <button type="submit"><span class="material-symbols-outlined">save</span></button>
+                    </div>
                 </form>
             </div>
         </div>
