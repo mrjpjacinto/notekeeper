@@ -97,10 +97,12 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             </div>
         </div>
         <!-- NAVBAR -->
-         <!-- BODY -->
 
         <!-- BODY -->
+
+    <!-- BODY -->
     </div>
+
     <!-- NOTEPAD MODAL -->
     <div class="note-text-pad" id="noteTextPad">
         <div class="note-text">

@@ -109,6 +109,7 @@ if ($stmt = $conn->prepare($sql)) {
                 </div>
             </div>
         </div>
+
         <div class="note-list">
             <?php
             if ($result->num_rows > 0) {
