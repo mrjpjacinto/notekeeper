@@ -423,7 +423,6 @@ background: none;
 
     }
 
-
     .right-nav img{
         width: auto;
         height: 40px;
@@ -460,7 +459,7 @@ background: none;
         height: 30px;
     }
 
-    .search-icon{
+    #search-icon{
         display: none;
     }
 
