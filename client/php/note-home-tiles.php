@@ -163,7 +163,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
             <div class="notif-content">
                 <h2>Reminders</h2>       
-                <p> Notes with upcoming Reminders <br> appear hear </p>
+                <p> Notes with upcoming Reminders <br> appear here </p>
                 <span id="notif-message"></span>
                 <button onclick="closeNotification()">Close</button>
             </div>

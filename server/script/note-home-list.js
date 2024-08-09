@@ -21,32 +21,8 @@ function applySavedTheme() {
 window.onload = function() {
   applySavedTheme();
   document.getElementById('noteTextPad').style.display = 'none';
-  document.getElementById('notification').style.display = 'none'; // Ensure notification is hidden on page load
 }
 
-function openNotification() {
-  document.getElementById('notification').style.display = "flex";
-  document.getElementById('notif-message').focus();
-}
-
-function closeNotification() {
-  document.getElementById('notification').style.display = "none";
-}
-
-function showNotification(message) {
-  document.getElementById('notif-message').textContent = message;
-  openNotification();
-}
-
-function openNotification() {
-  console.log('Opening notification');
-  document.getElementById('notification').style.display = "flex";
-}
-
-function closeNotification() {
-  console.log('Closing notification');
-  document.getElementById('notification').style.display = "none";
-}
 
 function openNote() {
   document.getElementById('noteTextPad').style.display = 'flex';
@@ -57,6 +33,23 @@ function closeNote() {
   document.getElementById('noteTextPad').style.display = 'none';
   document.body.classList.remove('modal-open');
 }
+
+function openNotification() {
+  document.getElementById("notification").style.display = "flex";
+  document.body.classList.add("modal-open");
+}
+
+function closeNotification() {
+  document.getElementById("notification").style.display = "none";
+  document.body.classList.remove("modal-open");
+}
+
+window.addEventListener("click", function(event) {
+  var modal = document.getElementById("notification");
+  if (event.target === modal) {
+      closeNotification();
+  }
+});
 
 function toggleMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -74,33 +67,31 @@ window.onclick = function(event) {
   }
 }
 
+// New functions for handling note submission
+function submitNote() {
+  var form = document.getElementById('noteForm');
+  var formData = new FormData(form);
 
-  // New functions for handling note submission
-
-  function submitNote() {
-    var form = document.getElementById('noteForm');
-    var formData = new FormData(form);
-
-    fetch(form.action, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(result => {
-        if (result.includes('Error')) {
-            alert('Error: ' + result);
-        } else {
-            alert('Note saved successfully!');
-            closeNote();
-            location.reload(); // Reload the page to show the new note
-        }
-    })
-    .catch(error => {
-        alert('Error submitting the note: ' + error);
-    });
+  fetch(form.action, {
+      method: 'POST',
+      body: formData
+  })
+  .then(response => response.text())
+  .then(result => {
+      if (result.includes('Error')) {
+          alert('Error: ' + result);
+      } else {
+          alert('Note saved successfully!');
+          closeNote();
+          location.reload(); // Reload the page to show the new note
+      }
+  })
+  .catch(error => {
+      alert('Error submitting the note: ' + error);
+  });
 }
 
 document.getElementById('noteForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-    submitNote();
+  event.preventDefault(); // Prevent default form submission
+  submitNote();
 });

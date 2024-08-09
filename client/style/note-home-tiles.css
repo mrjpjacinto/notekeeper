@@ -308,7 +308,6 @@ overflow: hidden;
     height: 100%;
     outline: none;
     background-color: rgba(0,0,0,0.4);
-    display: flex;
     justify-content: center;
     align-items: center;
 }
