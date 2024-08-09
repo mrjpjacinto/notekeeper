@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include '/xampp/htdocs/notekeeper/server/db-conn.php';
 
 // Check if the user is logged in
@@ -13,9 +12,21 @@ $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
 $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
-// Fetch notes from the database
-$sql = "SELECT * FROM notes ORDER BY date_created DESC";
-$result = $conn->query($sql);
+$user_id = $_SESSION['id']; // Get the logged-in user's ID
+
+// Fetch notes from the database for the logged-in user
+$sql = "SELECT * FROM notes WHERE user_id = ? ORDER BY date_created DESC";
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->bind_param("i", $user_id); // Bind the user ID parameter
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+    } else {
+        $_SESSION['error'] = "Error executing query: " . $stmt->error;
+    }
+    $stmt->close();
+} else {
+    $_SESSION['error'] = "Error preparing statement: " . $conn->error;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +60,6 @@ $result = $conn->query($sql);
                     </div>
 
                     <div class="dropdown-option">
-
                         <div class="option-1"> 
                             <a href="#">
                                 <span class="material-symbols-outlined"> info </span></a>
@@ -58,13 +68,10 @@ $result = $conn->query($sql);
                          
                         <div class="option-2"> 
                             <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
-                                <span class="material-symbols-outlined"> logout </span></a>
-                            <p> Log Out </p>
+                                <span class="material-symbols-outlined"> logout </span>
+                            <p> Log Out </p></a>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
             <!-- DROPDOWN -->
@@ -75,15 +82,15 @@ $result = $conn->query($sql);
                 <button id="nav-icon" onclick="openNote()">
                     <span class="material-symbols-outlined">add_circle</span>
                 </button>
-                <button id="nav-icon"  onclick="darkMode()">
+                <button id="nav-icon" onclick="darkMode()">
                     <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
                 </button>
-                <button >
+                <button>
                     <span class="material-symbols-outlined">
                         <a id="nav-icon" href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
                         </span>
                     </button>
-                <button id="nav-icon"  onclick="openNotification()">
+                <button id="nav-icon" onclick="openNotification()">
                     <span class="material-symbols-outlined" id="notif-message">
                         notifications
                     </span>
@@ -125,7 +132,6 @@ $result = $conn->query($sql);
         </div>
     </div>
 
-
     <!-- NOTEPAD MODAL -->
     <div class="note-text-pad" id="noteTextPad">
         <div class="note-text">
@@ -142,7 +148,6 @@ $result = $conn->query($sql);
                     <button>
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
-
                     <button>
                         <span class="material-symbols-outlined">add_alert</span>
                     </button>
@@ -175,20 +180,19 @@ $result = $conn->query($sql);
         </div>
     </div>
 
-     <!-- NOTEPAD MODAL -->
-        <div class="notification-window" id="notification">
-            <div class="notif">
-                <div class="notif-icon">
-                </div>
-
-                <div class="notif-content">
-                    <h2>Reminders</h2>       
-                    <p> Notes with upcoming Reminders <br> appear hear </p>
-                    <span id="notif-message"></span>
-                    <button onclick="closeNotification()">Close</button>
-                </div>
+    <!-- NOTEPAD MODAL -->
+    <div class="notification-window" id="notification">
+        <div class="notif">
+            <div class="notif-icon">
+            </div>
+            <div class="notif-content">
+                <h2>Reminders</h2>       
+                <p> Notes with upcoming Reminders <br> appear here </p>
+                <span id="notif-message"></span>
+                <button onclick="closeNotification()">Close</button>
             </div>
         </div>
+    </div>
 </body>
 </html>
 <?php

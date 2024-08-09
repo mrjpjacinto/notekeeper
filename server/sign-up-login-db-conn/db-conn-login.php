@@ -18,11 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $row = $result->fetch_assoc();
 
                     if (password_verify($passwd, $row['passwd'])) {
+                        // Set session variables
                         $_SESSION['id'] = $row['id'];
                         $_SESSION['uname'] = $row['uname'];
+                        $_SESSION['fname'] = $row['fname'];  // Store first name
+                        $_SESSION['lname'] = $row['lname'];  // Store last name
+                        $_SESSION['email'] = $row['email'];  // Store email
                         $_SESSION['success'] = "Login successful!";
                         
-                        header("Location: /notekeeper/client/php/note-login.php");
+                        // Redirect to the homepage
+                        header("Location: /notekeeper/client/php/note-home-list.php");
                         exit();
                     } else {
                         $_SESSION['error'] = "Invalid password";
