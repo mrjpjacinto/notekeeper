@@ -21,32 +21,24 @@ function applySavedTheme() {
 window.onload = function() {
   applySavedTheme();
   document.getElementById('noteTextPad').style.display = 'none';
-  document.getElementById('notification').style.display = 'none'; // Ensure notification is hidden on page load
 }
 
 function openNotification() {
-  document.getElementById('notification').style.display = "flex";
-  document.getElementById('notif-message').focus(); // Optional: focus for accessibility
+  document.getElementById("notification").style.display = "flex";
+  document.body.classList.add("modal-open");
 }
 
 function closeNotification() {
-  document.getElementById('notification').style.display = "none";
+  document.getElementById("notification").style.display = "none";
+  document.body.classList.remove("modal-open");
 }
 
-function showNotification(message) {
-  document.getElementById('notif-message').textContent = message;
-  openNotification();
-}
-
-function openNotification() {
-  console.log('Opening notification');
-  document.getElementById('notification').style.display = "flex";
-}
-
-function closeNotification() {
-  console.log('Closing notification');
-  document.getElementById('notification').style.display = "none";
-}
+window.addEventListener("click", function(event) {
+  var modal = document.getElementById("notification");
+  if (event.target === modal) {
+      closeNotification();
+  }
+});
 
 function openNote() {
   document.getElementById('noteTextPad').style.display = 'flex';
