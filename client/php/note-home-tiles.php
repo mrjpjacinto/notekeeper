@@ -80,7 +80,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                     </span>
                 </button>
                 <button>
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" onclick="deleteSelected()">
                         select_check_box
                     </span>
                 </button>
@@ -169,5 +169,13 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             </div>
         </div>
      </div>
+
+      <!-- DELETE SELECTED -->
+      <div class="delete" id="delete-selected-button">
+            <div class="delete-icon">Delete Selected</div>
+        </div>
+    </div>
+    <!-- DELETE SELECTED -->
+     
 </body>
 </html>
