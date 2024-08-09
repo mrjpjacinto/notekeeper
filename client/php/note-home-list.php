@@ -96,7 +96,9 @@ if ($stmt = $conn->prepare($sql)) {
                     </span>
                 </button>
                 <button id="nav-icon" >
-                    <span class="material-symbols-outlined">select_check_box</span>
+                    <span class="material-symbols-outlined" onclick="deleteSelected()">
+                        select_check_box
+                    </span>
                 </button>
             </div>
             
@@ -178,21 +180,30 @@ if ($stmt = $conn->prepare($sql)) {
                 </form>
             </div>
         </div>
-    </div>
+    
 
     <!-- NOTEPAD MODAL -->
-    <div class="notification-window" id="notification">
-        <div class="notif">
-            <div class="notif-icon">
-            </div>
-            <div class="notif-content">
-                <h2>Reminders</h2>       
-                <p> Notes with upcoming Reminders <br> appear here </p>
-                <span id="notif-message"></span>
-                <button onclick="closeNotification()">Close</button>
+        <div class="notification-window" id="notification">
+            <div class="notif">
+                <div class="notif-icon">
+                </div>
+                <div class="notif-content">
+                    <h2>Reminders</h2>       
+                    <p> Notes with upcoming Reminders <br> appear here </p>
+                    <span id="notif-message"></span>
+                    <button onclick="closeNotification()">Close</button>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- DELETE SELECTED -->
+        <div class="delete" id="delete-selected-button">
+            <div class="delete-icon">Delete Selected</div>
+        </div>
+    </div>
+    <!-- DELETE SELECTED -->
+     
 </body>
 </html>
 <?php

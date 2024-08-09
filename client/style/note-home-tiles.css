@@ -1,4 +1,7 @@
 body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
     font-family: Inter;
     padding: 0;
     margin: 0;
@@ -18,6 +21,12 @@ a{
     text-decoration: none;
     color: black;
 }
+
+.main-container{
+  width: 100%;
+  height: 100%;
+}
+
 /* NAVBAR */
 .topnav{
     padding: 20px;
@@ -372,6 +381,32 @@ background: none;
   color: white;
 }
   /* NOTEPAD MODAL */
+
+  /* DELETE SELECTED */
+
+.delete {
+  display: none;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.delete-icon {
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  margin: 50px;
+}
+
+.delete-icon:hover {
+  background-color: #c82333;
+}
+/* DELETE SELECTED */
+
 
   /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
