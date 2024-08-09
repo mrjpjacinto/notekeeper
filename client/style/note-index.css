@@ -102,3 +102,38 @@ button:hover{
     background-color: #42C4FE;
     color: #f2f2f2;
 }
+
+/* MOBILE STYLE */
+@media only screen and (max-width: 600px){
+
+    /* NAVBAR */
+    .navbar{
+        padding: 10px;
+    }
+
+    .left-nav img{
+        height: 50px;
+        width: 50px;
+    }
+    
+    .option{
+        padding-right: 0;
+        font-size: 13px;
+    }
+
+    /* HERO-SECTION */
+    .hero-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+    .hero-button{
+
+    }
+
+}
+
