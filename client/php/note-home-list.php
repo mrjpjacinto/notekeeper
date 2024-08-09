@@ -101,8 +101,8 @@ if ($stmt = $conn->prepare($sql)) {
             </div>
             
             <div class="right-nav1">
-                <div class="input">
-                    <button id="nav-icon" >
+                <div class="input-1">
+                    <button id="search-icon" >
                         <span class="material-symbols-outlined">search</span>
                     </button>
                     <input class="search-bar" type="text" placeholder="Search notes...">

@@ -87,12 +87,12 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             </div>
             <div class="right-nav1">
                 <div class="input">
-                    <button>
+                    <button id="search-icon">
                         <span class="material-symbols-outlined">
                             search
                             </span>
                         </button>
-                    <input type="text" placeholder="Search notes...">
+                    <input class="search-bar" type="text" placeholder="Search notes...">
                 </div>
             </div>
         </div>
