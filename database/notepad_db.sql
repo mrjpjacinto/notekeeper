@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2024 at 05:51 AM
+-- Generation Time: Aug 09, 2024 at 08:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,6 +35,14 @@ CREATE TABLE `notes` (
   `date_created` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `user_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`id`, `title`, `content`, `color`, `date_created`, `user_id`) VALUES
+(4, 'weweweew', 'sdasdasdasdasd', 'default-color', '2024-08-09 06:04:02.000000', 13),
+(5, 'wewewe', 'asdsdsadasdsadsadsad', 'default-color', '2024-08-09 06:04:37.000000', 13);
 
 -- --------------------------------------------------------
 
@@ -83,7 +91,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
