@@ -113,6 +113,10 @@ a{
     justify-content: space-between;
 }
 
+.topnav1 .material-symbols-outlined{
+  padding: 10px;
+}
+
 button{
     border: none;
     background: none;
@@ -134,6 +138,8 @@ input{
     font-size: 17px;
     padding-left: 10px;
 }
+
+
 /* NAVBAR */
 
 .darkmode{
