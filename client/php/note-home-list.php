@@ -129,7 +129,7 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '</div></div>';
                 }
             } else {
-                echo '<div class="note-list">No notes available.</div>';
+                echo '<div class="note-list"><p>Added notes will appear here.<p></div>';
             }
             ?>
         </div>
