@@ -134,10 +134,15 @@ button{
     background: none;
 }
 
-#nav-icon:hover{
+.topnav1 span:hover{
     color: #42C4FE;
+    cursor: pointer;
 }
 
+.topnav1 a:hover{
+    color: #42C4FE;
+    cursor: pointer;
+}
 .right-nav{
     display: flex;
 }
@@ -196,8 +201,48 @@ input{
 }
 
 .darkmode .dropdown-option{
-    background-color: #3d3d3d;
+    background-color: #515151;
 }
+
+/* TOOLTIP TEXT */
+.tooltip{
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-text{
+    visibility: hidden;
+    width: max-content;
+    background-color: #d1e0e7;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: -10%;
+    opacity: 0;
+    transform: translateX(1%);
+  }
+  
+  .tooltip:hover .tooltip-text{
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltip-text:hover{
+    color: black;
+  }
+
+  .darkmode .tooltip-text{
+    background-color: #515151;
+    color: white;
+  }
+  .darkmode .tooltip-text:hover{
+    color: white;
+  }
+/* TOOLTIP TEXT */
 
  
 /* BODY */
@@ -543,6 +588,11 @@ background: none;
 /* OPEN NOTE */
 .note-template:hover{
     background-color: #5acbff;
+    cursor: pointer;
+}
+
+.darkmode .note-template:hover{
+    background-color: #42c4fe;
     cursor: pointer;
 }
 /* OPEN NOTE */
