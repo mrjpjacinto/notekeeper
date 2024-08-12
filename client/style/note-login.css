@@ -158,5 +158,68 @@ button:hover{
         font-size: 13px;
     }
 }
+/* MOBILE */
+/* TABLET */
+@media only screen and (min-width: 601px) and (max-width: 1024px){
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
+    body{
+        font-family: Inter;
+        font-size: 15px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        top: 0;
+        left: 0;
+        margin: auto;
+    }
+    .login{
+        height: 450%;
+        width: 300%;
+        padding: 40px;
+    }
 
-
+}
+/* TABLET */
+@media only screen and (min-width: 601px) and (max-width: 1024px){
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
+    body{
+        font-family: Inter;
+        font-size: 13px;
+        background-color: #EBF4F6;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        top: 0;
+        left: 0;
+        margin: auto;
+    }
+    .login{
+        height: 450px;
+        width: 300px;
+        padding: 50px;
+        padding-top: 20px;
+        background-color: white;
+        border-radius: 15px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    input{
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #f2f2f2;
+    }
+}
+/* TABLET */

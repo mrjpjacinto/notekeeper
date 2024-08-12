@@ -193,4 +193,100 @@ button:hover{
 }
 /* MOBILE */
 
-
+/* TABLET */
+@media only screen and (min-width: 601px) and (max-width: 1024px){
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
+    body{
+        font-family: Inter;
+        font-size: 13px;
+        background-color: #EBF4F6;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        top: 0;
+        left: 0;
+        margin: auto;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    .signup img{
+        width: 60px;
+    }
+    
+    .signup{
+        height: 550px;
+        width: 600px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 15px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .input-name{
+        display: flex;
+        justify-content: space-between;
+    }
+    .input-uname{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .input-name input{
+        width: 250px;
+    }
+    .input-uname input{
+        width: 250px;
+    }
+    
+    .input{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px;
+    }
+    
+    .input label{
+        padding-left: 5px;
+    }
+    
+    input{
+        border: none;
+        border-radius: 10px;
+        padding: 8px;
+        background-color: #f2f2f2;
+    }
+    
+    .show-password{
+        padding-top: 5px;
+    }
+    
+    .click{
+        color: #f2f2f2;
+    }
+    
+    button{
+        border: none;
+        background-color: #27AAFF;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        color: white;
+    }
+    
+    button:hover{
+        background-color: #6fc6ff;
+    }
+}
+/* TABLET */
