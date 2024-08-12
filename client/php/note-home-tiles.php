@@ -99,7 +99,9 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         <!-- NAVBAR -->
 
         <!-- BODY -->
-
+        <div class="note-card">
+            <p>Added notes will appear here.</p>
+        </div>
     <!-- BODY -->
     </div>
 

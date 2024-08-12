@@ -179,7 +179,12 @@ input{
 
  
 /* BODY */
-
+.note-card p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+}
 /* NOTEPAD MODAL */
 .note-text-pad{
   display: none;
