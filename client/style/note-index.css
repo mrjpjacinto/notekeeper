@@ -81,11 +81,12 @@ p{
     left: 2%;
 }
 
-.hero-buttom { 
+.hero-bottom { 
     display: flex;
     position: absolute;
     top: 69%;
-    left: 2%;
+    align-items: flex-start;
+    margin-left:30px;
 }
 
 .button{
@@ -105,6 +106,15 @@ button:hover{
 
 /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    body{
+        width: 100vw;
+        height: 100vh;
+    }
 
     /* NAVBAR */
     .navbar{
@@ -125,15 +135,45 @@ button:hover{
     .hero-container{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+    }
+    
+
+    .content img{
+        position: relative;
+        right: 29%;
     }
 
     h1{
-        font-size: 40px;
+        font-size: 23px;
+        margin: 10px;
     }
 
-    .hero-button{
-
+    p{
+        font-size: 13px;
+        margin: 0;
     }
+
+    .overlay-text{
+        position: static;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-bottom{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .button{ 
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+
 
 }
 
