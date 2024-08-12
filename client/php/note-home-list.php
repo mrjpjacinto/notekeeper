@@ -116,7 +116,7 @@ if ($stmt = $conn->prepare($sql)) {
             <?php
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="note-template" onclick="openNote()">';
+                    echo '<div class="note-template" onclick="openViewNote()">';
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
                     echo '<h1>' . htmlspecialchars($row['title']) . '</h1>';
@@ -199,7 +199,29 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
        <!-- NOTEPAD MODAL -->
     </div>
-    <div class="notification-window" id="notification">
+    <!-- VIEW NOTE MODAL -->
+    <div class="view-note" id="viewNote">
+        <div class="view-note-modal">
+            <div class="view-note-icon">
+                <div class="view-note-icon-left">
+                    <button onclick="closeViewNote()">
+                        <span class="material-symbols-outlined"> arrow_back </span>
+                    </button>
+                </div>
+                <div class="view-note-icon-right">
+                    <button onclick="openNote(), closeViewNote()">
+                        <span class="material-symbols-outlined"> edit </span>
+                    </button>
+                </div>
+            </div>
+            <div class="view-note-content">
+                <div class="view-heading"><h1>Title</h1></div>
+                <div class="view-content"><p>Content...</p></div>
+            </div>
+        </div>
+    </div>
+    <!-- VIEW NOTE MODAL -->
+        <div class="notification-window" id="notification">
             <div class="notif">
                 <div class="notif-icon">
                 </div>

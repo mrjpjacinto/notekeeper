@@ -34,6 +34,13 @@ function closeNote() {
   document.body.classList.remove('modal-open');
 }
 
+function openViewNote() {
+  document.getElementById('viewNote').style.display = 'flex';
+}
+function closeViewNote() {
+  document.getElementById('viewNote').style.display = 'none';
+}
+
 function openNotification() {
   document.getElementById("notification").style.display = "flex";
   document.body.classList.add("modal-open");
