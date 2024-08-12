@@ -197,10 +197,9 @@ if ($stmt = $conn->prepare($sql)) {
                 </form>
             </div>
         </div>
-    
-
-    <!-- NOTEPAD MODAL -->
-        <div class="notification-window" id="notification">
+       <!-- NOTEPAD MODAL -->
+    </div>
+    <div class="notification-window" id="notification">
             <div class="notif">
                 <div class="notif-icon">
                 </div>
@@ -212,8 +211,6 @@ if ($stmt = $conn->prepare($sql)) {
                 </div>
             </div>
         </div>
-    </div>
-
     <!-- DELETE SELECTED -->
         <div class="delete" id="delete-selected-button">
             <div class="delete-icon">Delete Selected</div>
