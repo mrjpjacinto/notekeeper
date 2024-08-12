@@ -310,7 +310,7 @@ input{
     font-size: 15px;
     padding: 10px 10px 0;
     border: none;
-    margin: 0 15px 5px;
+    margin: 0 15px 25px;
     resize: none;
     font-family: 'Inter';
     width: calc(100% - 30px);
@@ -329,6 +329,9 @@ input{
     justify-content: space-between;
 }
 
+.save-delete #saveButton, #deleteButton{
+    padding-inline: 15px;
+}
 
 body.modal-open{
   overflow: hidden;
@@ -348,6 +351,10 @@ body.modal-open{
     background-color: #3d3d3d;
     color: white;
 }
+.darkmode #saveButton, #deleteButton {
+    color: white;
+}
+
   /* NOTEPAD MODAL */
 
   .notification-window {
@@ -451,6 +458,12 @@ background: none;
 }
 /* DELETE SELECTED */
 
+/* OPEN NOTE */
+.note-template:hover{
+    background-color: #5acbff;
+    cursor: pointer;
+}
+/* OPEN NOTE */
 
   /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
@@ -566,7 +579,7 @@ background: none;
         font-size: 20px;
     }
     .note-text-pad textarea{
-        margin-bottom: 5px;
+        margin: 0 15px 35px;
     }
     .note-text-pad .note-text{
         width: 90%;
@@ -649,6 +662,10 @@ background: none;
     h1{
         margin: 0;
         font-size: 20px;
+    }
+
+    textarea{
+        margin: 0 15px 25px;
     }
 
 }
