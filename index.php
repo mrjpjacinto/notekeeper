@@ -52,7 +52,6 @@
                 <button class="button"> Try NoteKeeper </button>
                 </a>
             </div>
-        
         </div>   
     <!-- HERO-SECTION -->
 
