@@ -116,7 +116,7 @@ if ($stmt = $conn->prepare($sql)) {
             <?php
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo '<div class="note-template">';
+                    echo '<div class="note-template" onclick="openNote()">';
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
                     echo '<h1>' . htmlspecialchars($row['title']) . '</h1>';
@@ -129,7 +129,7 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '</div></div>';
                 }
             } else {
-                echo '<div class="note-template">No notes available.</div>';
+                echo '<div class="note-list">No notes available.</div>';
             }
             ?>
         </div>
@@ -189,8 +189,10 @@ if ($stmt = $conn->prepare($sql)) {
                                 <span class="material-symbols-outlined"> redo </span>
                             </button>
                         </div>
-                    </button id="saveButton">
-                    <button type="submit"><span class="material-symbols-outlined">save</span></button>
+                        <div class="save-delete">
+                            <button id="deleteButton">Delete</button>
+                            <button id="saveButton" type="submit">Save</button>
+                        </div>
                     </div>
                 </form>
             </div>
