@@ -79,26 +79,31 @@ if ($stmt = $conn->prepare($sql)) {
         
         <div class="topnav1">
             <div class="left-nav1">
-                <button id="nav-icon" onclick="openNote()">
+                <button id="nav-icon" onclick="openNote()" class="tooltip">
                     <span class="material-symbols-outlined">add_circle</span>
+                    <span class="tooltip-text">Add a note</span>
                 </button>
-                <button id="nav-icon" onclick="darkMode()">
+                <button id="nav-icon" onclick="darkMode()" class="tooltip">
                     <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
+                    <span class="tooltip-text">Toggle theme</span>
                 </button>
-                <button>
+                <button class="tooltip">
                     <span class="material-symbols-outlined">
                         <a id="nav-icon" href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
                         </span>
+                        <span class="tooltip-text">Switch to Tiles</span>
                     </button>
-                <button id="nav-icon" onclick="openNotification()">
+                <button id="nav-icon" onclick="openNotification()" class="tooltip">
                     <span class="material-symbols-outlined" id="notif-message">
                         notifications
                     </span>
+                    <span class="tooltip-text">Reminders</span>
                 </button>
-                <button id="nav-icon" >
+                <button id="nav-icon" class="tooltip">
                     <span class="material-symbols-outlined" onclick="deleteSelected()">
                         select_check_box
                     </span>
+                    <span class="tooltip-text">Select</span>
                 </button>
             </div>
             
@@ -121,8 +126,6 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '<div class="note-heading">';
                     echo '<h1>' . htmlspecialchars($row['title']) . '</h1>';
                     echo '<div class="heading-tools">';
-                    echo '<span class="material-symbols-outlined">edit</span>';
-                    echo '<span class="material-symbols-outlined">delete</span>';
                     echo '</div></div>';
                     echo '<div class="note-body">' . htmlspecialchars($row['content']) . '</div>';
                     echo '<div class="note-footer">' . $row['date_created'] . '</div>';
