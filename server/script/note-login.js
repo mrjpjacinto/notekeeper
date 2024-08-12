@@ -12,20 +12,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const errorToast = document.getElementById('error-toast');
     const successToast = document.getElementById('success-toast');
 
-    
+    // Display error toast if it has content
     const errorMsg = document.getElementById('error-msg');
-    if (errorMsg) {
-        errorToast.textContent = errorMsg.textContent;
+    if (errorMsg && errorMsg.textContent.trim() !== '') {
         errorToast.style.display = 'flex';
         setTimeout(() => {
             errorToast.style.display = 'none';
         }, 1000); 
     }
 
-   
+    // Display success toast if it has content
     const successMsg = document.getElementById('success-msg');
-    if (successMsg) {
-        successToast.textContent = successMsg.textContent;
+    if (successMsg && successMsg.textContent.trim() !== '') {
         successToast.style.display = 'flex';
         setTimeout(() => {
             successToast.style.display = 'none';

@@ -25,9 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['lname'] = $row['lname'];  // Store last name
                         $_SESSION['email'] = $row['email'];  // Store email
                         $_SESSION['success'] = "Login successful!";
-                        
-                        // Redirect to the homepage
-                        header("Location: /notekeeper/client/php/note-home-list.php");
+                        // Redirect to login page to handle the success toast
+                        header("Location: /notekeeper/client/php/note-login.php");
                         exit();
                     } else {
                         $_SESSION['error'] = "Invalid password";
@@ -46,9 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['error'] = "Required fields are missing.";
     }
+} else {
+    // No POST request was made
+    $_SESSION['error'] = "Invalid request.";
 }
 
 $conn->close();
+
+// Redirect to login page if there's an error or success message
 header("Location: /notekeeper/client/php/note-login.php");
 exit();
 ?>
