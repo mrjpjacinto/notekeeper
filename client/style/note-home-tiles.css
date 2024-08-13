@@ -156,7 +156,9 @@ a{
   .show {
     display: block;
   }
-  
+  /* DROPDOWN */
+
+  /* TOPNAV1 */
 .topnav1{
     padding: 10px;
     padding-inline: 50px;
@@ -173,10 +175,6 @@ button{
     background: none;
 }
 
-.right-nav{
-    display: flex;
-}
-
 .input{
     padding: 0;
     display: flex;
@@ -189,7 +187,6 @@ input{
     font-size: 17px;
     padding-left: 10px;
 }
-
 
 /* NAVBAR */
 
@@ -285,15 +282,16 @@ input{
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-inline: 40px;
-  margin-block: 50px;
+  margin-block: 40px;
 }
 .note-template{
   background-color: #42c4fe;
   width: 300px;
   height: 250px;
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: 0 1px 10px #7aa6bb;
   margin: 10px;
+  cursor: pointer;
 }
 .note.heading{
   display: flex;
@@ -301,10 +299,11 @@ input{
   width: 100%;
   margin: 0;
 }
-h1{
+#note-title{
   width: 260px;
   height: 40px;
-  margin-block: 0;
+  margin-top: 13px;
+  margin-bottom: 9px;
   margin-inline: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -436,8 +435,8 @@ background: none;
 .darkmode #saveButton, #deleteButton {
   color: white;
 }
-
 /* NOTEPAD MODAL */
+
 /* VIEW NOTE MODAL */
 .view-note{
   display: none;
@@ -656,6 +655,22 @@ background: none;
   .search-bar{
     width: 100%;
     height: 30PX;
+  }
+
+  /* BODY */
+
+  .note-card{ 
+    margin-inline: 10px;
+  }
+
+  .note-template{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .note-content{
+    height: 100%;
   }
   
 }
