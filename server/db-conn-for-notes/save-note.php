@@ -1,9 +1,10 @@
 <?php
-session_start(); 
-include '../db-conn.php'; // Adjust the path if necessary
+session_start();
+include '/xampp/htdocs/notekeeper/server/db-conn.php'; // Adjust the path if necessary
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the required fields are set
     if (isset($_POST['title']) && isset($_POST['content'])) {
         $title = $_POST['title'];
         $content = $_POST['content'];
@@ -15,26 +16,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("ssi", $title, $content, $user_id); // Bind the parameters including user_id
 
             if ($stmt->execute()) {
-                // Redirect to the notes list page on successful insertion
-                $_SESSION['success'] = "Note saved successfully!";
-                header("Location: /notekeeper/client/php/note-home-list.php");
+                // Check if redirect parameter is set and redirect accordingly
+                $redirectPage = isset($_POST['redirect']) ? $_POST['redirect'] : 'note-home-list.php';
+                header("Location: /notekeeper/client/php/$redirectPage");
                 exit();
             } else {
-                $_SESSION['error'] = "Error executing query: " . $stmt->error;
+                // Output error message
+                echo "Error executing query: " . $stmt->error;
             }
 
             $stmt->close();
         } else {
-            $_SESSION['error'] = "Error preparing statement: " . $conn->error;
+            // Output error message
+            echo "Error preparing statement: " . $conn->error;
         }
     } else {
-        $_SESSION['error'] = "Required fields are missing.";
+        echo "Required fields are missing.";
     }
+} else {
+    echo "Invalid request method.";
 }
 
 // Close the database connection
 $conn->close();
-
-// Redirect to the notes list page
-header("Location: /notekeeper/client/php/note-home-list.php");
-exit();
+?>

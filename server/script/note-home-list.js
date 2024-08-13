@@ -75,28 +75,34 @@ window.onclick = function(event) {
 }
 
 // New functions for handling note submission
+// Function to handle note submission
 function submitNote() {
   var form = document.getElementById('noteForm');
-  var formData = new FormData(form);
+  
+  // Prevent the default form submission and submit manually
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-  fetch(form.action, {
-      method: 'POST',
-      body: formData
-  })
-  .then(response => response.text())
-  .then(result => {
-      if (result.includes('Error')) {
-          alert('Error: ' + result);
-      } else {
-          alert('Note saved successfully!');
-          closeNote();
-          location.reload(); // Reload the page to show the new note
-      }
-  })
-  .catch(error => {
-      alert('Error submitting the note: ' + error);
+    // Check if required fields are filled
+    var title = document.getElementById('noteTitle').value;
+    var content = document.getElementById('noteContent').value;
+
+    if (title.trim() === '' || content.trim() === '') {
+      alert('Please fill in both title and content.');
+      return;
+    }
+
+    // Submit the form
+    form.submit();
   });
 }
+
+// Initialize the form submission handler when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  submitNote();
+});
+
+
 
 document.getElementById('noteForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission

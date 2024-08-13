@@ -66,6 +66,35 @@ window.onclick = function(event) {
   }
 }
 
+// New functions for handling note submission
+// Function to handle note submission
+function submitNote() {
+  var form = document.getElementById('noteForm');
+  
+  // Prevent the default form submission and submit manually
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Check if required fields are filled
+    var title = document.getElementById('noteTitle').value;
+    var content = document.getElementById('noteContent').value;
+
+    if (title.trim() === '' || content.trim() === '') {
+      alert('Please fill in both title and content.');
+      return;
+    }
+
+    // Submit the form
+    form.submit();
+  });
+}
+
+// Initialize the form submission handler when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  submitNote();
+});
+
+
 
 function deleteSelected() {
   var deleteButton = document.getElementById("delete-selected-button");
