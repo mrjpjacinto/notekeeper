@@ -325,13 +325,13 @@ input{
   height: 40px;
   margin-top: 13px;
   margin-bottom: 9px;
+}
 
 .note-template h1{
   width: 260px;
   height: 40px;
   margin-top: 13px;
   margin-bottom: 10px;
-
   margin-inline: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
