@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2024 at 08:07 AM
+-- Generation Time: Aug 13, 2024 at 12:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `notes` (
   `title` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `color` varchar(255) NOT NULL,
-  `date_created` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `date_created` datetime DEFAULT NULL,
   `user_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,8 +41,8 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `title`, `content`, `color`, `date_created`, `user_id`) VALUES
-(4, 'weweweew', 'sdasdasdasdasd', 'default-color', '2024-08-09 06:04:02.000000', 13),
-(5, 'wewewe', 'asdsdsadasdsadsadsad', 'default-color', '2024-08-09 06:04:37.000000', 13);
+(53, 'khylle', 'gaboaiwoidbwdbawdbadadvawudv', 'default-color', '2024-08-13 17:52:07', 14),
+(54, 'afdsdsa', 'asddasdsdassaddas', 'default-color', '2024-08-13 18:06:57', 14);
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `passwd`, `fname`, `lname`, `uname`) VALUES
-(13, 'khylle@gmail.com', '$2y$10$joAMZEHHXTL9ATkeImnVPO3s4YQRZx4jBxZzUNdo4zlRvBaDwgZ9.', 'Khylle', 'Dino', 'khylle0');
+(14, 'khylle@gmail.com', '$2y$10$k3ji23HCnqy404SOmTHtRuyp0/C6qQcSszH/vztErJIYeUxur5b66', 'Khylle', 'Diño', 'khylle0'),
+(15, 'sasuke@gmail.com', '$2y$10$v.G13NEnHE.FMl0vfw0u7u33iIhKlqhMhhbNeVRV/fd/8wmpetvKi', 'sasuke', 'sasuke', 'sasuke'),
+(16, 'tope@gmail.com', '$2y$10$Hz4t9yRAGvQhf3xkJiV/N.vSlS65EAExasGNrvCFsiLvuhSz2dDBe', 'tope', 'tope', 'tope'),
+(17, 'tope@gmail.com', '$2y$10$bo43ibLhlNvz2UUV0Db7/ey0YM1kLldtr9Pz2KRkzu8xtd1jbvdNa', 'tope', 'tope', 'tope');
 
 --
 -- Indexes for dumped tables
@@ -91,13 +94,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
