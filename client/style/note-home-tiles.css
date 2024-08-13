@@ -168,6 +168,11 @@ a{
   padding: 10px;
 }
 
+.topnav1 span:hover{
+  color: #42c4fe;
+  cursor: pointer;
+}
+
 button{
     border: none;
     background: none;
@@ -177,7 +182,7 @@ button{
     display: flex;
 }
 
-.input{
+.input-1{
     padding: 0;
     display: flex;
 }
@@ -188,6 +193,13 @@ input{
     border-radius: 5px;
     font-size: 17px;
     padding-left: 10px;
+}
+
+#close-icon {
+  position: absolute;
+  display: flex;
+  margin-left: 230px;
+  opacity: 40%;
 }
 
 

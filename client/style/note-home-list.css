@@ -193,6 +193,13 @@ input{
     padding-left: 10px;
 }
 
+#close-icon {
+    position: absolute;
+    display: flex;
+    margin-left: 230px;
+    opacity: 40%;
+}
+
 
 
 /* NAVBAR */
