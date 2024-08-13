@@ -37,22 +37,27 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
             <!-- DROPDOWN -->
             <div class="dropdown">
                 <div class="dropdown-content" id="myDropdown">
+
                     <div class="dropdown-display">
-                    <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                    <p> <?php echo ($fname); ?> <?php echo ($lname); ?></p> 
-                    <p><?php echo ($email); ?></p>
+                        <img src="/notekeeper/client/assets/Avatar-placeholder.png">
+                        <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p> 
+                        <p id="un"><?php echo ($email); ?></p>
                     </div>
+
                     <div class="dropdown-option">
-                        <a href="#">
-                        <span class="material-symbols-outlined">
-                            info
-                            </span>
-                            About</a>
-                        <a href="#">
-                        <span class="material-symbols-outlined">
-                            logout
-                            </span>
-                            Log Out</a>
+
+                        <div class="option-1">
+                            <a href="#">
+                            <span class="material-symbols-outlined"> info </span> 
+                            <p> About </p> </a>
+                        </div>
+                        
+                        <div class="option-2">
+                            <a href="#">
+                            <span class="material-symbols-outlined"> logout </span> 
+                            <p> Log Out </p> </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
