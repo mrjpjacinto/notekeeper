@@ -1,29 +1,50 @@
 <?php
- session_start();
+session_start();
+include '/xampp/htdocs/notekeeper/server/db-conn.php';
 
- include '/xampp/htdocs/notekeeper/server/db-conn.php';
- 
-
- if(!isset($_SESSION['uname'])) {
+// Check if the user is logged in
+if (!isset($_SESSION['uname'])) {
     header("Location: /notekeeper/client/php/note-login.php");
-
     exit();
- }
+}
+
 $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
 $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
 $user_id = $_SESSION['id']; // Get the logged-in user's ID
 
-// Fetch notes from the database for the logged-in user
-$sql = "SELECT id, title, content, color, date_created FROM notes WHERE user_id = ?";
+// Initialize search term
+$search_term = isset($_GET['search']) ? $_GET['search'] : '';
+
+// Prepare SQL query with search functionality
+$sql = "SELECT * FROM notes WHERE user_id = ?";
+$params = [$user_id];
+$types = 'i';
+
+// Append search term to SQL query if provided
+if (!empty($search_term)) {
+    $sql .= " AND title LIKE ?";
+    $params[] = '%' . $search_term . '%';
+    $types .= 's'; // Add 's' for string type
+}
+
+// Order by date_created DESC
+$sql .= " ORDER BY date_created DESC";
+
+// Prepare and execute the statement
 if ($stmt = $conn->prepare($sql)) {
-    $stmt->bind_param("i", $user_id); // Bind the user_id parameter
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt->bind_param($types, ...$params); // Bind parameters
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+    } else {
+        $_SESSION['error'] = "Error executing query: " . $stmt->error;
+    }
+    $stmt->close();
 } else {
     $_SESSION['error'] = "Error preparing statement: " . $conn->error;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,16 +123,23 @@ if ($stmt = $conn->prepare($sql)) {
                     </span>
                 </button>
             </div>
-            <div class="right-nav1">
-                <div class="input">
-                    <button id="search-icon">
-                        <span class="material-symbols-outlined">
-                            search
-                            </span>
+
+            <form id="searchForm" action="" method="get">
+                <div class="right-nav1">
+                    <div class="input-1">
+                        <button id="search-icon" type="submit">
+                            <span class="material-symbols-outlined">search</span>
                         </button>
-                    <input class="search-bar" type="text" placeholder="Search notes...">
+                        <input class="search-bar" type="text" name="search" placeholder="Search notes..." value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
+                        <!-- Clear Search Button -->
+                        <?php if (!empty($_GET['search'])): ?>
+                            <a id="close-icon" href="note-home-tiles.php" id="clear-search">
+                                <span class="material-symbols-outlined">close</span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
         <!-- NAVBAR -->
 
@@ -152,47 +180,49 @@ if ($stmt = $conn->prepare($sql)) {
                     <button id="redoButton">
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
-                    <button id="reminderButton">
-                        <span class="material-symbols-outlined">add_alert</span>
-                    </button>
-                    <button> 
+                    <button id="format"> 
                         <span class="material-symbols-outlined"> format_bold </span>
                     </button>
-                    <button>
+                    <button id="format">
                         <span class="material-symbols-outlined">format_italic</span>
                     </button>
-                    <button>
+                    <button id="format">
                         <span class="material-symbols-outlined">format_underlined</span>
                     </button>
-                    <button>
+                    <button id="format">
                         <span class="material-symbols-outlined">format_color_text</span>
+                    </button>
+                    <button id="reminderButton">
+                        <span class="material-symbols-outlined">add_alert</span>
                     </button>
                 </div>
             </div>
             <div class="textpad">
                 <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
-                <input type="hidden" name="redirect" value="note-home-tiles.php">
+                <input type="hidden" name="redirect" value="note-home-list.php">
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
-                    <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
-                    <div class="bottom-buttons">
-                    <button id="reminderButton1">
-                        <span class="material-symbols-outlined">add_alert</span>
-                    </button>
-                        <div class="undo-redo">
-                            <button id="undoButton1">
-                                <span class="material-symbols-outlined">undo</span>
-                            </button>
-                            <button id="redoButton1">
-                                <span class="material-symbols-outlined"> redo </span>
-                            </button>
+                    <textarea id="noteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <footer>
+                        <div class="char-count">
+                            Word Count: <span id="charCount">0</span>/1250
                         </div>
-                        <div class="save-delete">
-                            <button id="deleteButton">Delete</button>
-                            <button id="saveButton" type="submit">Save</button>
+                        <div class="bottom-buttons">
+                            <div class="undo-redo">
+                                <button id="undoButton1">
+                                    <span class="material-symbols-outlined">undo</span>
+                                </button>
+                                <button id="redoButton1">
+                                    <span class="material-symbols-outlined"> redo </span>
+                                </button>
+                            </div>
+                            <div class="save-delete">
+                                <button id="deleteButton">Delete</button>
+                                <button id="saveButton" type="submit">Save</button>
+                            </div>
                         </div>
-                    </div>
+                    </footer>
                 </form>
             </div>
         </div>
@@ -208,7 +238,7 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="view-note-icon-right">
-                    <button onclick="openNote(), closeViewNote()">
+                    <button onclick="openEditNote(), closeViewNote()">
                         <span class="material-symbols-outlined"> edit </span>
                     </button>
                 </div>
@@ -216,10 +246,80 @@ if ($stmt = $conn->prepare($sql)) {
             <div class="view-note-content">
                 <div class="view-heading"><h1>Title</h1></div>
                 <div class="view-content"><p>Content...</p></div>
+            <footer>
+                <div class="save-delete">
+                    <button id="deleteButton">Delete</button>
+                    <button id="saveButton" type="submit">Save</button>
+                </div>
+            </footer>
             </div>
         </div>
     </div>
     <!-- VIEW NOTE MODAL -->
+         <!--EDIT NOTE MODAL -->
+    <div class="edit-note" id="editNote">
+        <div class="edit-note-text">
+            <div class="edit-note-icon">
+                <div class="edit-note-icon-left">
+                    <button onclick="closeEditNote()">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                </div>
+                <div class="edit-note-icon-right">
+                    <button id="undoButton">
+                        <span class="material-symbols-outlined">undo</span>
+                    </button>
+                    <button id="redoButton">
+                        <span class="material-symbols-outlined"> redo </span>
+                    </button>
+                    <button id="format"> 
+                        <span class="material-symbols-outlined"> format_bold </span>
+                    </button>
+                    <button id="format">
+                        <span class="material-symbols-outlined">format_italic</span>
+                    </button>
+                    <button id="format">
+                        <span class="material-symbols-outlined">format_underlined</span>
+                    </button>
+                    <button id="format">
+                        <span class="material-symbols-outlined">format_color_text</span>
+                    </button>
+                    <button id="reminderButton">
+                        <span class="material-symbols-outlined">add_alert</span>
+                    </button>
+                </div>
+            </div>
+            <div class="edit-textpad">
+                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
+                <input type="hidden" name="redirect" value="note-home-list.php">
+                    <h1>
+                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
+                    </h1>
+                    <textarea id="editNoteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <footer>
+                        <div class="char-count">
+                            Word Count: <span id="editCharCount">0</span>/1250
+                        </div>
+                        <div class="bottom-buttons">
+                            <div class="undo-redo">
+                                <button id="undoButton1">
+                                    <span class="material-symbols-outlined">undo</span>
+                                </button>
+                                <button id="redoButton1">
+                                    <span class="material-symbols-outlined"> redo </span>
+                                </button>
+                            </div>
+                            <div class="save-delete">
+                                <button id="deleteButton">Delete</button>
+                                <button id="saveButton" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </div>
+        </div>
+       <!-- EDIT NOTE MODAL -->
         <div class="notification-window" id="notification">
             <div class="notif">
                 <div class="notif-icon">
