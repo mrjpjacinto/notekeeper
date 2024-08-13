@@ -112,3 +112,15 @@ function deleteSelected() {
       deleteButton.style.display = "none";
   }
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const charCountElem = document.getElementById('charCount');
+  const noteContentElem = document.getElementById('noteContent');
+
+  function updateCharCount() {
+      const currentLength = noteContentElem.value.length;
+      charCountElem.textContent = currentLength;
+  }
+
+  noteContentElem.addEventListener('input', updateCharCount);
+});

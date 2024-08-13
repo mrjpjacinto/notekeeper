@@ -35,7 +35,7 @@ if ($stmt = $conn->prepare($sql)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/notekeeper/client/style/note-home-list.css">
-    <script src="/notekeeper/server/script/note-home-list.js"></script>
+    <script src="/notekeeper/server/script/note-home-list.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -154,23 +154,20 @@ if ($stmt = $conn->prepare($sql)) {
                     <button id="redoButton">
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
-                    <button id="reminderButton">
-                        <span class="material-symbols-outlined">add_alert</span>
-                    </button>
-                    <button> 
+                    <button id="format"> 
                         <span class="material-symbols-outlined"> format_bold </span>
                     </button>
-                    <button>
+                    <button id="format">
                         <span class="material-symbols-outlined">format_italic</span>
                     </button>
-                    <button>
+                    <button id="format">
                         <span class="material-symbols-outlined">format_underlined</span>
                     </button>
-                    <button>
+                    <button id="format">
                         <span class="material-symbols-outlined">format_color_text</span>
                     </button>
-                    <button>
-                        <span class="material-symbols-outlined">format_list_bulleted</span>
+                    <button id="reminderButton">
+                        <span class="material-symbols-outlined">add_alert</span>
                     </button>
                 </div>
             </div>
@@ -179,11 +176,12 @@ if ($stmt = $conn->prepare($sql)) {
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
-                    <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
+                    <textarea id="noteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <footer>
+                    <div class="char-count">
+                        Word Count: <span id="charCount">0</span>/1250
+                    </div>
                     <div class="bottom-buttons">
-                    <button id="reminderButton1">
-                        <span class="material-symbols-outlined">add_alert</span>
-                    </button>
                         <div class="undo-redo">
                             <button id="undoButton1">
                                 <span class="material-symbols-outlined">undo</span>
@@ -197,6 +195,7 @@ if ($stmt = $conn->prepare($sql)) {
                             <button id="saveButton" type="submit">Save</button>
                         </div>
                     </div>
+                    </footer>
                 </form>
             </div>
         </div>
