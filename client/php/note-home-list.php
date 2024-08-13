@@ -205,23 +205,23 @@ if ($stmt = $conn->prepare($sql)) {
                     </h1>
                     <textarea id="noteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
                     <footer>
-                    <div class="char-count">
-                        Word Count: <span id="charCount">0</span>/1250
-                    </div>
-                    <div class="bottom-buttons">
-                        <div class="undo-redo">
-                            <button id="undoButton1">
-                                <span class="material-symbols-outlined">undo</span>
-                            </button>
-                            <button id="redoButton1">
-                                <span class="material-symbols-outlined"> redo </span>
-                            </button>
+                        <div class="char-count">
+                            Word Count: <span id="charCount">0</span>/1250
                         </div>
-                        <div class="save-delete">
-                            <button id="deleteButton">Delete</button>
-                            <button id="saveButton" type="submit">Save</button>
+                        <div class="bottom-buttons">
+                            <div class="undo-redo">
+                                <button id="undoButton1">
+                                    <span class="material-symbols-outlined">undo</span>
+                                </button>
+                                <button id="redoButton1">
+                                    <span class="material-symbols-outlined"> redo </span>
+                                </button>
+                            </div>
+                            <div class="save-delete">
+                                <button id="deleteButton">Delete</button>
+                                <button id="saveButton" type="submit">Save</button>
+                            </div>
                         </div>
-                    </div>
                     </footer>
                 </form>
             </div>
@@ -238,7 +238,7 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="view-note-icon-right">
-                    <button onclick="openNote(), closeViewNote()">
+                    <button onclick="openEditNote(), closeViewNote()">
                         <span class="material-symbols-outlined"> edit </span>
                     </button>
                 </div>
@@ -246,10 +246,80 @@ if ($stmt = $conn->prepare($sql)) {
             <div class="view-note-content">
                 <div class="view-heading"><h1>Title</h1></div>
                 <div class="view-content"><p>Content...</p></div>
+            <footer>
+                <div class="save-delete">
+                    <button id="deleteButton">Delete</button>
+                    <button id="saveButton" type="submit">Save</button>
+                </div>
+            </footer>
             </div>
         </div>
     </div>
     <!-- VIEW NOTE MODAL -->
+         <!--EDIT NOTE MODAL -->
+    <div class="edit-note" id="editNote">
+        <div class="edit-note-text">
+            <div class="edit-note-icon">
+                <div class="edit-note-icon-left">
+                    <button onclick="closeEditNote()">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                </div>
+                <div class="edit-note-icon-right">
+                    <button id="undoButton">
+                        <span class="material-symbols-outlined">undo</span>
+                    </button>
+                    <button id="redoButton">
+                        <span class="material-symbols-outlined"> redo </span>
+                    </button>
+                    <button id="format"> 
+                        <span class="material-symbols-outlined"> format_bold </span>
+                    </button>
+                    <button id="format">
+                        <span class="material-symbols-outlined">format_italic</span>
+                    </button>
+                    <button id="format">
+                        <span class="material-symbols-outlined">format_underlined</span>
+                    </button>
+                    <button id="format">
+                        <span class="material-symbols-outlined">format_color_text</span>
+                    </button>
+                    <button id="reminderButton">
+                        <span class="material-symbols-outlined">add_alert</span>
+                    </button>
+                </div>
+            </div>
+            <div class="edit-textpad">
+                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
+                <input type="hidden" name="redirect" value="note-home-list.php">
+                    <h1>
+                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
+                    </h1>
+                    <textarea id="editNoteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <footer>
+                        <div class="char-count">
+                            Word Count: <span id="editCharCount">0</span>/1250
+                        </div>
+                        <div class="bottom-buttons">
+                            <div class="undo-redo">
+                                <button id="undoButton1">
+                                    <span class="material-symbols-outlined">undo</span>
+                                </button>
+                                <button id="redoButton1">
+                                    <span class="material-symbols-outlined"> redo </span>
+                                </button>
+                            </div>
+                            <div class="save-delete">
+                                <button id="deleteButton">Delete</button>
+                                <button id="saveButton" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+        </div>
+       <!-- EDIT NOTE MODAL -->
+    </div>
         <div class="notification-window" id="notification">
             <div class="notif">
                 <div class="notif-icon">

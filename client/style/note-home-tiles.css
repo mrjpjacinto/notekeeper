@@ -14,7 +14,6 @@ body{
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
-    padding: 10px;
   }
 
 a{
@@ -168,6 +167,17 @@ a{
   padding: 10px;
 }
 
+.topnav1 span:hover{
+  color: #42C4FE;
+  cursor: pointer;
+}
+
+.topnav1 a:hover{
+  color: #42C4FE;
+  cursor: pointer;
+}
+
+
 button{
     border: none;
     background: none;
@@ -177,7 +187,7 @@ button{
     display: flex;
 }
 
-.input{
+.input-1{
     padding: 0;
     display: flex;
 }
@@ -200,7 +210,7 @@ input{
 
 .darkmode .note-template{
     background-color: #006edd;
-    box-shadow: 0 1px 10px black;
+    box-shadow: 0 1px 10px #242424;
 }
 
 .darkmode .material-symbols-outlined{
@@ -282,7 +292,7 @@ input{
 }
 .note-card{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   margin-inline: 40px;
   margin-block: 50px;
@@ -295,16 +305,17 @@ input{
   box-shadow: 0 1px 10px #7aa6bb;
   margin: 10px;
 }
-.note.heading{
+.note-heading{
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 0;
 }
-h1{
+.note-template h1{
   width: 260px;
   height: 40px;
-  margin-block: 0;
+  margin-top: 13px;
+  margin-bottom: 10px;
   margin-inline: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -346,7 +357,7 @@ h1{
   width: 100%;
   max-width: 800px;
   max-height: 80vh;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -355,9 +366,16 @@ h1{
   width: 100%;
   height: 40px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  border-radius: 20px 20px 0 0;
+  border-radius: 15px 15px 0 0;
   padding: 5px 10px 5px;
+}
+.textpad-icon-left{
+  margin-left: 10px;
+}
+.textpad-icon-right{
+  margin-right: 10px;
 }
 
 button{
@@ -367,8 +385,8 @@ button{
 .textpad{
   background-color: white;
   width: 100%;
-  height: 500px;
-  border-radius: 0 0 20px 20px;
+  height: 400px;
+  border-radius: 0 0 15px 15px;
   display: flex;
   flex-direction: column;
 }
@@ -377,11 +395,12 @@ button{
   margin-left: 15px;
 }
 
-h1{
-  margin-block: 15px;
+.textpad h1{
+  margin-top: 13px;
+  margin-bottom: 10px;
 }
 
-h1 input{
+.textpad h1 input{
   font-size: 30px;
   font-weight: bold;
   width: 90%;
@@ -390,29 +409,43 @@ h1 input{
 
 textarea{
   font-size: 15px;
-  padding: 10px 10px 0;
+  padding: 5px 10px 0;
   border: none;
-  margin: 0 15px 25px;
+  margin: 0 15px 5px;
   resize: none;
   font-family: 'Inter';
   width: calc(100% - 30px);
   box-sizing: border-box;
-  height: 350px;
+  height: 300px;
   overflow-y: auto;
 
 }
 
-#undoButton1, #redoButton1, #reminderButton1{
+
+#undoButton1, #redoButton1{
   display: none;
 }
-.bottom-buttons{
+.note-text-pad footer{
   padding: 0 10px 10px;
   display: flex;
   justify-content: space-between;
 }
 
+.bottom-buttons{
+      display: flex;
+      justify-content: space-around;
+}
+
 .save-delete #saveButton, #deleteButton{
   padding-inline: 15px;
+  color: black;
+}
+
+.char-count{
+  text-align: left;
+  margin: 0 15px 5px;
+  font-size: 14px;
+
 }
 
 body.modal-open{
@@ -433,7 +466,11 @@ background: none;
   background-color: #3d3d3d;
   color: white;
 }
-.darkmode #saveButton, #deleteButton {
+.darkmode #saveButton {
+  color: white;
+}
+
+.darkmode #deleteButton{
   color: white;
 }
 
@@ -457,11 +494,10 @@ background: none;
 .view-note-modal{
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 800px;
   max-height: 80vh;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -470,9 +506,17 @@ background: none;
   width: 100%;
   height: 40px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  border-radius: 20px 20px 0 0;
+  border-radius: 15px 15px 0 0;
   padding: 5px 0 5px;
+}
+
+.view-note-icon-left{
+  margin-left: 10px;
+}
+.view-note-icon-right{
+  margin-right: 10px;
 }
 
 .view-note-content{
@@ -480,28 +524,37 @@ background: none;
   width: 100%;
   max-width: 800px;
   max-height: 80vh;
-  height: auto;
-  border-radius: 0 0 20px 20px;
+  height: 400px;
+  border-radius: 0 0 15px 15px;
   display: flex;
   flex-direction: column;
-  text-align: left;
 }
 
 .view-heading{
   width: 90%;
-  margin-left: 15px;
+  margin-left: 25px;
+}
+.view-note-content h1{
+  margin-top: 13px;
+  margin-bottom: 10px;
 }
 .view-content{
   font-size: 15px;
-  padding: 10px 10px 0;
+  padding: 5px 10px 0;
   border: none;
-  margin: 0 15px 25px;
+  margin: 0 15px 5px;
   resize: none;
   font-family: 'Inter';
   width: calc(100% - 30px);
   box-sizing: border-box;
-  height: 350px;
+  height: 300px;
   overflow-y: auto;
+}
+.view-note footer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10px 10px;
 }
 
 .darkmode .view-note-icon{
@@ -611,7 +664,98 @@ background: none;
 }
 /* DELETE SELECTED */
 
+/* OPEN NOTE */
+.note-template:hover{
+  background-color: #5acbff;
+  cursor: pointer;
+}
 
+.darkmode .note-template:hover{
+  background-color: #42c4fe;
+  cursor: pointer;
+}
+/* OPEN NOTE */
+
+/* EDIT NOTE MODAL */
+.edit-note{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-note-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.edit-note-icon{
+  background-color: #D1E0E7;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px 15px 0 0;
+  padding: 5px 10px 5px;
+}
+.edit-note-icon-left{
+  margin-left: 10px;
+}
+.edit-note-icon-right{
+  margin-right: 10px;
+}
+.edit-textpad{
+  background-color: white;
+  width: 100%;
+  height: 400px;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-textpad input{
+  margin-left: 15px;
+}
+
+.edit-textpad h1{
+  margin-top: 13px;
+  margin-bottom: 10px;
+}
+
+.edit-textpad h1 input{
+  font-size: 30px;
+  font-weight: bold;
+  width: 90%;
+  background: none;
+}
+.darkmode .edit-note-icon{
+  background-color: #354349;
+}
+.darkmode .edit-textpad{
+  background-color: #3d3d3d;
+}
+
+.edit-note footer{
+  padding: 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+/* EDIT NOTE MODAL */
 
   /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
