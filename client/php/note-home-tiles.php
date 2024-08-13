@@ -133,7 +133,7 @@ if ($stmt = $conn->prepare($sql)) {
                         <input class="search-bar" type="text" name="search" placeholder="Search notes..." value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
                         <!-- Clear Search Button -->
                         <?php if (!empty($_GET['search'])): ?>
-                            <a href="note-home-tiles.php" id="clear-search">
+                            <a id="close-icon" href="note-home-tiles.php" id="clear-search">
                                 <span class="material-symbols-outlined">close</span>
                             </a>
                         <?php endif; ?>

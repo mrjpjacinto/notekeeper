@@ -177,7 +177,6 @@ a{
   cursor: pointer;
 }
 
-
 button{
     border: none;
     background: none;
@@ -198,6 +197,13 @@ input{
     border-radius: 5px;
     font-size: 17px;
     padding-left: 10px;
+}
+
+#close-icon {
+  position: absolute;
+  display: flex;
+  margin-left: 230px;
+  opacity: 40%;
 }
 
 
