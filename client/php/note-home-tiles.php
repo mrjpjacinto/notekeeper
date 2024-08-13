@@ -2,7 +2,7 @@
  session_start();
 
  include '/xampp/htdocs/notekeeper/server/db-conn.php';
-include '/xampp/htdocs/notekeeper/server/db-conn-for-notes/fetch-user-info.php';
+ 
 
  if(!isset($_SESSION['uname'])) {
     header("Location: /notekeeper/client/php/note-login.php");
@@ -12,6 +12,18 @@ include '/xampp/htdocs/notekeeper/server/db-conn-for-notes/fetch-user-info.php';
 $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
 $lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
+
+$user_id = $_SESSION['id']; // Get the logged-in user's ID
+
+// Fetch notes from the database for the logged-in user
+$sql = "SELECT id, title, content, color, date_created FROM notes WHERE user_id = ?";
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->bind_param("i", $user_id); // Bind the user_id parameter
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $_SESSION['error'] = "Error preparing statement: " . $conn->error;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,82 +115,123 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         </div>
         <!-- NAVBAR -->
 
-        <!-- BODY -->
         <div class="note-card">
-            <p>Added notes will appear here.</p>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="note-template" onclick="openViewNote()">';
+                    echo '<div class="note-content">';
+                    echo '<div class="note-heading">';
+                    echo '<h1>' . htmlspecialchars($row['title']) . '</h1>';
+                    echo '<div class="heading-tools">';
+                    echo '</div></div>';
+                    echo '<div class="note-body">' . htmlspecialchars($row['content']) . '</div>';
+                    echo '<div class="note-footer">' . $row['date_created'] . '</div>';
+                    echo '</div></div>';
+                }
+            } else {
+                echo '<div class="note-card"><p>Added notes will appear here.<p></div>';
+            }
+            ?>
         </div>
-    <!-- BODY -->
     </div>
 
     <!-- NOTEPAD MODAL -->
     <div class="note-text-pad" id="noteTextPad">
         <div class="note-text">
-
             <div class="textpad-icon">
                 <div class="textpad-icon-left">
                     <button onclick="closeNote()">
-                        <span class="material-symbols-outlined"> arrow_back </span>
+                        <span class="material-symbols-outlined">arrow_back</span>
                     </button>
                 </div>
                 <div class="textpad-icon-right">
-                    <button>
-                        <span class="material-symbols-outlined"> undo </span>
+                    <button id="undoButton">
+                        <span class="material-symbols-outlined">undo</span>
                     </button>
-                    <button>
+                    <button id="redoButton">
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
-
-                    <button>
+                    <button id="reminderButton">
                         <span class="material-symbols-outlined">add_alert</span>
                     </button>
                     <button> 
                         <span class="material-symbols-outlined"> format_bold </span>
                     </button>
                     <button>
-                        <span class="material-symbols-outlined"> format_italic </span>
+                        <span class="material-symbols-outlined">format_italic</span>
                     </button>
                     <button>
-                        <span class="material-symbols-outlined"> format_underlined </span>
+                        <span class="material-symbols-outlined">format_underlined</span>
                     </button>
                     <button>
-                        <span class="material-symbols-outlined"> format_color_text </span>
-                    </button>
-                    
-                    <button>
-                        <span class="material-symbols-outlined"> format_list_bulleted </span>
-                    </button>
-                    <button>
-
+                        <span class="material-symbols-outlined">format_color_text</span>
                     </button>
                 </div>
             </div>
-
             <div class="textpad">
-                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/add-note.php" method="post">
+                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
+                <input type="hidden" name="redirect" value="note-home-tiles.php">
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
                     <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
-                    <button type="submit"><span class="material-symbols-outlined">save</span></button>
+                    <div class="bottom-buttons">
+                    <button id="reminderButton1">
+                        <span class="material-symbols-outlined">add_alert</span>
+                    </button>
+                        <div class="undo-redo">
+                            <button id="undoButton1">
+                                <span class="material-symbols-outlined">undo</span>
+                            </button>
+                            <button id="redoButton1">
+                                <span class="material-symbols-outlined"> redo </span>
+                            </button>
+                        </div>
+                        <div class="save-delete">
+                            <button id="deleteButton">Delete</button>
+                            <button id="saveButton" type="submit">Save</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
+       <!-- NOTEPAD MODAL -->
     </div>
-     <!-- NOTEPAD MODAL -->
-     <div class="notification-window" id="notification">
-        <div class="notif">
-            <div class="notif-icon">
+    <!-- VIEW NOTE MODAL -->
+    <div class="view-note" id="viewNote">
+        <div class="view-note-modal">
+            <div class="view-note-icon">
+                <div class="view-note-icon-left">
+                    <button onclick="closeViewNote()">
+                        <span class="material-symbols-outlined"> arrow_back </span>
+                    </button>
+                </div>
+                <div class="view-note-icon-right">
+                    <button onclick="openNote(), closeViewNote()">
+                        <span class="material-symbols-outlined"> edit </span>
+                    </button>
+                </div>
             </div>
-
-            <div class="notif-content">
-                <h2>Reminders</h2>       
-                <p> Notes with upcoming Reminders <br> appear here </p>
-                <span id="notif-message"></span>
-                <button onclick="closeNotification()">Close</button>
+            <div class="view-note-content">
+                <div class="view-heading"><h1>Title</h1></div>
+                <div class="view-content"><p>Content...</p></div>
             </div>
         </div>
-     </div>
-
+    </div>
+    <!-- VIEW NOTE MODAL -->
+        <div class="notification-window" id="notification">
+            <div class="notif">
+                <div class="notif-icon">
+                </div>
+                <div class="notif-content">
+                    <h2>Reminders</h2>       
+                    <p> Notes with upcoming Reminders <br> appear here </p>
+                    <span id="notif-message"></span>
+                    <button onclick="closeNotification()">Close</button>
+                </div>
+            </div>
+        </div>
       <!-- DELETE SELECTED -->
       <div class="delete" id="delete-selected-button">
             <div class="delete-icon">Delete Selected</div>
@@ -188,3 +241,6 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
      
 </body>
 </html>
+<?php
+$conn->close();
+?>

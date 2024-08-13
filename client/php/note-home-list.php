@@ -27,6 +27,7 @@ if ($stmt = $conn->prepare($sql)) {
 } else {
     $_SESSION['error'] = "Error preparing statement: " . $conn->error;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -172,7 +173,8 @@ if ($stmt = $conn->prepare($sql)) {
                 </div>
             </div>
             <div class="textpad">
-                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/add-note.php" method="post">
+                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
+                <input type="hidden" name="redirect" value="note-home-list.php">
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>

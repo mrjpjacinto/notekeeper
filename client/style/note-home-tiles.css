@@ -233,7 +233,45 @@ input{
     background-color: #515151;
 }
 
+/* TOOLTIP TEXT */
+.tooltip{
+  position: relative;
+  display: inline-block;
+}
 
+.tooltip-text{
+  visibility: hidden;
+  width: max-content;
+  background-color: #d1e0e7;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: -10%;
+  opacity: 0;
+  transform: translateX(1%);
+}
+
+.tooltip:hover .tooltip-text{
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-text:hover{
+  color: black;
+}
+
+.darkmode .tooltip-text{
+  background-color: #515151;
+  color: white;
+}
+.darkmode .tooltip-text:hover{
+  color: white;
+}
+/* TOOLTIP TEXT */
  
 /* BODY */
 .note-card p{
@@ -241,6 +279,49 @@ input{
   justify-content: center;
   align-items: center;
   font-size: 17px;
+}
+.note-card{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-inline: 40px;
+  margin-block: 50px;
+}
+.note-template{
+  background-color: #42c4fe;
+  width: 300px;
+  height: 250px;
+  border-radius: 25px;
+  box-shadow: 0 1px 10px #7aa6bb;
+  margin: 10px;
+}
+.note.heading{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+}
+h1{
+  width: 260px;
+  height: 40px;
+  margin-block: 0;
+  margin-inline: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-body{
+  display: flex;
+  width: 260px;
+  height: 117px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-inline: 20px;
+}
+.note-footer{
+  display: flex;
+  align-items: flex-end;
+  margin-top: 20px;
+  margin-left: 60px;
 }
 /* NOTEPAD MODAL */
 .note-text-pad{
@@ -276,7 +357,7 @@ input{
   display: flex;
   justify-content: space-between;
   border-radius: 20px 20px 0 0;
-  padding: 5px 0 5px;
+  padding: 5px 10px 5px;
 }
 
 button{
@@ -296,6 +377,10 @@ button{
   margin-left: 15px;
 }
 
+h1{
+  margin-block: 15px;
+}
+
 h1 input{
   font-size: 30px;
   font-weight: bold;
@@ -305,9 +390,9 @@ h1 input{
 
 textarea{
   font-size: 15px;
-  padding: 10px;
+  padding: 10px 10px 0;
   border: none;
-  margin: 0 15px 10px;
+  margin: 0 15px 25px;
   resize: none;
   font-family: 'Inter';
   width: calc(100% - 30px);
@@ -315,6 +400,19 @@ textarea{
   height: 350px;
   overflow-y: auto;
 
+}
+
+#undoButton1, #redoButton1, #reminderButton1{
+  display: none;
+}
+.bottom-buttons{
+  padding: 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-delete #saveButton, #deleteButton{
+  padding-inline: 15px;
 }
 
 body.modal-open{
@@ -328,8 +426,91 @@ overflow: hidden;
   background-color: #3d3d3d;
 }
 
+.darkmode h1 input{
+background: none;
+}
+.darkmode textarea{
+  background-color: #3d3d3d;
+  color: white;
+}
+.darkmode #saveButton, #deleteButton {
+  color: white;
+}
 
-  /* NOTEPAD MODAL */
+/* NOTEPAD MODAL */
+/* VIEW NOTE MODAL */
+.view-note{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+}
+
+.view-note-modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.view-note-icon{
+  background-color: #D1E0E7;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px 20px 0 0;
+  padding: 5px 0 5px;
+}
+
+.view-note-content{
+  background-color: white;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  height: auto;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.view-heading{
+  width: 90%;
+  margin-left: 15px;
+}
+.view-content{
+  font-size: 15px;
+  padding: 10px 10px 0;
+  border: none;
+  margin: 0 15px 25px;
+  resize: none;
+  font-family: 'Inter';
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.darkmode .view-note-icon{
+  background-color: #354349;
+}
+.darkmode .view-note-content{
+  background-color: #3d3d3d;
+}
+/* VIEW NOTE MODAL */
   .notification-window {
     display: none;
     position: fixed;
@@ -403,7 +584,7 @@ background: none;
   background-color: #3d3d3d;
   color: white;
 }
-  /* NOTEPAD MODAL */
+
 
   /* DELETE SELECTED */
 
@@ -429,6 +610,7 @@ background: none;
   background-color: #c82333;
 }
 /* DELETE SELECTED */
+
 
 
   /* MOBILE STYLE */
