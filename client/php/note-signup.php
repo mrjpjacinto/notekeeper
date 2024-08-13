@@ -24,40 +24,39 @@
             <img src="/notekeeper/client/assets/note-app-logo.png"></a>
             <h2>Sign Up</h2>
             <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post">
-                <div class="input-name">
+                <div class="input-a">
                     <div class="input">
                         <label for="fname">First Name</label>
                         <input type="text" id="fname" name="fname" required> 
-                    </div>
-                    <div class="input">
-                        <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lname" required> 
-                    </div>
-                </div>
-                <div class="input-uname">
-                    <div class="input">
-                        <label for="uname">Username</label>
-                        <input type="text" id="uname" name="uname" required> 
                     </div>
                     <div class="input">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required> 
                     </div>
                 </div>
-                <div class="input">
+                <div class="input-b">
+                    <div class="input">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" required> 
+                    </div>
+                    <div class="input">
                     <label for="passwd">Password</label>
-                    <input type="password" id="passwd" name="passwd" required>
-                    <div class="show-password">
-                        <input type="checkbox" onclick="showPassword()">Show Password
+                    <input type="password" id="passwd" name="passwd" required> 
                     </div>
                 </div>
-                <div class="input">
-                    <label for="c-psword">Confirm Password</label>
-                    <input type="password" id="c-psword" name="c-psword" required>
-                    <div class="show-password">
-                        <input type="checkbox" onclick="showConfirmPassword()">Show Password
+                <div class="input-c">
+                    <div class="input">
+                        <label for="uname">Username</label>
+                        <input type="text" id="uname" name="uname" required>
                     </div>
-                </div>
+                    <div class="input">
+                        <label for="c-psword">Confirm Password</label>
+                        <input type="password" id="c-psword" name="c-psword" required>
+                        <div class="show-password">
+                            <input type="checkbox" onclick="showPassword()">Show Password
+                        </div>
+                    </div>
+                </div> 
                 <button class="click" type="submit">Sign Up</button>
                 <p>Already have an account? <a href="/notekeeper/client/php/note-login.php">Log in!</a></p>
             </form>

@@ -39,6 +39,7 @@ body{
 
 .input label{
     padding-left: 5px;
+    padding-bottom: 3px;
 }
 
 input{
@@ -57,7 +58,7 @@ button{
     background-color: #27AAFF;
     border-radius: 10px;
     margin-top: 20px;
-    width: 250px;
+    width: 300px;
     height: 40px;
     font-size: 20px;
     color: white;
@@ -65,7 +66,7 @@ button{
 
 .click{
     color: #f2f2f2;
-    margin-top: 40px;
+    margin-top: 100px;
 }
 
 button:hover{
