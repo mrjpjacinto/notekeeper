@@ -23,6 +23,30 @@ window.onload = function() {
   document.getElementById('noteTextPad').style.display = 'none';
 }
 
+function openNote() {
+  document.getElementById('noteTextPad').style.display = 'flex';
+  document.body.classList.add('modal-open');
+}
+
+function closeNote() {
+  document.getElementById('noteTextPad').style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
+function openViewNote() {
+  document.getElementById('viewNote').style.display = 'flex';
+}
+function closeViewNote() {
+  document.getElementById('viewNote').style.display = 'none';
+}
+
+function openEditNote() {
+  document.getElementById('editNote').style.display = 'flex';
+}
+function closeEditNote() {
+  document.getElementById('editNote').style.display = 'none';
+}
+
 function openNotification() {
   document.getElementById("notification").style.display = "flex";
   document.body.classList.add("modal-open");
@@ -39,16 +63,6 @@ window.addEventListener("click", function(event) {
       closeNotification();
   }
 });
-
-function openNote() {
-  document.getElementById('noteTextPad').style.display = 'flex';
-  document.body.classList.add('modal-open');
-}
-
-function closeNote() {
-  document.getElementById('noteTextPad').style.display = 'none';
-  document.body.classList.remove('modal-open');
-}
 
 function toggleMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -96,6 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+document.getElementById('noteForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+  submitNote();
+});
+
 function deleteSelected() {
   var deleteButton = document.getElementById("delete-selected-button");
 
@@ -105,3 +124,22 @@ function deleteSelected() {
       deleteButton.style.display = "none";
   }
 }
+
+
+function setupCharCount(textareaId, charCountId) {
+  const textarea = document.getElementById(textareaId);
+  const charCountSpan = document.getElementById(charCountId);
+  const maxLength = textarea.getAttribute('maxlength');
+
+  function updateCharCount() {
+      const currentLength = textarea.value.length;
+      charCountSpan.textContent = `${currentLength}`;
+  }
+  updateCharCount();
+
+  textarea.addEventListener('input', updateCharCount);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  setupCharCount('noteContent', 'charCount'); 
+  setupCharCount('editNoteContent', 'editCharCount'); 
+});

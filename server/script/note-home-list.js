@@ -23,7 +23,6 @@ window.onload = function() {
   document.getElementById('noteTextPad').style.display = 'none';
 }
 
-
 function openNote() {
   document.getElementById('noteTextPad').style.display = 'flex';
   document.body.classList.add('modal-open');
@@ -39,6 +38,13 @@ function openViewNote() {
 }
 function closeViewNote() {
   document.getElementById('viewNote').style.display = 'none';
+}
+
+function openEditNote() {
+  document.getElementById('editNote').style.display = 'flex';
+}
+function closeEditNote() {
+  document.getElementById('editNote').style.display = 'none';
 }
 
 function openNotification() {
@@ -119,14 +125,21 @@ function deleteSelected() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const charCountElem = document.getElementById('charCount');
-  const noteContentElem = document.getElementById('noteContent');
+
+function setupCharCount(textareaId, charCountId) {
+  const textarea = document.getElementById(textareaId);
+  const charCountSpan = document.getElementById(charCountId);
+  const maxLength = textarea.getAttribute('maxlength');
 
   function updateCharCount() {
-      const currentLength = noteContentElem.value.length;
-      charCountElem.textContent = currentLength;
+      const currentLength = textarea.value.length;
+      charCountSpan.textContent = `${currentLength}`;
   }
+  updateCharCount();
 
-  noteContentElem.addEventListener('input', updateCharCount);
+  textarea.addEventListener('input', updateCharCount);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  setupCharCount('noteContent', 'charCount'); 
+  setupCharCount('editNoteContent', 'editCharCount'); 
 });
