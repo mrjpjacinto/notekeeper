@@ -14,10 +14,27 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
 $user_id = $_SESSION['id']; // Get the logged-in user's ID
 
-// Fetch notes from the database for the logged-in user
-$sql = "SELECT * FROM notes WHERE user_id = ? ORDER BY date_created DESC";
+// Initialize search term
+$search_term = isset($_GET['search']) ? $_GET['search'] : '';
+
+// Prepare SQL query with search functionality
+$sql = "SELECT * FROM notes WHERE user_id = ?";
+$params = [$user_id];
+$types = 'i';
+
+// Append search term to SQL query if provided
+if (!empty($search_term)) {
+    $sql .= " AND title LIKE ?";
+    $params[] = '%' . $search_term . '%';
+    $types .= 's'; // Add 's' for string type
+}
+
+// Order by date_created DESC
+$sql .= " ORDER BY date_created DESC";
+
+// Prepare and execute the statement
 if ($stmt = $conn->prepare($sql)) {
-    $stmt->bind_param("i", $user_id); // Bind the user ID parameter
+    $stmt->bind_param($types, ...$params); // Bind parameters
     if ($stmt->execute()) {
         $result = $stmt->get_result();
     } else {
@@ -108,14 +125,22 @@ if ($stmt = $conn->prepare($sql)) {
                 </button>
             </div>
             
-            <div class="right-nav1">
-                <div class="input-1">
-                    <button id="search-icon" >
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                    <input class="search-bar" type="text" placeholder="Search notes...">
+            <form id="searchForm" action="" method="get">
+                <div class="right-nav1">
+                    <div class="input-1">
+                        <button id="search-icon" type="submit">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                        <input class="search-bar" type="text" name="search" placeholder="Search notes..." value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
+                        <!-- Clear Search Button -->
+                        <?php if (!empty($_GET['search'])): ?>
+                            <a href="note-home-list.php" id="clear-search">
+                                <span class="material-symbols-outlined">close</span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="note-list">
