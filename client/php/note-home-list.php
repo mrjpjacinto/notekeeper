@@ -55,15 +55,15 @@ if ($stmt = $conn->prepare($sql)) {
                     
                     <div class="dropdown-display">
                         <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                        <p> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
-                        <p><?php echo ($email); ?></p>
+                        <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
+                        <p id="un"><?php echo ($email); ?></p>
                     </div>
 
                     <div class="dropdown-option">
                         <div class="option-1"> 
                             <a href="#">
-                                <span class="material-symbols-outlined"> info </span></a>
-                            <p> About </p>
+                                <span class="material-symbols-outlined"> info </span>
+                            <p> About </p></a>
                         </div>
                          
                         <div class="option-2"> 
