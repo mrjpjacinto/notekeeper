@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         successToast.style.display = 'flex';
         setTimeout(() => {
             successToast.style.display = 'none';
-            window.location.href = "/notekeeper/client/php/note-home-list.php"; 
+            window.location.href = "/notekeeper/client/php/note-home-tiles.php"; 
         }, 1000); 
     }
 });

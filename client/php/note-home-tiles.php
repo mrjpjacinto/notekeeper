@@ -2,6 +2,13 @@
 session_start();
 include '/xampp/htdocs/notekeeper/server/db-conn.php';
 
+// Define the formatDate function
+function formatDate($date) {
+    $datetime = new DateTime($date);
+
+    return $datetime->format('Y-m-d H:i:s');
+}
+
 // Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
     header("Location: /notekeeper/client/php/note-login.php");
@@ -86,7 +93,7 @@ if ($stmt = $conn->prepare($sql)) {
                         </div>
                         
                         <div class="option-2">
-                            <a href="#">
+                            <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
                             <span class="material-symbols-outlined"> logout </span> 
                             <p> Log Out </p> </a>
                         </div>
@@ -147,6 +154,9 @@ if ($stmt = $conn->prepare($sql)) {
             <?php
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                     // Format the date
+                     $formattedDate = formatDate($row['date_created']);
+                    
                     echo '<div class="note-template" onclick="openViewNote()">';
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
@@ -154,7 +164,7 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '<div class="heading-tools">';
                     echo '</div></div>';
                     echo '<div class="note-body">' . htmlspecialchars($row['content']) . '</div>';
-                    echo '<div class="note-footer">' . $row['date_created'] . '</div>';
+                    echo '<div class="note-footer">' . htmlspecialchars($formattedDate) . '</div>';
                     echo '</div></div>';
                 }
             } else {
@@ -199,7 +209,7 @@ if ($stmt = $conn->prepare($sql)) {
             </div>
             <div class="textpad">
                 <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
-                <input type="hidden" name="redirect" value="note-home-list.php">
+                <input type="hidden" name="redirect" value="note-home-tiles.php">
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
