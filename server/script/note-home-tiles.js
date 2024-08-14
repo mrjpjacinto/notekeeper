@@ -33,13 +33,21 @@ function closeNote() {
   document.body.classList.remove('modal-open');
 }
 
-function openViewNote() {
+// for viewing the note
+function openViewNote(element) {
+  const title = element.getAttribute('data-title');
+  const content = element.getAttribute('data-content');
+  
+  document.querySelector('.view-heading h1').textContent = title;
+  document.querySelector('.view-content p').textContent = content;
+  
   document.getElementById('viewNote').style.display = 'flex';
 }
+
 function closeViewNote() {
   document.getElementById('viewNote').style.display = 'none';
 }
-
+// for viewing the note
 function openEditNote() {
   document.getElementById('editNote').style.display = 'flex';
 }
@@ -143,3 +151,5 @@ document.addEventListener('DOMContentLoaded', function() {
   setupCharCount('noteContent', 'charCount'); 
   setupCharCount('editNoteContent', 'editCharCount'); 
 });
+
+

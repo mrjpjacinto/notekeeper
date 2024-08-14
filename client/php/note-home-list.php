@@ -157,7 +157,7 @@ if ($stmt = $conn->prepare($sql)) {
                     // Format the date
                     $formattedDate = formatDate($row['date_created']);
                     
-                    echo '<div class="note-template" onclick="openViewNote()">';
+                    echo '<div class="note-template" onclick="openViewNote(this)" data-title="' . htmlspecialchars($row['title']) . '" data-content="' . htmlspecialchars($row['content']) . '">';
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
                     echo '<h1>' . htmlspecialchars($row['title']) . '</h1>';
