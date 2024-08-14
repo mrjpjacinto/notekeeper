@@ -86,7 +86,7 @@ if ($stmt = $conn->prepare($sql)) {
 
                     <div class="dropdown-option">
                         <div class="option-1"> 
-                            <a href="#">
+                            <a href="/notekeeper/client/php/note-about.php">
                                 <span class="material-symbols-outlined"> info </span>
                             <p> About </p></a>
                         </div>
@@ -213,10 +213,10 @@ if ($stmt = $conn->prepare($sql)) {
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
-                    <textarea id="noteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
                     <footer>
-                        <div class="char-count">
-                            Word Count: <span id="charCount">0</span>/1250
+                        <div class="word-count">
+                            Word Count: <span id="wordCount">0</span>/250
                         </div>
                         <div class="bottom-buttons">
                             <div class="undo-redo">
@@ -305,10 +305,10 @@ if ($stmt = $conn->prepare($sql)) {
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
-                    <textarea id="editNoteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <textarea id="editNoteContent" name="content" placeholder="Enter content..." required></textarea>
                     <footer>
-                        <div class="char-count">
-                            Word Count: <span id="editCharCount">0</span>/1250
+                        <div class="word-count">
+                            Word Count: <span id="editWordCount">0</span>/250
                         </div>
                         <div class="bottom-buttons">
                             <div class="undo-redo">
