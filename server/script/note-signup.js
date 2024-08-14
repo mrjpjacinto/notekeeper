@@ -16,9 +16,9 @@ function showConfirmPassword() {
     }
   }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+  // for toast notification 
+  document.addEventListener('DOMContentLoaded', (event) => {
     const successToast = document.getElementById('success-toast');
-
     const successMsg = document.getElementById('success-msg');
     if (successMsg) {
         successToast.textContent = successMsg.textContent;
@@ -28,4 +28,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
             window.location.href = "/notekeeper/client/php/note-login.php"; 
         }, 2000); 
     }
+
+    const errorToast = document.getElementById('error-toast');
+    const errorMsg = document.getElementById('error-msg');
+    if (errorMsg) {
+        errorToast.textContent = errorMsg.textContent;
+        errorToast.style.display = 'flex';
+        setTimeout(() => {
+            errorToast.style.display = 'none';
+        }, 2000); 
+    }
 });
+// for toast notification

@@ -1,6 +1,5 @@
 <?php
   session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- for toast notification -->
     <div class="toast success-toast" id="success-toast"></div>
-    <?php if (isset($_SESSION['success'])): ?>
-        <p class="hidden" id="success-msg"><?php echo $_SESSION['success']; ?></p>
-        <?php unset($_SESSION['success']); ?>
-    <?php endif; ?>
+        <?php if (isset($_SESSION['success'])): ?>
+            <p class="hidden" id="success-msg"><?php echo $_SESSION['success']; ?></p>
+            <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+
+        <div class="toast error-toast" id="error-toast"></div>
+        <?php if (isset($_SESSION['error'])): ?>
+            <p class="hidden" id="error-msg"><?php echo $_SESSION['error']; ?></p>
+            <?php unset($_SESSION['error']); ?>
+        <?php endif; ?>
+    <!-- for toast notification -->
     <div class="main-container">
         <div class="signup">
             <a href="/notekeeper/index.php">
