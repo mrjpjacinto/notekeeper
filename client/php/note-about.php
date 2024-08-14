@@ -46,12 +46,79 @@
             </div>
             <!-- DROPDOWN -->
         </div>
+        <!-- NAV -->
+        <div class="topnav1">
+            <div class="left-nav1">
+                <button onclick="goBack()">
+                <span class="material-symbols-outlined">
+                    arrow_back
+                    </span>
+                </button>
+            </div>
+        </div>
+        <!-- NAV -->
+         <!-- ABOUT CONTENTS -->
+          <!-- ABOUT NOTEKEEPER -->
         <div class="about-contents">
-            <h1>About Notekeeper</h1>
+            <h1>About</h1>
+            <h2>About NoteKeeper</h2>
+            <p>NoteKeeper is a note-taking website for you to take down notes, to remind you things to do, and to jot down ideas from your creative mind.</p>
             <p></p>
         </div>
-        <div class="team">
+        <!-- ABOUT NOTEKEEPER -->
+         <!-- MEET THE TEAM -->
+          <div class="team-bg">
+            <div class="team">
+                <h2>Meet the Team!</h2>
+                <div class="team-pic">
+                    <img src="\notekeeper\client\assets\image-placeholder.webp">
+                </div>
+                <div class="team-pic">
+                    <img src="\notekeeper\client\assets\image-placeholder.webp">
+                </div>
+                <div class="team-pic">
+                    <img src="\notekeeper\client\assets\image-placeholder.webp">
+                </div>
+                <div class="team-pic">
+                    <img src="\notekeeper\client\assets\image-placeholder.webp">
+                </div>
+                <div class="team-pic">
+                    <img src="\notekeeper\client\assets\image-placeholder.webp">
+                </div>
+                <div class="scroll-buttons">
+                    <a class="prev" onclick="scrollPic(-1)">
+                        <span class="material-symbols-outlined">arrow_back_ios</span>
+                    </a>
+                    <a class="next" onclick="scrollPic(1)">
+                        <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    </a>
+                </div>
+
+                <div class="team-name">
+                    <p id="teamName">0</p>
+                </div>
+
+                <div class="team-pic-row">
+                    <div class="team-pic-column">
+                        <img class="demo cursor" src="\notekeeper\client\assets\image-placeholder-2.png" onclick="teamPic(1)" alt="Name 1">
+                    </div>
+                    <div class="team-pic-column">
+                        <img class="demo cursor" src="\notekeeper\client\assets\image-placeholder-2.png" onclick="teamPic(2)" alt="Name 2">
+                    </div>
+                    <div class="team-pic-column">
+                        <img class="demo cursor" src="\notekeeper\client\assets\image-placeholder-2.png" onclick="teamPic(3)" alt="Name 3">
+                    </div>
+                    <div class="team-pic-column">
+                        <img class="demo cursor" src="\notekeeper\client\assets\image-placeholder-2.png" onclick="teamPic(4)" alt="Name 4">
+                    </div>
+                    <div class="team-pic-column">
+                        <img class="demo cursor" src="\notekeeper\client\assets\image-placeholder-2.png" onclick="teamPic(5)" alt="Name 5">
+                    </div>
+                </div>
+            </div>
+        <!-- MEET THE TEAM -->
         </div>
+        <!-- ABOUT CONTENTS -->
     </div>
 </body>
 <html>

@@ -299,9 +299,9 @@ input{
 }
 .note-card{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  margin-inline: 40px;
+  margin-inline: 80px;
   margin-block: 40px;
 }
 .note-template{
@@ -457,7 +457,7 @@ textarea{
   color: black;
 }
 
-.char-count{
+.word-count{
   text-align: left;
   margin: 0 15px 5px;
   font-size: 14px;
