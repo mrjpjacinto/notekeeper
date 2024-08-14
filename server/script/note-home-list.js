@@ -134,20 +134,27 @@ function deleteSelected() {
 }
 
 
-function setupCharCount(textareaId, charCountId) {
-  const textarea = document.getElementById(textareaId);
-  const charCountSpan = document.getElementById(charCountId);
-  const maxLength = textarea.getAttribute('maxlength');
-
-  function updateCharCount() {
-      const currentLength = textarea.value.length;
-      charCountSpan.textContent = `${currentLength}`;
-  }
-  updateCharCount();
-
-  textarea.addEventListener('input', updateCharCount);
-}
 document.addEventListener('DOMContentLoaded', function() {
-  setupCharCount('noteContent', 'charCount'); 
-  setupCharCount('editNoteContent', 'editCharCount'); 
+  const noteContent = document.getElementById('noteContent');
+  const editNoteContent = document.getElementById('editNoteContent');
+  const wordCountDisplay = document.getElementById('wordCount');
+  const editWordCountDisplay = document.getElementById('editWordCount');
+  const MAX_WORD_COUNT = 250; // Maximum allowed word count
+
+  function updateWordCount(textarea, displayElement) {
+      textarea.addEventListener('input', function() {
+          const text = textarea.value.trim();
+          const words = text ? text.split(/\s+/) : [];
+          let wordCount = words.length;
+          if (wordCount > MAX_WORD_COUNT) {
+              wordCount = MAX_WORD_COUNT;
+              // Optionally, you can truncate the text to fit the word limit here.
+              textarea.value = words.slice(0, MAX_WORD_COUNT).join(' ');
+          }
+          displayElement.textContent = wordCount;
+      });
+  }
+
+  updateWordCount(noteContent, wordCountDisplay);
+  updateWordCount(editNoteContent, editWordCountDisplay);
 });

@@ -37,3 +37,37 @@ window.onclick = function(event) {
     }
   }
 }
+function goBack() {
+  window.history.back();
+}
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function scrollPic(n) {
+    showSlides(slideIndex += n);
+}
+
+function teamPic(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("team-pic");
+    let dots = document.getElementsByClassName("demo");
+    let captionName = document.getElementById("teamName");
+
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionName.innerHTML = dots[slideIndex-1].alt;
+}

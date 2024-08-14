@@ -60,7 +60,7 @@ if ($stmt = $conn->prepare($sql)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/notekeeper/client/style/note-home-tiles.css">
-    <script src="/notekeeper/server/script/note-home-tiles.js"></script>
+    <script src="/notekeeper/server/script/note-home-tiles.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -87,7 +87,7 @@ if ($stmt = $conn->prepare($sql)) {
                     <div class="dropdown-option">
 
                         <div class="option-1">
-                            <a href="#">
+                            <a href="/notekeeper/client/php/note-about.php">
                             <span class="material-symbols-outlined"> info </span> 
                             <p> About </p> </a>
                         </div>
@@ -211,12 +211,12 @@ if ($stmt = $conn->prepare($sql)) {
                 <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
                 <input type="hidden" name="redirect" value="note-home-tiles.php">
                     <h1>
-                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
+                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." required>
                     </h1>
-                    <textarea id="noteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <textarea id="noteContent" name="content" placeholder="Enter content..." required></textarea>
                     <footer>
-                        <div class="char-count">
-                            Word Count: <span id="charCount">0</span>/1250
+                        <div class="word-count">
+                            Word Count: <span id="wordCount">0</span>/250
                         </div>
                         <div class="bottom-buttons">
                             <div class="undo-redo">
@@ -305,10 +305,10 @@ if ($stmt = $conn->prepare($sql)) {
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
-                    <textarea id="editNoteContent" name="content" placeholder="Enter content..." maxlength="1250" required></textarea>
+                    <textarea id="editNoteContent" name="content" placeholder="Enter content..." required></textarea>
                     <footer>
-                        <div class="char-count">
-                            Word Count: <span id="editCharCount">0</span>/1250
+                        <div class="word-count">
+                            Word Count: <span id="editWordCount">0</span>/250
                         </div>
                         <div class="bottom-buttons">
                             <div class="undo-redo">
@@ -328,7 +328,7 @@ if ($stmt = $conn->prepare($sql)) {
                 </form>
             </div>
         </div>
-        </div>
+    </div>
        <!-- EDIT NOTE MODAL -->
         <div class="notification-window" id="notification">
             <div class="notif">

@@ -170,37 +170,10 @@ a{
     color: #42C4FE;
     cursor: pointer;
 }
-
 button{
     border: none;
     background: none;
 }
-
-.right-nav{
-    display: flex;
-}
-
-.input-1{
-    padding: 0;
-    display: flex;
-}
-
-input{
-    width: 200px;
-    border: none;
-    border-radius: 5px;
-    font-size: 17px;
-    padding-left: 10px;
-}
-
-#close-icon {
-    position: absolute;
-    display: flex;
-    margin-left: 230px;
-    opacity: 40%;
-}
-
-
 
 /* NAVBAR */
 
@@ -222,7 +195,107 @@ input{
 .darkmode .dropdown-option{
     background-color: #515151;
 }
-h1{
+
+/* ABOUT */
+h1, h2, p{
     display: flex;
     justify-content: center;
 }
+
+h1{
+    font-size: 50px;
+}
+
+h2{
+    font-size: 30px;
+}
+/* ABOUT */
+/* TEAM */
+
+*{
+    box-sizing: border-box;
+}
+
+.team-bg{
+    background-color: #a9e4ff;
+}
+
+.team{
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+
+.team-pic{
+    display: none
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.team-pic img{
+    width: 100%;
+}
+
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    color: #f1f1f1
+}
+
+.prev span{
+    font-size: 15px;
+}
+.next span{
+    font-size: 15px;
+}
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover{
+    background-color: #334249;
+}
+
+.team-name{
+    text-align: center;
+    background-color: #42C4FE;
+    padding: 2px 16px;
+    color: black;
+}
+
+.team-pic-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-pic-column img{
+    width: 100%;
+}
+
+.team-pic-column{
+    flex: 1;
+    margin: 5px;
+}
+.demo{
+    opacity: 0.6;
+}
+
+.active, .demo:hover{
+    opacity: 1;
+}
+/* TEAM */
