@@ -48,7 +48,7 @@
                     </div>
                     <div class="input">
                     <label for="password">Confirm Password</label>
-                    <input type="passwd" id="passwd" name="passwd" required> 
+                    <input type="password" id="passwd" name="passwd" required> 
                      <div class="show-password">
                         <input type="checkbox" onclick="showPassword()">Show Password
                         </div>
