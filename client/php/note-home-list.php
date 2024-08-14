@@ -202,7 +202,7 @@ if ($stmt = $conn->prepare($sql)) {
                     <button id="format">
                         <span class="material-symbols-outlined">format_color_text</span>
                     </button>
-                    <button id="reminderButton">
+                    <button id="reminderButton" onclick="setReminder()">
                         <span class="material-symbols-outlined">add_alert</span>
                     </button>
                 </div>
@@ -238,6 +238,22 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
        <!-- NOTEPAD MODAL -->
     </div>
+    <!--SET REMINDER -->
+    <div class="reminder-modal" id="reminderModal">
+        <div class="reminder-input">
+            <label for="setReminder">Set Reminder:</label>
+            <input type="datetime-local" id="setReminder" name="setReminder">
+            <div class="reminder-buttons">
+                <button type="submit" id="confirmSet">
+                    Set
+                </button>
+                <button id="cancel" onclick="closeReminder()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--SET REMINDER -->
     <!-- VIEW NOTE MODAL -->
     <div class="view-note" id="viewNote">
         <div class="view-note-modal">
@@ -294,7 +310,7 @@ if ($stmt = $conn->prepare($sql)) {
                     <button id="format">
                         <span class="material-symbols-outlined">format_color_text</span>
                     </button>
-                    <button id="reminderButton">
+                    <button id="reminderButton" onclick="setReminder()">
                         <span class="material-symbols-outlined">add_alert</span>
                     </button>
                 </div>
@@ -330,18 +346,29 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
        <!-- EDIT NOTE MODAL -->
     </div>
-        <div class="notification-window" id="notification">
-            <div class="notif">
-                <div class="notif-icon">
-                </div>
-                <div class="notif-content">
-                    <h2>Reminders</h2>       
-                    <p> Notes with upcoming Reminders <br> appear here </p>
-                    <span id="notif-message"></span>
-                    <button onclick="closeNotification()">Close</button>
-                </div>
+    <div class="notification-window" id="notification">
+        <div class="notif">
+            <div class="notif-content">
+                <header><h2>Reminders</h2>  </header>
+                <div class="notif-display">
+                    <div class="notif-template">
+                        <header><h4>Title</h4></header>
+                        <p>Content</p>
+                        <footer id="date-time"> <p> date and time </p> </footer>
+                    </div>
+                    <div class="notif-template">
+                    </div>
+                    <div class="notif-template">
+                    </div>
+                    <div class="notif-template">
+                    </div>
+                </div>    
+                <p id="info"> Notes with upcoming Reminders <br> appear here </p>
+                <span id="notif-message"></span>
+                <footer><button onclick="closeNotification()">Close</button></footer>
             </div>
         </div>
+    </div>
     <!-- DELETE SELECTED -->
         <div class="delete" id="delete-selected-button">
             <div class="delete-icon">Delete Selected</div>

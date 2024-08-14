@@ -150,3 +150,37 @@ document.addEventListener('DOMContentLoaded', function() {
   updateWordCount(noteContent, wordCountDisplay);
   updateWordCount(editNoteContent, editWordCountDisplay);
 });
+
+
+var modal = document.getElementById('reminderModal');
+
+function setReminder() {
+    modal.style.display = 'flex';
+}
+
+function closeReminder() {
+    modal.style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  const reminderInput = document.getElementById('setReminder');
+  const confirmSetButton = document.getElementById('confirmSet');
+
+  function checkReminder() {
+    if (reminderInput.value.trim() === '') {
+      confirmSetButton.disabled = true;
+    } else {
+      confirmSetButton.disabled = false;
+    }
+  }
+
+  checkReminder();
+
+  reminderInput.addEventListener('input', checkReminder);
+});
