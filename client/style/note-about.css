@@ -298,4 +298,7 @@ h2{
 .active, .demo:hover{
     opacity: 1;
 }
+.darkmode .team-bg{
+background-color: #004480;
+}
 /* TEAM */
