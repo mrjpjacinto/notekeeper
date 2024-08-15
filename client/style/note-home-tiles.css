@@ -714,7 +714,7 @@ background: none;
 
 .notif-content header, .notif-content footer{
   width: 80%;
-  height: 20%;
+  height: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -722,57 +722,62 @@ background: none;
 
 .notif-display {
   width: 100%;
+  height: 350px;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding-top: 20px;
+  padding: 0;
+  overflow-y: auto;
 }
 
 /* NOTIF TEMPLATE */
 .notif-template{
-  background-color:#cacaca;
-  border-radius: 5px;
-  width: 150px;
-  height: 100px;
-  margin-block: 10px;
-  margin-inline: 8px;
-  text-align: left;
-  font-size: 13px;
+background-color:#cacaca;
+border-radius: 5px;
+width: 150px;
+height: 100px;
+margin-block: 10px;
+margin-inline: 8px;
+text-align: left;
+font-size: 13px;
 }
 
 .notif-template header{
-  text-align: left;
-  margin-top: 10px;
+text-align: left;
+margin-top: 10px;
 }
 .notif-template h4{
-  margin-block: 8px ;
-  width: 100%;
-  margin-left: 10px;
-  font-size: 16px;
+margin-block: 8px ;
+width: 100%;
+margin-left: 10px;
+font-size: 16px;
 }
 
 .notif-template p{
-  width: 100%;
-  margin-block: 10px;
-  margin-left: 10px;
+width: 80%;
+margin-block: 10px;
+margin-left: 10px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
 }
 
 .notif-template footer{
-  width: 100%;
-  text-align: right;
-  margin-top: 22px;
-  font-size: 10px;
+width: 100%;
+text-align: right;
+margin-top: 22px;
+font-size: 10px;
 }
 p{
-  margin-right: 15px;
-  font-size: 8x;
+margin-right: 15px;
+font-size: 10px;
 }
 /* NOTIF TEMPLATE */
 
 .notif-content #info{
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -1137,7 +1142,30 @@ p{
     font-size: 8px;
     margin: 0;
   }
-  
+  .notif{
+    max-width: 80%;
+  }
+  .notif-content{
+    width: 200px;
+    height: 550px;
+  }
+  .notif-content p{
+    font-size: 10px;
+}
+  .notif-display{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .notif-template{
+    height: 80px;
+  }
+  .notif-template footer{
+    margin-top: 15px;
+  }
+  #format{
+    display: none;
+}
 }
 
 /* TABLET STYLE */
@@ -1200,6 +1228,9 @@ p{
     margin-top: 20px;
     margin-left: 115px;
     font-size: 10px;
+  }
+  .notif-content{
+    width: 350px;
   }
 
 }
