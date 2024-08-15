@@ -7,14 +7,19 @@ function showPassword() {
     }
   }
 
-function showConfirmPassword() {
-    var x = document.getElementById("c-psword");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
-    }
+function showPassword() {
+  var password = document.getElementById("passwd");
+  var confirmPassword = document.getElementById("c-passwd");
+  var checkbox = document.getElementById("show-password");
+
+  if (checkbox.checked){
+    password.type = "text";
+    confirmPassword.type = "text";
+  } else {
+    password.type = "password";
+    confirmPassword.type = "password";
   }
+}
 
   // for toast notification 
   document.addEventListener('DOMContentLoaded', (event) => {
