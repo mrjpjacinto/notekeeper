@@ -301,54 +301,57 @@ input{
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin-inline: 80px;
-  margin-block: 40px;
+  margin-inline: 50px;
+  margin-block: 50px;
 }
 .note-template{
   background-color: #42c4fe;
-  width: 300px;
-  height: 250px;
+  width: 250px;
+  height: 200px;
   border-radius: 15px;
   box-shadow: 0 1px 10px #7aa6bb;
-  margin: 10px;
+  margin: 8px;
   cursor: pointer;
 }
+
+
 .note-heading{
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 0;
+  margin-inline: 15px;
 }
 
 #note-title{
-  width: 260px;
+  width: 205px;
   height: 40px;
-  margin-top: 13px;
+  margin-top: 15px;
   margin-bottom: 9px;
 }
 
 .note-template h1{
-  width: 260px;
-  height: 40px;
+  width: 220px;
+  height: 20px;
   margin-top: 13px;
   margin-bottom: 10px;
-  margin-inline: 20px;
+  margin-inline: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .note-body{
   display: flex;
-  width: 260px;
-  height: 141px;
+  width: 200px;
+  height: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-inline: 20px;
+  margin-inline: 25px;
 }
 .note-footer{
   display: flex;
   align-items: flex-end;
-  margin-top: 23px;
-  margin-left: 160px;
+  margin-top: 15px;
+  margin-left: 110px;
   font-size: 12px;
   opacity: 50%;
 }
@@ -927,8 +930,8 @@ p{
   /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
   html{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 
   /* NAVBAR-TOP */
@@ -972,26 +975,37 @@ p{
   /* BODY */
 
   .note-card{ 
-    margin: 20px;
-    margin-inline: 5px;
+    margin-block: 18px;
+    margin-inline: 8px;
     gap: 5px;
   }
 
   .note-template{
-    width: 43%;
+    width: 47%;
     height: 160px;
     margin: 0;
+    margin: 2px;
   }
 
   #note-title{
-    margin-block: 10px;
-    margin-inline: 15px;
+    margin: 0;
     font-size: 20px;
     height: 25px;
   }
 
+  .note-heading{
+    width: 78%;
+    height: 20px;
+    margin-inline: 15px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+  }
+
   .note-content{
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    width: 100%;
     margin: 0;
   }
 
@@ -999,11 +1013,18 @@ p{
     margin-inline: 15px;
     margin-block: 0;
     font-size: 10px;
-    height: 100px;
+    height: 90px;
+    width: 78%;
+    padding-right: 3px;
   }
 
   .note-footer{
-    margin-left: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-left: 28%;
+    padding-right: 20px;
+    padding-top: 10px;
     font-size: 8px;
     margin: 0;
   }
@@ -1013,8 +1034,8 @@ p{
 /* TABLET STYLE */
 @media only screen and (min-width: 601px) and (max-width: 1024px){
   html{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 
   .topnav{
