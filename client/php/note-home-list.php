@@ -228,7 +228,6 @@ if ($stmt = $conn->prepare($sql)) {
                                 </button>
                             </div>
                             <div class="save-delete">
-                                <button id="deleteButton">Delete</button>
                                 <button id="saveButton" type="submit">Save</button>
                             </div>
                         </div>
@@ -274,8 +273,7 @@ if ($stmt = $conn->prepare($sql)) {
                 <div class="view-content"><p>Content...</p></div>
             <footer>
                 <div class="save-delete">
-                    <button id="deleteButton">Delete</button>
-                    <button id="saveButton" type="submit">Save</button>
+                    <button id="deleteButton" onclick="deleteSelectedNotes()">Delete</button>
                 </div>
             </footer>
             </div>
@@ -336,7 +334,6 @@ if ($stmt = $conn->prepare($sql)) {
                                 </button>
                             </div>
                             <div class="save-delete">
-                                <button id="deleteButton">Delete</button>
                                 <button id="saveButton" type="submit">Save</button>
                             </div>
                         </div>
