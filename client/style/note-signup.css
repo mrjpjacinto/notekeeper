@@ -1,3 +1,8 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
 body{
     font-family: Inter;
     font-size: 15px;
@@ -192,85 +197,99 @@ button:hover{
 
 /* MOBILE */
 @media only screen and (max-width: 600px) {
-    body{
+
+    body {
         font-size: 13px;
         background-color: white;
         display: flex;
         justify-content: center;
+        align-items: center;
         text-align: center;
-        top: 0;
-        left: 0;
-        margin: auto;
-        height: 100%;
-        width: 100%;
+        margin: 0;
     }
 
-    .signup img{
+    .main-container{
+        width: 320px;
+    }
+
+    .signup img {
         width: 50px;
+        margin-bottom: 10px;
     }
 
-    h2{
-        margin: 5px;
+    h2 {
+        margin: 10px 0;
     }
 
-    .signup{
-        height: 90%;
-        width: 80%;
-        padding: 20px;
+    .signup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
         background: none;
         border-radius: 15px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        position: absolute;
         box-shadow: none;
+        position: relative;
+        padding: 0;
+        margin: 10px;
+        margin-top: 200px;
     }
 
-    .input{
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        padding: 10px;
-    }
-    
-    .input-name{
-        display: flex;
-        justify-content: space-around;
-    }
-    .input-uname{
+    .signup form{
         display: flex;
         flex-direction: column;
     }
+
+
+    .input-left{
+        display: flex;
+        flex-direction: column;
+        font-size: 12px; 
+        gap: 0;
+    }
     
-    input{
+    .input-a, .input-b {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .input-c{
+        display: flex;
+        position: absolute;
+        width: 92%;
+    }
+
+    .image{
+        width: 93%;
+    }
+
+
+    .signup-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 90%;
+        margin-top: 300px;
     }
 
-    .input-name input{
-        width: 79%;
-    }
-    .input-uname input{
-        width: 90%;
-    }
-    .signup img{
-        width: 50px;
+    .show-password input {
+        width: auto;
+        height: auto;
     }
 
-    .show-password input{
-        width: 20px;
-        height: 10px;
+    .click {
+        width: 280px;
+        padding: 10px; 
+        font-size: 16px;
+        margin-top: 20px;
     }
 
-    .button{
-        margin-top: 10x;
-        width: 100px;
-        height: 30px;
-        font-size: 15px
+    p {
+        margin: 10px;
     }
 }
-/* MOBILE */
 
 /* TABLET */
 @media only screen and (min-width: 601px) and (max-width: 1024px){
