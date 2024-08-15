@@ -311,22 +311,10 @@ button:hover{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     
-    .input-name{
+    form{
         display: flex;
         justify-content: space-between;
     }
-    .input-uname{
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .input-name input{
-        width: 250px;
-    }
-    .input-uname input{
-        width: 250px;
-    }
-    
     .input{
         display: flex;
         flex-direction: column;
@@ -351,6 +339,7 @@ button:hover{
     
     .click{
         color: #f2f2f2;
+        margin-top: 50px;
     }
     
     button{
