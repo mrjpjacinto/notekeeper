@@ -125,7 +125,7 @@ if ($stmt = $conn->prepare($sql)) {
                     </span>
                 </button>
                 <button>
-                    <span class="material-symbols-outlined" onclick="deleteSelected()">
+                    <span class="material-symbols-outlined" onclick="toggleDeleteButtons()">
                         select_check_box
                     </span>
                 </button>
@@ -228,7 +228,6 @@ if ($stmt = $conn->prepare($sql)) {
                                 </button>
                             </div>
                             <div class="save-delete">
-                                <button id="deleteButton">Delete</button>
                                 <button id="saveButton" type="submit">Save</button>
                             </div>
                         </div>
@@ -274,8 +273,7 @@ if ($stmt = $conn->prepare($sql)) {
                 <div class="view-content"><p>Content...</p></div>
             <footer>
                 <div class="save-delete">
-                    <button id="deleteButton">Delete</button>
-                    <button id="saveButton" type="submit">Save</button>
+                    <button id="deleteButton" onclick="deleteSelectedNotes()">Delete</button>
                 </div>
             </footer>
             </div>
@@ -336,7 +334,6 @@ if ($stmt = $conn->prepare($sql)) {
                                 </button>
                             </div>
                             <div class="save-delete">
-                                <button id="deleteButton">Delete</button>
                                 <button id="saveButton" type="submit">Save</button>
                             </div>
                         </div>
@@ -375,7 +372,32 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
     <!-- DELETE SELECTED -->
-     
+    <!-- DELETE WARNING -->
+    <div class="delete-note-warning" id="deleteNoteWarning">
+        <div class="delete-note-warning-modal">
+            <p>Are you sure you want to delete note?</p>
+            <p>This action cannot be undone!</p>
+            <div class="delete-warning-buttons">                
+                <button id="cancelDelete" onclick="closeWarning()">
+                    Cancel
+                </button>
+                <button type="submit" id="confirmDelete">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- DELETE WARNING -->
+    <!-- SUCCESS/ERROR TOAST -->
+    <div class="toast delete-error-toast" id="deleteError">
+        <span class="material-symbols-outlined">error</span>
+        <h3>Failed to delete note!</h3>
+    </div>
+    <div class="toast delete-success-toast" id="deleteSuccess">
+        <span class="material-symbols-outlined">check_circle</span>
+        <h4>Note Successfully Deleted!</h4>
+    </div>
+     <!-- SUCCESS/ERROR TOAST -->
 </body>
 </html>
 <?php

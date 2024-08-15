@@ -122,17 +122,45 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
   submitNote();
 });
+// delete function
+// Function to Toggle Delete Buttons Visibility
+function toggleDeleteButtons() {
+  var deleteButtons = document.querySelectorAll('.note .delete-selected-button');
+  deleteButtons.forEach(function(button) {
+      button.style.display = button.style.display === "none" || button.style.display === "" ? "flex" : "none";
+  });
+}
+// Function to Toggle Delete Buttons Visibility
 
-function deleteSelected() {
-  var deleteButton = document.getElementById("delete-selected-button");
-
-  if (deleteButton.style.display === "none" || deleteButton.style.display === "") {
-      deleteButton.style.display = "flex"; 
-  } else {
-      deleteButton.style.display = "none";
-  }
+// Function to Handle Deleting Selected Notes
+function deleteSelectedNotes() {
+  console.log("Delete button clicked");
+  var deleteButtons = document.querySelectorAll('.note .delete-selected-button');
+  deleteButtons.forEach(function(button) {
+      if (button.style.display === "flex") {
+          var noteId = button.getAttribute('data-id');
+          deleteNoteFromDatabase(noteId); // Call function to delete note
+      }
+  });
 }
 
+function deleteNoteFromDatabase(noteId) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "for-deletion.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          alert(xhr.responseText);
+          // Remove the note from the DOM after successful deletion
+          document.querySelector('.note[data-id="' + noteId + '"]').remove();
+      }
+  };
+
+  xhr.send("id=" + noteId);
+}
+// Function to Handle Deleting Selected Notes
+// delete function
 document.addEventListener('DOMContentLoaded', function() {
   const noteContent = document.getElementById('noteContent');
   const editNoteContent = document.getElementById('editNoteContent');
