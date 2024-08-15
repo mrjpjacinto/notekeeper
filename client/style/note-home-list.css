@@ -448,11 +448,14 @@ p{
         justify-content: space-around;
 }
 
-.save-delete #saveButton, #deleteButton{
-    padding-inline: 15px;
-    color: black;
+#saveButton{
+  padding-inline: 15px;
+  color: black;
 }
-
+#deleteButton{
+  padding-inline: 15px;
+  color: black;
+}
 .word-count{
     text-align: left;
     margin: 0 15px 5px;

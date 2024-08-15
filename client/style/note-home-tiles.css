@@ -455,7 +455,11 @@ textarea{
       justify-content: space-around;
 }
 
-.save-delete #saveButton, #deleteButton{
+#saveButton{
+  padding-inline: 15px;
+  color: black;
+}
+#deleteButton{
   padding-inline: 15px;
   color: black;
 }
@@ -568,7 +572,7 @@ background: none;
 
 /* VIEW NOTE MODAL */
 .view-note{
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
