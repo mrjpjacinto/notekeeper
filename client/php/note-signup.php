@@ -85,9 +85,10 @@
             </div>
             </form>
             
+            <div class="signup-button">
                 <button class="click" type="submit">Sign Up</button>
                 <p>Already have an account? <a href="/notekeeper/client/php/note-login.php">Log in!</a></p>
-            
+            </div>
         </div>
     </div>
 </body>
