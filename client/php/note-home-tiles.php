@@ -168,7 +168,7 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '</div></div>';
                 }
             } else {
-                echo '<div class="note-card"><p>Added notes will appear here.<p></div>';
+                echo '<div class="note-card1"><p>Added notes will appear here.<p></div>';
             }
             ?>
         </div>
