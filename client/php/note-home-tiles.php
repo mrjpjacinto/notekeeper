@@ -375,7 +375,32 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
     <!-- DELETE SELECTED -->
-     
+    <!-- DELETE WARNING -->
+    <div class="delete-note-warning" id="deleteNoteWarning">
+        <div class="delete-note-warning-modal">
+            <p>Are you sure you want to delete note?</p>
+            <p>This action cannot be undone!</p>
+            <div class="delete-warning-buttons">                
+                <button id="cancelDelete" onclick="closeWarning()">
+                    Cancel
+                </button>
+                <button type="submit" id="confirmDelete">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- DELETE WARNING -->
+    <!-- SUCCESS/ERROR TOAST -->
+    <div class="toast delete-error-toast" id="deleteError">
+        <span class="material-symbols-outlined">error</span>
+        <h3>Failed to delete note!</h3>
+    </div>
+    <div class="toast delete-success-toast" id="deleteSuccess">
+        <span class="material-symbols-outlined">check_circle</span>
+        <h4>Note Successfully Deleted!</h4>
+    </div>
+     <!-- SUCCESS/ERROR TOAST -->
 </body>
 </html>
 <?php
