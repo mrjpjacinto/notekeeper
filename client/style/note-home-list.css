@@ -297,7 +297,7 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 58px;
     display: flex;
     flex-direction: column;
   }
@@ -315,7 +315,7 @@ p{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 10px;
+    margin-inline: 25px;
 }
 
 .title h1{
@@ -324,17 +324,13 @@ p{
     text-overflow: ellipsis;
 }
 
-.note-content{
-    padding: 0 20px 0;
-}
-
 .note-body{
     display: flex;
     height: 40px;
     justify-content: space-between;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-inline: 10px;
+    margin-inline: 25px;
 }
 .note-footer{
     display: flex;
@@ -344,6 +340,7 @@ p{
     font-size: 12px;
     padding-inline: 10px;
     margin-top: 10px;
+    margin-right: 20px;
 }
 
 /* NOTEPAD MODAL */
@@ -407,8 +404,8 @@ p{
     margin-left: 15px;
   }
 
-  h1{
-    margin-top: 13px;
+  #note-title{
+    margin-top: 15px;
     margin-bottom: 10px;
   }
 
@@ -1023,8 +1020,8 @@ body.modal-open{
   /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
     html{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
     }
 
     /* NAVBAR-TOP */
@@ -1114,32 +1111,34 @@ body.modal-open{
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100px;
+        height: 103px;
         border-radius: 10px;
         margin: 0;
         margin-bottom: 10px;
         padding: 0;
     }
+
     .note-heading{
-        margin-inline: 9px;
-    }
-    .note-body, .note-footer{
-        margin-inline: 9px;
-        font-size: 10px;
+        margin-inline: 15px;
     }
 
     .note-body{
         display: flex;
-        height: 38px;
+        height: 35px;
         overflow: hidden;
-        margin-inline: 19px;
-        margin-top: 7px;
+        margin-inline: 15px;
+        font-size: 10px;
+    }
+
+    #note-title{
+      margin-top: 12px;
     }
 
     .note-footer{
         display: flex;
         font-size: 8px;
         margin-top: 7px;
+        margin-right: 6px;
     }
 
     .note-text-pad h1{
@@ -1183,8 +1182,8 @@ body.modal-open{
 /* TABLET STYLE */
 @media only screen and (min-width: 601px) and (max-width: 1024px){
     html{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
     }
 
     /* NAVBAR */
