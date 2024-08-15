@@ -1117,6 +1117,7 @@ body.modal-open{
         margin: 0;
         margin-bottom: 10px;
         padding: 0;
+        border-radius: 10px;
     }
 
     .note-heading{
@@ -1142,6 +1143,8 @@ body.modal-open{
         margin-right: 6px;
     }
 
+    /* NOTE-TEXT-PAD */
+
     .note-text-pad h1{
         margin-block-start: 10px;
     }
@@ -1160,9 +1163,23 @@ body.modal-open{
     .note-text-pad .note-text{
         width: 90%;
     }
-    /* #undoButton, #redoButton, #reminderButton{
-        display: none;
-    } */
+
+    /* VIEW-NOTE-MODAL */
+    .view-note-modal{
+      width: 90%;
+    }
+
+    .view-heading{
+      margin-top: 10px;
+    }
+    .view-content{
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    /* VIEW-NOTE-MODAL */
+
     #format{
         display: none;
     }
@@ -1210,7 +1227,8 @@ body.modal-open{
     
     /* NOTE BODY */
     .note-list{
-        margin-inline: 20px;
+        margin-inline: 25px;
+        margin-block: 55px;
     }
 
     .note-template{
@@ -1219,32 +1237,29 @@ body.modal-open{
         border-radius: 10px;
         padding: 0;
         margin: 0;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         cursor: pointer;
         overflow: hidden;
+    }
+
+    #note-title{
+      margin: 0;
     }
 
     .note-content{
         display: flex;
         flex-direction: column;
-        padding-inline: 0;
-        width: 97%;
-        margin-inline: 15px;
-
     }
 
     .note-heading{
-        margin-inline: 5px;
-        height: 45px;
-        margin-top: 5px;
+        margin-inline: 20px;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .note-heading h1{
         font-size: 28px;
-    }
-
-    .note-body, .note-footer{
-        margin-inline: 5px;
     }
 
     .note-body{
@@ -1253,7 +1268,8 @@ body.modal-open{
         overflow: hidden;
         padding-bottom: 0;
         font-size: 13px;
-        margin-inline: 15px;
+        margin-inline: 20px;
+
     }
 
     .note-footer{
@@ -1277,5 +1293,22 @@ body.modal-open{
         font-size: 15px;
     }
 
+     /* VIEW-NOTE-MODAL */
+    .view-note-modal{
+      width: 90%;
+    }
+
+    .view-heading{
+      margin-top: 10px;
+    }
+
+    .view-content{
+      height: 80%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    /* VIEW-NOTE-MODAL */
 }
 
