@@ -445,7 +445,7 @@ input{
     margin-left: 15px;
   }
 
-  #note-title{
+  #title-note{
     margin-top: 15px;
     margin-bottom: 10px;
   }
@@ -1221,7 +1221,7 @@ p{
         font-size: 10px;
     }
 
-    #note-title{
+    #title-note{
       margin-top: 12px;
     }
 
@@ -1364,7 +1364,7 @@ p{
         overflow: hidden;
     }
 
-    #note-title{
+    #title-note{
       margin: 0;
     }
 
