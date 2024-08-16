@@ -393,7 +393,7 @@ input{
     opacity: 80%;
 }
 .note-footer{
-    display: flex;
+    display: none;
     align-items: flex-end;
     justify-content: flex-end;
     opacity: 50%;
@@ -402,7 +402,9 @@ input{
     margin-top: 10px;
     margin-right: 20px;
 }
-
+.note-template:hover .note-footer{
+  display: flex;
+}
 /* NOTEPAD MODAL */
 .note-text-pad{
     display: none;
@@ -426,18 +428,18 @@ input{
     width: 100%;
     max-width: 800px;
     max-height: 80vh;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
   }
   
   .textpad-icon{
-    background-color: #D1E0E7;
+    background-color: #e9e9e9;
     width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 15px 15px 0 0;
+    border-radius: 10px 10px 0 0;
     padding: 5px 10px 5px;
   }
   .textpad-icon-left{
@@ -454,8 +456,8 @@ input{
   .textpad{
     background-color: white;
     width: 100%;
-    height: 400px;
-    border-radius: 0 0 15px 15px;
+    height: 410px;
+    border-radius: 0 0 10px 10px;
     display: flex;
     flex-direction: column;
   }
@@ -501,9 +503,10 @@ input{
     display: none;
 }
 .note-text-pad footer{
-    padding: 0 10px 10px;
+    padding: 0 20px 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .bottom-buttons{
@@ -514,15 +517,21 @@ input{
 #saveButton{
   font-family: 'inter';
   padding-inline: 15px;
+  padding-block: 5px;
+  border-radius: 3px;
   color: black;
+  background-color: #42C4FE;
 }
 #deleteButton{
   padding-inline: 15px;
+  padding-block: 5px;
+  border-radius: 3px;
   color: black;
+  background-color: #42C4FE;
 }
 .word-count{
     text-align: left;
-    margin: 0 15px 5px;
+    margin: 0 15px;
     font-size: 14px;
 
 }
@@ -532,7 +541,7 @@ body.modal-open{
 }
 
 .darkmode .textpad-icon{
-    background-color: #354349;
+    background-color: #343434;
 }
 .darkmode .textpad{
     background-color: #3d3d3d;
@@ -547,10 +556,12 @@ body.modal-open{
 }
 .darkmode #saveButton {
     color: white;
+    background-color: #006edd;
 }
 
 .darkmode #deleteButton{
     color: white;
+    background-color: #006edd;
 }
 
 
@@ -647,18 +658,18 @@ body.modal-open{
     width: 100%;
     max-width: 800px;
     max-height: 80vh;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
   }
   
   .view-note-icon{
-    background-color: #D1E0E7;
+    background-color: #e9e9e9;
     width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 15px 15px 0 0;
+    border-radius: 10px 10px 0 0;
     padding: 5px 0 5px;
   }
   
@@ -674,8 +685,8 @@ body.modal-open{
     width: 100%;
     max-width: 800px;
     max-height: 80vh;
-    height: 400px;
-    border-radius: 0 0 15px 15px;
+    height: 410px;
+    border-radius: 0 0 10px 10px;
     display: flex;
     flex-direction: column;
   }
@@ -711,11 +722,11 @@ body.modal-open{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 10px 10px;
+    padding: 0 20px 10px;
   }
   
   .darkmode .view-note-icon{
-    background-color: #354349;
+    background-color: #343434;
   }
   .darkmode .view-note-content{
     background-color: #3d3d3d;
@@ -934,7 +945,7 @@ p{
     width: 100%;
     max-width: 800px;
     max-height: 80vh;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
   }
   
@@ -945,7 +956,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 15px 15px 0 0;
+    border-radius: 10px 10px 0 0;
     padding: 5px 10px 5px;
   }
   .edit-note-icon-left{
@@ -957,8 +968,8 @@ p{
   .edit-textpad{
     background-color: white;
     width: 100%;
-    height: 400px;
-    border-radius: 0 0 15px 15px;
+    height: 410px;
+    border-radius: 0 0 10px 10px;
     display: flex;
     flex-direction: column;
   }
@@ -979,16 +990,17 @@ p{
     background: none;
   }
   .darkmode .edit-note-icon{
-    background-color: #354349;
+    background-color: #343434;
 }
 .darkmode .edit-textpad{
     background-color: #3d3d3d;
 }
 
 .edit-note footer{
-    padding: 0 10px 10px;
+    padding: 0 20px 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 /* EDIT NOTE MODAL */
 
