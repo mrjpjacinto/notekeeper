@@ -252,6 +252,8 @@ function deleteNote() {
             // Remove note from the list
             document.querySelector(`.note-template[data-id='${currentNoteId}']`).remove();
             alert('Note deleted successfully!');
+
+            window.location.href = '/notekeeper/client/php/note-home-list.php';
         } else {
             alert('Failed to delete note: ' + data);
         }

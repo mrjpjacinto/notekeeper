@@ -223,9 +223,24 @@ function closeWarning() {
     document.getElementById('deleteNoteWarning').style.display = 'none';
 }
 
+function showToast(id) {
+    // Hide all toasts
+    document.querySelectorAll('.toast').forEach(toast => {
+        toast.style.display = 'none';
+    });
+
+    // Show the specific toast
+    document.getElementById(id).style.display = 'flex';
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+        document.getElementById(id).style.display = 'none';
+    }, 3000);
+}
+
 function deleteNote() {
     if (currentNoteId === null) {
-        alert('No note selected for deletion.');
+        showToast('deleteError'); // Show error toast if no note is selected
         return;
     }
 
@@ -241,19 +256,23 @@ function deleteNote() {
         if (data.trim() === 'success') { // Adjust based on the response from PHP
             // Remove note from the list
             document.querySelector(`.note-template[data-id='${currentNoteId}']`).remove();
-            alert('Note deleted successfully!');
+            showToast('deleteSuccess'); // Show success toast
+
+            // Redirect to the notes list page
+            window.location.href = '/notekeeper/client/php/note-home-tiles.php';
         } else {
-            alert('Failed to delete note: ' + data);
+            showToast('deleteError'); // Show error toast
         }
         closeWarning();
         closeViewNote();
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred.');
+        showToast('deleteError'); // Show error toast
         closeWarning();
     });
 }
+
 // JavaScript to handle note deletion
 
 
