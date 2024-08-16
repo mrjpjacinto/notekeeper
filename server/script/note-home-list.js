@@ -197,3 +197,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
   reminderInput.addEventListener('input', checkReminder);
 });
+
+function deleteSelectedNotes(){
+  document.getElementById('deleteNoteWarning').style.display = 'flex';
+}
+function closeWarning(){
+  document.getElementById('deleteNoteWarning').style.display = 'none';
+}
+
+
+// JavaScript to handle note deletion
+let currentNoteId = null;
+
+function openViewNote(element) {
+    // Set note ID for deletion
+    currentNoteId = element.getAttribute('data-id');
+    
+    // Set note title and content
+    document.getElementById('note-title').textContent = element.getAttribute('data-title');
+    document.getElementById('note-content').textContent = element.getAttribute('data-content');
+    
+    // Show view note modal
+    document.getElementById('viewNote').style.display = 'flex';
+}
+
+function closeViewNote() {
+    document.getElementById('viewNote').style.display = 'none';
+}
+
+function openDeleteWarning() {
+    document.getElementById('deleteNoteWarning').style.display = 'flex';
+}
+
+function closeWarning() {
+    document.getElementById('deleteNoteWarning').style.display = 'none';
+}
+
+function deleteNote() {
+    if (currentNoteId === null) {
+        alert('No note selected for deletion.');
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append('id', currentNoteId);
+
+    fetch('/notekeeper/server/db-conn-for-notes/for-deletion.php', {
+        method: 'POST',
+        body: formData, // Send the FormData object
+    })
+    .then(response => response.text()) // Expecting text response instead of JSON
+    .then(data => {
+        if (data.trim() === 'success') { // Adjust based on the response from PHP
+            // Remove note from the list
+            document.querySelector(`.note-template[data-id='${currentNoteId}']`).remove();
+            alert('Note deleted successfully!');
+        } else {
+            alert('Failed to delete note: ' + data);
+        }
+        closeWarning();
+        closeViewNote();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred.');
+        closeWarning();
+    });
+}
+// JavaScript to handle note deletion

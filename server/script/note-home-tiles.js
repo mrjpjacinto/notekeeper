@@ -122,15 +122,6 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
   submitNote();
 });
-// delete function
-// Function to Toggle Delete Buttons Visibility
-function toggleDeleteButtons() {
-  var deleteButtons = document.querySelectorAll('.note .delete-selected-button');
-  deleteButtons.forEach(function(button) {
-      button.style.display = button.style.display === "none" || button.style.display === "" ? "flex" : "none";
-  });
-}
-// Function to Toggle Delete Buttons Visibility
 
 // Select to Delete Multiple Notes
 function selectNotes() {
@@ -145,38 +136,8 @@ function deleteSelected() {
 document.getElementById("delete-selected-button").style.display = 'flex';
 }
 
-
 // Select to Delete Multiple Notes
 
-// Function to Handle Deleting Selected Notes
-function deleteSelectedNotes() {
-  console.log("Delete button clicked");
-  var deleteButtons = document.querySelectorAll('.note .delete-selected-button');
-  deleteButtons.forEach(function(button) {
-      if (button.style.display === "flex") {
-          var noteId = button.getAttribute('data-id');
-          deleteNoteFromDatabase(noteId); // Call function to delete note
-      }
-  });
-}
-
-function deleteNoteFromDatabase(noteId) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "for-deletion.php", true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-  xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-          alert(xhr.responseText);
-          // Remove the note from the DOM after successful deletion
-          document.querySelector('.note[data-id="' + noteId + '"]').remove();
-      }
-  };
-
-  xhr.send("id=" + noteId);
-}
-// Function to Handle Deleting Selected Notes
-// delete function
 document.addEventListener('DOMContentLoaded', function() {
   const noteContent = document.getElementById('noteContent');
   const editNoteContent = document.getElementById('editNoteContent');
@@ -234,3 +195,68 @@ document.addEventListener('DOMContentLoaded', function() {
     checkReminder();
     reminderInput.addEventListener('input', checkReminder);
 });
+
+// JavaScript to handle note deletion
+let currentNoteId = null;
+
+function openViewNote(element) {
+    // Set note ID for deletion
+    currentNoteId = element.getAttribute('data-id');
+    
+    // Set note title and content
+    document.getElementById('note-title').textContent = element.getAttribute('data-title');
+    document.getElementById('note-content').textContent = element.getAttribute('data-content');
+    
+    // Show view note modal
+    document.getElementById('viewNote').style.display = 'flex';
+}
+
+function closeViewNote() {
+    document.getElementById('viewNote').style.display = 'none';
+}
+
+function openDeleteWarning() {
+    document.getElementById('deleteNoteWarning').style.display = 'flex';
+}
+
+function closeWarning() {
+    document.getElementById('deleteNoteWarning').style.display = 'none';
+}
+
+function deleteNote() {
+    if (currentNoteId === null) {
+        alert('No note selected for deletion.');
+        return;
+    }
+
+    let formData = new FormData();
+    formData.append('id', currentNoteId);
+
+    fetch('/notekeeper/server/db-conn-for-notes/for-deletion.php', {
+        method: 'POST',
+        body: formData, // Send the FormData object
+    })
+    .then(response => response.text()) // Expecting text response instead of JSON
+    .then(data => {
+        if (data.trim() === 'success') { // Adjust based on the response from PHP
+            // Remove note from the list
+            document.querySelector(`.note-template[data-id='${currentNoteId}']`).remove();
+            alert('Note deleted successfully!');
+        } else {
+            alert('Failed to delete note: ' + data);
+        }
+        closeWarning();
+        closeViewNote();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred.');
+        closeWarning();
+    });
+}
+// JavaScript to handle note deletion
+
+
+
+
+
