@@ -122,16 +122,21 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
   submitNote();
 });
+// Select to Delete Multiple Notes
+function selectNotes() {
+  document.getElementById('selectNoteCount').style.display = 'flex';
+}
+function cancelSelect() {
+  document.getElementById('selectNoteCount').style.display = 'none';
+  document.getElementById("delete-selected-button").style.display = 'none';
+}
 
 function deleteSelected() {
-  var deleteButton = document.getElementById("delete-selected-button");
-
-  if (deleteButton.style.display === "none" || deleteButton.style.display === "") {
-      deleteButton.style.display = "flex"; 
-  } else {
-      deleteButton.style.display = "none";
-  }
+document.getElementById("delete-selected-button").style.display = 'flex';
 }
+
+
+// Select to Delete Multiple Notes
 
 
 document.addEventListener('DOMContentLoaded', function() {

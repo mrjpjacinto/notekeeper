@@ -399,6 +399,21 @@ if ($stmt = $conn->prepare($sql)) {
         <h4>Note Successfully Deleted!</h4>
     </div>
      <!-- SUCCESS/ERROR TOAST -->
+            <!-- NAV SELECT COUNT -->
+    <div class="nav-select-count">
+        <div class="nav-select" id="selectNoteCount">
+            <div class="nav-select-left">
+                <button id="cancelSelect" onclick="cancelSelect()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <h3><span id="selectCount">0</span> Selected</h3>
+            </div>
+            <div class="nav-select-right">
+
+            </div>
+        </div>
+    </div>
+    <!-- NAV SELECT COUNT -->
 </body>
 </html>
 <?php
