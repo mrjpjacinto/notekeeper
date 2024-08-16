@@ -67,89 +67,89 @@ if ($stmt = $conn->prepare($sql)) {
 <body>
     <!-- NAVBAR -->
     <div class="main-container">
-        <div class="topnav">
-            <div class="left-nav">
-                <img src="/notekeeper/client/assets/note-app-logo.png">
-            </div>
-            <div class="right-nav">
-                <img src="/notekeeper/client/assets/Avatar-placeholder.png" onclick="toggleMenu()" class="dropbtn">
-            </div>
-            <!-- DROPDOWN -->
-            <div class="dropdown">
-                <div class="dropdown-content" id="myDropdown">
+            <div class="topnav">
+                <div class="left-nav">
+                    <img src="/notekeeper/client/assets/note-app-logo.png">
+                </div>
+                <div class="right-nav">
+                    <img src="/notekeeper/client/assets/Avatar-placeholder.png" onclick="toggleMenu()" class="dropbtn">
+                </div>
+                <!-- DROPDOWN -->
+                <div class="dropdown">
+                    <div class="dropdown-content" id="myDropdown">
 
-                    <div class="dropdown-display">
-                        <img src="/notekeeper/client/assets/Avatar-placeholder.png">
-                        <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p> 
-                        <p id="un"><?php echo ($email); ?></p>
-                    </div>
-
-                    <div class="dropdown-option">
-
-                        <div class="option-1">
-                            <a href="/notekeeper/client/php/note-about.php">
-                            <span class="material-symbols-outlined"> info </span> 
-                            <p> About </p> </a>
-                        </div>
-                        
-                        <div class="option-2">
-                            <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
-                            <span class="material-symbols-outlined"> logout </span> 
-                            <p> Log Out </p> </a>
+                        <div class="dropdown-display">
+                            <img src="/notekeeper/client/assets/Avatar-placeholder.png">
+                            <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p> 
+                            <p id="un"><?php echo ($email); ?></p>
                         </div>
 
+                        <div class="dropdown-option">
+
+                            <div class="option-1">
+                                <a href="/notekeeper/client/php/note-about.php">
+                                <span class="material-symbols-outlined"> info </span> 
+                                <p> About </p> </a>
+                            </div>
+                            
+                            <div class="option-2">
+                                <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
+                                <span class="material-symbols-outlined"> logout </span> 
+                                <p> Log Out </p> </a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="topnav1">
-            <div class="left-nav1">
-                <button onclick="openNote()" class="tooltip">
-                <span class="material-symbols-outlined">add_circle</span>
-                <span class="tooltip-text">Add a note</span>
-                </button>
-                <button onclick="darkMode()" class="tooltip">
-                    <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
-                    <span class="tooltip-text">Toggle theme</span>
+            <div class="topnav1">
+                <div class="left-nav1">
+                    <button onclick="openNote()" class="tooltip">
+                    <span class="material-symbols-outlined">add_circle</span>
+                    <span class="tooltip-text">Add a note</span>
                     </button>
-                <button class="tooltip">
-                    <span class="material-symbols-outlined">
-                        <a href="/notekeeper/client/php/note-home-list.php">list</a>
-                        </span>
-                        <span class="tooltip-text">Switch to List</span>
-                    </button>
-                    <button onclick="openNotification()" class=tooltip>
-                    <span class="material-symbols-outlined" id="notif-message">
-                        notifications
-                    </span>
-                    <span class="tooltip-text">Reminders</span>
-                </button>
-                    <button class="tooltip">
-                    <span class="material-symbols-outlined" onclick="toggleDeleteButtons()">
-                        select_check_box
-                    </span>
-                    <span class="tooltip-text">Select</span>
-                </button>
-            </div>
-
-            <form id="searchForm" action="" method="get">
-                <div class="right-nav1">
-                    <div class="input-1">
-                        <button id="search-icon" type="submit">
-                            <span class="material-symbols-outlined">search</span>
+                    <button onclick="darkMode()" class="tooltip">
+                        <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
+                        <span class="tooltip-text">Toggle theme</span>
                         </button>
-                        <input class="search-bar" type="text" name="search" placeholder="Search notes..." value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
-                        <!-- Clear Search Button -->
-                        <?php if (!empty($_GET['search'])): ?>
-                            <a id="close-icon" href="note-home-tiles.php" id="clear-search">
-                                <span class="material-symbols-outlined">close</span>
-                            </a>
-                        <?php endif; ?>
-                    </div>
+                    <button class="tooltip">
+                        <span class="material-symbols-outlined">
+                            <a href="/notekeeper/client/php/note-home-list.php">list</a>
+                            </span>
+                            <span class="tooltip-text">Switch to List</span>
+                        </button>
+                        <button onclick="openNotification()" class=tooltip>
+                        <span class="material-symbols-outlined" id="notif-message">
+                            notifications
+                        </span>
+                        <span class="tooltip-text">Reminders</span>
+                    </button>
+                        <button class="tooltip">
+                        <span class="material-symbols-outlined" onclick="toggleDeleteButtons()">
+                            select_check_box
+                        </span>
+                        <span class="tooltip-text">Select</span>
+                    </button>
                 </div>
-            </form>
-        </div>
-        <!-- NAVBAR -->
+
+                <form id="searchForm" action="" method="get">
+                    <div class="right-nav1">
+                        <div class="input-1">
+                            <button id="search-icon" type="submit">
+                                <span class="material-symbols-outlined">search</span>
+                            </button>
+                            <input class="search-bar" type="text" name="search" placeholder="Search notes..." value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
+                            <!-- Clear Search Button -->
+                            <?php if (!empty($_GET['search'])): ?>
+                                <a id="close-icon" href="note-home-tiles.php" id="clear-search">
+                                    <span class="material-symbols-outlined">close</span>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- NAVBAR -->
 
         <div class="note-card">
             <?php

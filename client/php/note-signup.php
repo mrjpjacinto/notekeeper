@@ -31,7 +31,7 @@
             <img src="/notekeeper/client/assets/note-app-logo.png"></a>
             <h2>Sign Up</h2>
             <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post">
-
+            
         
             <div class="input-left">
 
@@ -83,12 +83,13 @@
                     </div>
                 </div>
             </div>
-            </form>
-            
             <div class="signup-button">
                 <button class="click" type="submit">Sign Up</button>
                 <p>Already have an account? <a href="/notekeeper/client/php/note-login.php">Log in!</a></p>
             </div>
+            </form>
+            
+
         </div>
     </div>
 </body>
