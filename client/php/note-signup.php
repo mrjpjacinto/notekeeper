@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>NoteKeeper</title>
+    <link rel="icon" href="/client/assets/note-app-logo.png">>
     <link rel="stylesheet" href="/notekeeper/client/style/note-signup.css">
     <script src="/notekeeper/server/script/note-signup.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">

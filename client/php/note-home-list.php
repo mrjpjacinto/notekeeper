@@ -58,7 +58,8 @@ if ($stmt = $conn->prepare($sql)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>NoteKeeper</title>
+    <link rel="icon" href="/client/assets/note-app-logo.png">
     <link rel="stylesheet" href="/notekeeper/client/style/note-home-list.css">
     <script src="/notekeeper/server/script/note-home-list.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -288,13 +289,23 @@ if ($stmt = $conn->prepare($sql)) {
                     <button id="cancelDelete" onclick="closeWarning()">
                         Cancel
                     </button>
-                    <button type="submit" id="confirmDelete">
+                    <button type="button" id="confirmDelete" onclick="deleteNote()">
                         Delete
                     </button>
                 </div>
             </div>
         </div>
     <!-- DELETE WARNING -->
+    <!-- SUCCESS/ERROR TOAST -->
+        <div class="toast delete-error-toast" id="deleteError">
+            <span class="material-symbols-outlined">error</span>
+            <h3>Failed to delete note!</h3>
+        </div>
+        <div class="toast delete-success-toast" id="deleteSuccess">
+            <span class="material-symbols-outlined">check_circle</span>
+            <h4>Note Successfully Deleted!</h4>
+        </div>
+     <!-- SUCCESS/ERROR TOAST -->
     </div>
     <!-- VIEW NOTE MODAL -->
          <!--EDIT NOTE MODAL -->
@@ -389,16 +400,6 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
     <!-- DELETE SELECTED -->
-    <!-- SUCCESS/ERROR TOAST -->
-    <div class="toast delete-error-toast" id="deleteError">
-        <span class="material-symbols-outlined">error</span>
-        <h3>Failed to delete note!</h3>
-    </div>
-    <div class="toast delete-success-toast" id="deleteSuccess">
-        <span class="material-symbols-outlined">check_circle</span>
-        <h4>Note Successfully Deleted!</h4>
-    </div>
-     <!-- SUCCESS/ERROR TOAST -->
       <!-- NAV SELECT COUNT -->
     <div class="nav-select-count">
         <div class="nav-select" id="selectNoteCount">
