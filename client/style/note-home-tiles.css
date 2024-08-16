@@ -327,7 +327,7 @@ input{
   margin-inline: 15px;
 }
 
-#note-title{
+#title-note{
   width: 205px;
   height: 40px;
   margin-top: 15px;
@@ -1160,7 +1160,7 @@ h1{
     border-radius: 10px;
   }
 
-  #note-title{
+  #title-note{
     margin: 0;
     font-size: 20px;
     height: 25px;
@@ -1334,7 +1334,7 @@ h1{
     width: 100%;
   }
 
-  #note-title{
+  #title-note{
     margin: 0;
     font-size: 28px;
   }

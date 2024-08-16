@@ -126,11 +126,6 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
 function deleteSelected() {
   var deleteButton = document.getElementById("delete-selected-button");
 
-  if (deleteButton.style.display === "none" || deleteButton.style.display === "") {
-      deleteButton.style.display = "flex"; 
-  } else {
-      deleteButton.style.display = "none";
-  }
 }
 
 
