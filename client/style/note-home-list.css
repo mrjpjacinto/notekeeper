@@ -149,7 +149,9 @@ a{
 .show {
     display: block;
 } 
+/* DROPDOWN DISPLAY */
 
+/* TOPNAV1 */
 .topnav1{
     padding: 10px;
     padding-inline: 50px;
@@ -287,7 +289,7 @@ input{
  
 /* BODY */
 
-p{
+.note-list p{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -297,10 +299,10 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 58px;
     display: flex;
     flex-direction: column;
-}
+  }
 .note-template{
     background-color: #42C4FE;
     width: 100%;
@@ -315,7 +317,7 @@ p{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 10px;
+    margin-inline: 25px;
 }
 
 .title h1{
@@ -324,26 +326,24 @@ p{
     text-overflow: ellipsis;
 }
 
-.note-content{
-    padding: 0 20px 0;
-}
-
 .note-body{
     display: flex;
     height: 40px;
     justify-content: space-between;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-inline: 10px;
+    margin-inline: 25px;
+    opacity: 80%;
 }
 .note-footer{
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     opacity: 50%;
-    font-size: 12px;
+    font-size: 10px;
     padding-inline: 10px;
     margin-top: 10px;
+    margin-right: 20px;
 }
 
 /* NOTEPAD MODAL */
@@ -356,8 +356,8 @@ p{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgb(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
+    background-color: rgb(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
 }
@@ -407,15 +407,15 @@ p{
     margin-left: 15px;
   }
 
-  h1{
-    margin-top: 13px;
+  #note-title{
+    margin-top: 15px;
     margin-bottom: 10px;
   }
 
   h1 input{
     font-size: 30px;
     font-weight: bold;
-    width: 90%;
+    width:95%;
     background: none;
   }
 
@@ -430,7 +430,13 @@ p{
     box-sizing: border-box;
     height: 300px;
     overflow-y: auto;
-
+    border-radius: 5px;
+  }
+  input:focus, textarea:focus {
+    border-color: gray;
+    border-width: 1px;
+    border-style: solid;
+    outline: none;
   }
 
 
@@ -449,6 +455,7 @@ p{
 }
 
 #saveButton{
+  font-family: 'inter';
   padding-inline: 15px;
   color: black;
 }
@@ -571,8 +578,8 @@ body.modal-open{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgb(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
+    background-color: rgb(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
   }
@@ -621,7 +628,6 @@ body.modal-open{
     margin-left: 25px;
   }
   .view-content{
-    font-size: 15px;
     padding: 5px 10px 0;
     border: none;
     margin: 0 15px 5px;
@@ -631,6 +637,16 @@ body.modal-open{
     box-sizing: border-box;
     height: 300px;
     overflow-y: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .view-content p{
+    font-size: 16px;
+    max-width: 770px;
+    max-height: 300px;
+    margin: 0;
+    white-space: pre-wrap;
   }
 
  
@@ -658,7 +674,7 @@ body.modal-open{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
     outline: none;
@@ -684,7 +700,6 @@ body.modal-open{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     width: 500px;
     height: 500px;
@@ -696,7 +711,7 @@ body.modal-open{
   
   .notif-content header, .notif-content footer{
     width: 80%;
-    height: 20%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -704,57 +719,61 @@ body.modal-open{
   
   .notif-display {
     width: 100%;
+    height: 450px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-top: 20px;
+    padding: 0;
   }
   
   /* NOTIF TEMPLATE */
-  .notif-template{
-    background-color:#cacaca;
-    border-radius: 5px;
-    width: 150px;
-    height: 100px;
-    margin-block: 10px;
-    margin-inline: 8px;
-    text-align: left;
-    font-size: 13px;
-  }
-  
-  .notif-template header{
-    text-align: left;
-    margin-top: 10px;
-  }
-  .notif-template h4{
-    margin-block: 8px ;
-    width: 100%;
-    margin-left: 10px;
-    font-size: 16px;
-  }
-  
-  .notif-template p{
-    width: 100%;
-    margin-block: 10px;
-    margin-left: 10px;
-  }
-  
-  .notif-template footer{
-    width: 100%;
-    text-align: right;
-    margin-top: 22px;
-    font-size: 10px;
-  }
-  p{
-    margin-right: 15px;
-    font-size: 8x;
-  }
+.notif-template{
+  background-color:#cacaca;
+  border-radius: 5px;
+  width: 150px;
+  height: 100px;
+  margin-block: 10px;
+  margin-inline: 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.notif-template header{
+  text-align: left;
+  margin-top: 10px;
+}
+.notif-template h4{
+  margin-block: 8px ;
+  width: 100%;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.notif-template p{
+  width: 80%;
+  margin-block: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.notif-template footer{
+  width: 100%;
+  text-align: right;
+  margin-top: 22px;
+  font-size: 10px;
+}
+p{
+  margin-right: 15px;
+  font-size: 10px;
+}
   /* NOTIF TEMPLATE */
   
   .notif-content #info{
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
   }
@@ -806,14 +825,16 @@ body.modal-open{
 }
 
 .delete-icon {
+    z-index: 5;
     padding: 10px 15px;
     background-color: #dc3545;
     color: #fff;
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    position: absolute;
+    position: fixed;
     margin: 50px;
+    top: 80%;
 }
 
 .delete-icon:hover {
@@ -843,8 +864,8 @@ body.modal-open{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgb(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
+    background-color: rgb(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
 }
@@ -897,7 +918,7 @@ body.modal-open{
   h1 input{
     font-size: 30px;
     font-weight: bold;
-    width: 90%;
+    width: 95%;
     background: none;
   }
   .darkmode .edit-note-icon{
@@ -1022,8 +1043,8 @@ body.modal-open{
   /* MOBILE STYLE */
 @media only screen and (max-width: 600px){
     html{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
     }
 
     /* NAVBAR-TOP */
@@ -1078,6 +1099,35 @@ body.modal-open{
     #search-icon{
         display: none;
     }
+    #close-icon {
+      position: absolute;
+      display: flex;
+      margin-left: 0;
+      right: 5px;
+      transform: translateY(-6px);
+      opacity: 40%;
+  }
+
+    .dropdown{
+      z-index: 10;
+    }
+
+    .dropdown-display img{
+      width: 50px;
+      height: 50px;
+    }
+
+    #un{
+      font-size: 14px;
+    }
+
+    .option-1 p{
+      font-size: 14px;
+    }
+
+    .option-2 p{
+      font-size: 14px;
+    }
 
     .dropdown-option{
         padding: 0;
@@ -1113,33 +1163,38 @@ body.modal-open{
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100px;
+        height: 103px;
         border-radius: 10px;
         margin: 0;
         margin-bottom: 10px;
         padding: 0;
+        border-radius: 10px;
     }
+
     .note-heading{
-        margin-inline: 9px;
-    }
-    .note-body, .note-footer{
-        margin-inline: 9px;
-        font-size: 10px;
+        margin-inline: 15px;
     }
 
     .note-body{
         display: flex;
-        height: 38px;
+        height: 35px;
         overflow: hidden;
-        margin-inline: 19px;
-        margin-top: 7px;
+        margin-inline: 15px;
+        font-size: 10px;
+    }
+
+    #note-title{
+      margin-top: 12px;
     }
 
     .note-footer{
         display: flex;
         font-size: 8px;
         margin-top: 7px;
+        margin-right: 6px;
     }
+
+    /* NOTE-TEXT-PAD */
 
     .note-text-pad h1{
         margin-block-start: 10px;
@@ -1159,9 +1214,23 @@ body.modal-open{
     .note-text-pad .note-text{
         width: 90%;
     }
-    /* #undoButton, #redoButton, #reminderButton{
-        display: none;
-    } */
+
+    /* VIEW-NOTE-MODAL */
+    .view-note-modal{
+      width: 90%;
+    }
+
+    .view-heading{
+      margin-block: 10px;
+    }
+    .view-content{
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    /* VIEW-NOTE-MODAL */
+
     #format{
         display: none;
     }
@@ -1175,6 +1244,30 @@ body.modal-open{
         font-size: 13px;
         margin: 0;
     }
+
+
+    /* NOTIFICATION */
+    .notif{
+      max-width: 80%;
+    }
+    .notif-content{
+      width: 200px;
+      height: 550px;
+    }
+    .notif-content p{
+      font-size: 10px;
+  }
+    .notif-display{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .notif-template{
+      height: 80px;
+    }
+    .notif-template footer{
+      margin-top: 15px;
+    }
 }
 /* MOBILE STYLE */
 
@@ -1182,8 +1275,8 @@ body.modal-open{
 /* TABLET STYLE */
 @media only screen and (min-width: 601px) and (max-width: 1024px){
     html{
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
     }
 
     /* NAVBAR */
@@ -1201,15 +1294,25 @@ body.modal-open{
         width: 100%;
         height: 30px;
         margin: 8px;
-        padding-left: 0;
+        padding-left: 5px;
     }
+
+    #close-icon {
+      position: absolute;
+      display: flex;
+      margin-left: 0;
+      right: 20px;
+      transform: translateY(1px);
+      opacity: 40%;
+  }
     /* NAVBAR */
 
     /* HERO-SECTION */
     
     /* NOTE BODY */
     .note-list{
-        margin-inline: 20px;
+        margin-inline: 25px;
+        margin-block: 55px;
     }
 
     .note-template{
@@ -1218,32 +1321,29 @@ body.modal-open{
         border-radius: 10px;
         padding: 0;
         margin: 0;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         cursor: pointer;
         overflow: hidden;
+    }
+
+    #note-title{
+      margin: 0;
     }
 
     .note-content{
         display: flex;
         flex-direction: column;
-        padding-inline: 0;
-        width: 97%;
-        margin-inline: 15px;
-
     }
 
     .note-heading{
-        margin-inline: 5px;
-        height: 45px;
-        margin-top: 5px;
+        margin-inline: 20px;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .note-heading h1{
         font-size: 28px;
-    }
-
-    .note-body, .note-footer{
-        margin-inline: 5px;
     }
 
     .note-body{
@@ -1252,7 +1352,8 @@ body.modal-open{
         overflow: hidden;
         padding-bottom: 0;
         font-size: 13px;
-        margin-inline: 15px;
+        margin-inline: 20px;
+
     }
 
     .note-footer{
@@ -1275,6 +1376,27 @@ body.modal-open{
     .note-text-pad footer{
         font-size: 15px;
     }
+    .notif-content{
+      width: 350px;
+    }
 
+     /* VIEW-NOTE-MODAL */
+    .view-note-modal{
+      width: 90%;
+      height: 470px;
+    }
+
+    .view-heading{
+      margin-top: 10px;
+    }
+
+    .view-content{
+      height: 80%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    /* VIEW-NOTE-MODAL */
 }
 

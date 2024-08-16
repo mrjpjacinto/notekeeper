@@ -1,7 +1,7 @@
 body{
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     font-family: Inter;
     padding: 0;
     margin: 0;
@@ -297,5 +297,8 @@ h2{
 
 .active, .demo:hover{
     opacity: 1;
+}
+.darkmode .team-bg{
+background-color: #004480;
 }
 /* TEAM */

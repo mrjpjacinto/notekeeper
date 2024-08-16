@@ -161,6 +161,7 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
                     echo '<h1>' . htmlspecialchars($row['title']) . '</h1>'; // Remove id attribute
+                    echo '<h1 id="note-title">' . htmlspecialchars($row['title']) . '</h1>';
                     echo '<div class="heading-tools">';
                     echo '</div></div>';
                     echo '<div class="note-body">' . htmlspecialchars($row['content']) . '</div>';

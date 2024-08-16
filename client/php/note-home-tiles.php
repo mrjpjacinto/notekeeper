@@ -104,30 +104,31 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
         <div class="topnav1">
             <div class="left-nav1">
-                <button onclick="openNote()">
-                <span class="material-symbols-outlined">
-                    add_circle
-                    </span>
+                <button onclick="openNote()" class="tooltip">
+                <span class="material-symbols-outlined">add_circle</span>
+                <span class="tooltip-text">Add a note</span>
                 </button>
-                <button onclick="darkMode()">
-                    <span class="material-symbols-outlined" id="darkmodeswitch">
-                        dark_mode
-                        </span>
+                <button onclick="darkMode()" class="tooltip">
+                    <span class="material-symbols-outlined" id="darkmodeswitch">dark_mode</span>
+                    <span class="tooltip-text">Toggle theme</span>
                     </button>
-                <button>
+                <button class="tooltip">
                     <span class="material-symbols-outlined">
                         <a href="/notekeeper/client/php/note-home-list.php">list</a>
                         </span>
+                        <span class="tooltip-text">Switch to List</span>
                     </button>
-                    <button onclick="openNotification()">
+                    <button onclick="openNotification()" class=tooltip>
                     <span class="material-symbols-outlined" id="notif-message">
                         notifications
                     </span>
+                    <span class="tooltip-text">Reminders</span>
                 </button>
-                <button>
+                    <button class="tooltip">
                     <span class="material-symbols-outlined" onclick="toggleDeleteButtons()">
                         select_check_box
                     </span>
+                    <span class="tooltip-text">Select</span>
                 </button>
             </div>
 
@@ -168,7 +169,7 @@ if ($stmt = $conn->prepare($sql)) {
                     echo '</div></div>';
                 }
             } else {
-                echo '<div class="note-card"><p>Added notes will appear here.<p></div>';
+                echo '<div class="note-card1"><p>Added notes will appear here.<p></div>';
             }
             ?>
         </div>
