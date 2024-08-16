@@ -572,7 +572,7 @@ background: none;
 
 /* VIEW NOTE MODAL */
 .view-note{
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -930,9 +930,9 @@ p{
 
 /* DELETE NOTE WARNING */
 .delete-note-warning{
-  position: fixed;
+  position: absolute;
   display: none;
-  z-index: 2;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;

@@ -157,10 +157,10 @@ if ($stmt = $conn->prepare($sql)) {
                      // Format the date
                      $formattedDate = formatDate($row['date_created']);
                     
-                    echo '<div class="note-template" onclick="openViewNote(this)" data-title="' . htmlspecialchars($row['title']) . '" data-content="' . htmlspecialchars($row['content']) . '">';
+                    echo '<div class="note-template" onclick="openViewNote(this)" data-id="' . htmlspecialchars($row['id']) . '" data-title="' . htmlspecialchars($row['title']) . '" data-content="' . htmlspecialchars($row['content']) . '">';
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
-                    echo '<h1 id="note-title">' . htmlspecialchars($row['title']) . '</h1>';
+                    echo '<h1>' . htmlspecialchars($row['title']) . '</h1>'; // Remove id attribute
                     echo '<div class="heading-tools">';
                     echo '</div></div>';
                     echo '<div class="note-body">' . htmlspecialchars($row['content']) . '</div>';
@@ -269,15 +269,31 @@ if ($stmt = $conn->prepare($sql)) {
                 </div>
             </div>
             <div class="view-note-content">
-                <div class="view-heading"><h1>Title</h1></div>
-                <div class="view-content"><p>Content...</p></div>
+                <div class="view-heading"><h1 id="note-title">Title</h1></div>
+                <div class="view-content"><p id="note-content">Content...</p></div>
             <footer>
                 <div class="save-delete">
-                    <button id="deleteButton" onclick="deleteSelectedNotes()">Delete</button>
+                    <button id="deleteButton" onclick="openDeleteWarning()">Delete</button>
                 </div>
             </footer>
             </div>
         </div>
+        <!-- DELETE WARNING -->
+        <div class="delete-note-warning" id="deleteNoteWarning">
+            <div class="delete-note-warning-modal">
+                <p>Are you sure you want to delete note?</p>
+                <p>This action cannot be undone!</p>
+                <div class="delete-warning-buttons">                
+                    <button id="cancelDelete" onclick="closeWarning()">
+                        Cancel
+                    </button>
+                    <button type="button" id="confirmDelete" onclick="deleteNote()">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- DELETE WARNING -->
     </div>
     <!-- VIEW NOTE MODAL -->
          <!--EDIT NOTE MODAL -->
@@ -372,22 +388,6 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
     <!-- DELETE SELECTED -->
-    <!-- DELETE WARNING -->
-    <div class="delete-note-warning" id="deleteNoteWarning">
-        <div class="delete-note-warning-modal">
-            <p>Are you sure you want to delete note?</p>
-            <p>This action cannot be undone!</p>
-            <div class="delete-warning-buttons">                
-                <button id="cancelDelete" onclick="closeWarning()">
-                    Cancel
-                </button>
-                <button type="submit" id="confirmDelete">
-                    Delete
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- DELETE WARNING -->
     <!-- SUCCESS/ERROR TOAST -->
     <div class="toast delete-error-toast" id="deleteError">
         <span class="material-symbols-outlined">error</span>
