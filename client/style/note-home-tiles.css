@@ -27,6 +27,7 @@ a{
 }
 
 /* NAVBAR */
+
 .topnav{
     padding: 20px;
     padding-inline: 50px;
@@ -38,6 +39,11 @@ a{
     background-color: #EBF4F6;
     box-shadow: 0 1px 10px #7aa6bb;
 }
+.darkmode .topnav{
+  background-color: #3d3d3d;
+  box-shadow: 0 1px 10px #242424;
+}
+
 
 .left-nav img{
     width: 70px;
@@ -170,12 +176,12 @@ a{
   top: 0;
   width: 100%;
   background-color: #EBF4F6;
-  z-index: 10;
+  z-index: 11;
 }
 .nav-select{
   padding: 20px;
   padding-inline: 40px;
-  height: 60px;
+  height: 74px;
   display: none;
   justify-content: space-between;
   box-shadow: 0 1px 10px #7aa6bb;
@@ -203,6 +209,7 @@ a{
     padding-inline: 50px;
     display: flex;
     justify-content: space-between;
+    z-index: 8;
 }
 
 .topnav1 .material-symbols-outlined{
@@ -217,6 +224,10 @@ a{
 .topnav1 a:hover{
   color: #42C4FE;
   cursor: pointer;
+}
+
+.left-nav1, .right-nav1{
+  padding-top: 20px
 }
 
 button{
@@ -305,7 +316,7 @@ input{
   border-radius: 5px;
   padding: 5px 10px;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   top: 100%;
   left: -10%;
   opacity: 0;
@@ -336,6 +347,10 @@ input{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 58px;
+}
+
+.note-card1 p{
   font-size: 17px;
 }
 .note-card{
@@ -403,7 +418,7 @@ input{
 .note-text-pad{
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -555,7 +570,7 @@ background: none;
     .reminder-modal{
       position: fixed;
       display: none;
-      z-index: 2;
+      z-index: 25;
       top: 0;
       left: 0;
       width: 100%;
@@ -627,7 +642,7 @@ background: none;
 .view-note{
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -725,7 +740,7 @@ background: none;
 .notification-window {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -881,6 +896,7 @@ font-size: 10px;
 }
 
 .delete-icon {
+  z-index: 25;
   padding: 10px 15px;
   background-color: #dc3545;
   color: #fff;
@@ -912,7 +928,7 @@ font-size: 10px;
 .edit-note{
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -998,7 +1014,7 @@ h1{
 .delete-note-warning{
   position: absolute;
   display: none;
-  z-index: 1000;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
@@ -1187,6 +1203,12 @@ h1{
     margin-block: 18px;
     margin-inline: 8px;
     gap: 5px;
+  }
+  .note-card1{
+    margin: 0;
+    position: relative;
+    top: 14px;
+    left: 13px;
   }
 
   .note-template{

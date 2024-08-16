@@ -26,6 +26,8 @@ a{
     height: 100%;
 }
 /* NAVBAR */
+
+
 .topnav{
     padding: 20px;
     padding-inline: 50px;
@@ -36,6 +38,10 @@ a{
     z-index: 9;
     background-color: #EBF4F6;
     box-shadow: 0 1px 10px #7aa6bb;
+}
+.darkmode .topnav{
+  background-color: #3d3d3d;
+  box-shadow: 0 1px 10px #242424;
 }
 
 .left-nav img{
@@ -161,15 +167,21 @@ a{
   top: 0;
   width: 100%;
   background-color: #EBF4F6;
-  z-index: 10;
+  z-index: 11;
+}
+.darkmode .nav-select-count{
+  background-color: #3d3d3d;
 }
 .nav-select{
   padding: 20px;
   padding-inline: 40px;
-  height: 60px;
+  height: 74px;
   display: none;
   justify-content: space-between;
   box-shadow: 0 1px 10px #7aa6bb;
+}
+.darkmode .nav-select{
+  box-shadow: 0 1px 10px #242424;
 }
 .nav-select-left{
   display: flex;
@@ -195,6 +207,7 @@ a{
     padding-inline: 50px;
     display: flex;
     justify-content: space-between;
+    z-index: 8;
 }
 
 .topnav1 .material-symbols-outlined{
@@ -210,6 +223,10 @@ a{
     color: #42C4FE;
     cursor: pointer;
 }
+.left-nav1, .right-nav1{
+  padding-top: 20px
+}
+
 
 button{
     border: none;
@@ -299,7 +316,7 @@ input{
     border-radius: 5px;
     padding: 5px 10px;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top: 100%;
     left: -10%;
     opacity: 0;
@@ -332,6 +349,8 @@ input{
     justify-content: center;
     align-items: center;
     font-size: 17px;
+    margin-top: 9px;
+    margin-right: 29px;
 }
 .note-list{
     display: flex;
@@ -388,7 +407,7 @@ input{
 .note-text-pad{
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     left: 0;
     top: 0;
     width: 100%;
@@ -540,7 +559,7 @@ body.modal-open{
   .reminder-modal{
     position: fixed;
     display: none;
-    z-index: 2;
+    z-index: 25;
     top: 0;
     left: 0;
     width: 100%;
@@ -610,7 +629,7 @@ body.modal-open{
   .view-note{
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     left: 0;
     top: 0;
     width: 100%;
@@ -707,7 +726,7 @@ body.modal-open{
 .notification-window {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     left: 0;
     top: 0;
     width: 100%;
@@ -863,7 +882,7 @@ p{
 }
 
 .delete-icon {
-    z-index: 5;
+    z-index: 25;
     padding: 10px 15px;
     background-color: #dc3545;
     color: #fff;
@@ -896,7 +915,7 @@ p{
 .edit-note{
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     left: 0;
     top: 0;
     width: 100%;
@@ -977,7 +996,7 @@ p{
 .delete-note-warning{
     position: fixed;
     display: none;
-    z-index: 2;
+    z-index: 50;
     top: 0;
     left: 0;
     width: 100%;
@@ -1194,7 +1213,9 @@ p{
 
     .note-list{
         margin: 10px;
-        margin-top: 20px;
+        margin-top: 20px;    
+        position: relative;
+        left: 6px;
     }
 
     .note-template{
@@ -1351,6 +1372,8 @@ p{
     .note-list{
         margin-inline: 25px;
         margin-block: 55px;
+        position: relative;
+        top: 3px;
     }
 
     .note-template{
