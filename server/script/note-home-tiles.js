@@ -123,6 +123,20 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
   submitNote();
 });
 
+// Select to Delete Multiple Notes
+function selectNotes() {
+  document.getElementById('selectNoteCount').style.display = 'flex';
+}
+function cancelSelect() {
+  document.getElementById('selectNoteCount').style.display = 'none';
+  document.getElementById("delete-selected-button").style.display = 'none';
+}
+
+function deleteSelected() {
+document.getElementById("delete-selected-button").style.display = 'flex';
+}
+
+// Select to Delete Multiple Notes
 
 document.addEventListener('DOMContentLoaded', function() {
   const noteContent = document.getElementById('noteContent');
