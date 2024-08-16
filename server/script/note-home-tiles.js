@@ -132,6 +132,22 @@ function toggleDeleteButtons() {
 }
 // Function to Toggle Delete Buttons Visibility
 
+// Select to Delete Multiple Notes
+function selectNotes() {
+  document.getElementById('selectNoteCount').style.display = 'flex';
+}
+function cancelSelect() {
+  document.getElementById('selectNoteCount').style.display = 'none';
+  document.getElementById("delete-selected-button").style.display = 'none';
+}
+
+function deleteSelected() {
+document.getElementById("delete-selected-button").style.display = 'flex';
+}
+
+
+// Select to Delete Multiple Notes
+
 // Function to Handle Deleting Selected Notes
 function deleteSelectedNotes() {
   console.log("Delete button clicked");

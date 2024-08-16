@@ -31,6 +31,11 @@ a{
     padding-inline: 50px;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background-color: #EBF4F6;
+    box-shadow: 0 1px 10px #7aa6bb;
 }
 
 .left-nav img{
@@ -150,6 +155,39 @@ a{
     display: block;
 } 
 /* DROPDOWN DISPLAY */
+/* SELECT NAV */
+.nav-select-count{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #EBF4F6;
+  z-index: 10;
+}
+.nav-select{
+  padding: 20px;
+  padding-inline: 40px;
+  height: 60px;
+  display: none;
+  justify-content: space-between;
+  box-shadow: 0 1px 10px #7aa6bb;
+}
+.nav-select-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-select-left #cancelSelect{
+  padding-inline: 10px;
+  margin-top: 8px;
+  font-size: 25px;
+}
+.nav-select-left #selectCount{
+  padding-inline: 10px;
+  font-size: 23px;
+}
+/* SELECT NOTE */
+
 
 /* TOPNAV1 */
 .topnav1{
