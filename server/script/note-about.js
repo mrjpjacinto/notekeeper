@@ -20,7 +20,8 @@ function applySavedTheme() {
 
 window.onload = function() {
   applySavedTheme();
-}
+    updateSlides();
+  };
 
 function toggleMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -41,33 +42,32 @@ function goBack() {
   window.history.back();
 }
 
-let slideIndex = 1;
-showSlides(slideIndex);
+// SLIDESHOW PICTURES
+const slideshow = document.querySelector('.slideshow');
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+let currentIndex = 0;
 
-function scrollPic(n) {
-    showSlides(slideIndex += n);
+function updateSlides() {
+    slides.forEach(slide => slide.classList.remove('slide-active'));
+
+    slides[currentIndex].classList.add('slide-active');
+    
+    slideshow.scrollTo({
+        left: slides[currentIndex].offsetLeft - (slideshow.clientWidth - slides[currentIndex].clientWidth) / 2,
+        behavior: 'smooth'
+    });
 }
 
-function teamPic(n) {
-    showSlides(slideIndex = n);
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlides();
 }
 
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("team-pic");
-    let dots = document.getElementsByClassName("demo");
-    let captionName = document.getElementById("teamName");
+let slideInterval = setInterval(nextSlide, 2000);
 
-    if (n > slides.length) { slideIndex = 1; }
-    if (n < 1) { slideIndex = slides.length; }
-
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionName.innerHTML = dots[slideIndex-1].alt;
-}
+slideshow.addEventListener('scroll', () => {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 2000);
+});
+// SLIDESHOW PICTURES
