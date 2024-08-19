@@ -10,25 +10,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $content = $_POST['content'];
         $user_id = $_SESSION['id']; // Get the logged-in user's ID
 
-        // Prepare SQL statement to insert the note
-        $sql = "INSERT INTO notes (title, content, color, date_created, user_id) VALUES (?, ?, 'default-color', NOW(), ?)";
-        if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("ssi", $title, $content, $user_id); // Bind the parameters including user_id
+        // Determine if this is an insert or update operation
+        if (isset($_POST['note_id']) && !empty($_POST['note_id'])) {
+            // Update existing note
+            $note_id = $_POST['note_id'];
+            
+            // Prepare the SQL statement for updating
+            $sql = "UPDATE notes SET title = ?, content = ?, date_created = NOW() WHERE id = ? AND user_id = ?";
+            
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bind_param("ssii", $title, $content, $note_id, $user_id); // Bind parameters including user_id
 
-            if ($stmt->execute()) {
-                // Check if redirect parameter is set and redirect accordingly
-                $redirectPage = isset($_POST['redirect']) ? $_POST['redirect'] : 'note-home-list.php';
-                header("Location: /notekeeper/client/php/$redirectPage");
-                exit();
+                if ($stmt->execute()) {
+                    // Redirect after successful update
+                    $redirectPage = isset($_POST['redirect']) ? $_POST['redirect'] : 'note-home-list.php';
+                    header("Location: /notekeeper/client/php/$redirectPage");
+                    exit();
+                } else {
+                    // Output error message
+                    echo "Error executing query: " . $stmt->error;
+                }
+
+                $stmt->close();
             } else {
                 // Output error message
-                echo "Error executing query: " . $stmt->error;
+                echo "Error preparing statement: " . $conn->error;
             }
-
-            $stmt->close();
         } else {
-            // Output error message
-            echo "Error preparing statement: " . $conn->error;
+            // Insert new note
+            $sql = "INSERT INTO notes (title, content, color, date_created, user_id) VALUES (?, ?, 'default-color', NOW(), ?)";
+            
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bind_param("ssi", $title, $content, $user_id); // Bind parameters including user_id
+
+                if ($stmt->execute()) {
+                    // Redirect after successful insert
+                    $redirectPage = isset($_POST['redirect']) ? $_POST['redirect'] : 'note-home-list.php';
+                    header("Location: /notekeeper/client/php/$redirectPage");
+                    exit();
+                } else {
+                    // Output error message
+                    echo "Error executing query: " . $stmt->error;
+                }
+
+                $stmt->close();
+            } else {
+                // Output error message
+                echo "Error preparing statement: " . $conn->error;
+            }
         }
     } else {
         echo "Required fields are missing.";

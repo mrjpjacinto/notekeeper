@@ -53,6 +53,7 @@ function openEditNote() {
 }
 function closeEditNote() {
   document.getElementById('editNote').style.display = 'none';
+  document.getElementById('viewNote').style.display = 'flex';
 }
 
 function openNotification() {
@@ -206,16 +207,19 @@ function closeWarning(){
 }
 
 
-// JavaScript to handle note deletion
+// for deletion and editing
 let currentNoteId = null;
 
 function openViewNote(element) {
-    // Set note ID for deletion
+    // Set note ID for deletion or editing
     currentNoteId = element.getAttribute('data-id');
     
-    // Set note title and content
-    document.getElementById('note-title').textContent = element.getAttribute('data-title');
-    document.getElementById('note-content').textContent = element.getAttribute('data-content');
+    // Set note title and content in the view modal
+    document.querySelector('.view-heading h1').textContent = element.getAttribute('data-title');
+    document.querySelector('.view-content p').textContent = element.getAttribute('data-content');
+    
+    // Store note ID in a data attribute on the edit button
+    document.getElementById('editNote').setAttribute('data-id', currentNoteId);
     
     // Show view note modal
     document.getElementById('viewNote').style.display = 'flex';
@@ -223,6 +227,30 @@ function openViewNote(element) {
 
 function closeViewNote() {
     document.getElementById('viewNote').style.display = 'none';
+}
+
+function openEditNote() {
+    // Hide the view note modal
+    document.getElementById('viewNote').style.display = 'none';
+    
+    // Show the edit note modal
+    document.getElementById('editNote').style.display = 'flex';
+    
+    // Pre-fill the edit form with existing note data
+    const title = document.querySelector('.view-heading h1').textContent;
+    const content = document.querySelector('.view-content p').textContent;
+    
+    // Update form fields
+    document.getElementById('editNoteTitle').value = title;
+    document.getElementById('editNoteContent').value = content;
+    
+    // Set the note ID in the hidden input field for form submission
+    document.getElementById('note_id').value = currentNoteId;
+}
+
+function closeEditNote() {
+    document.getElementById('editNote').style.display = 'none';
+    document.getElementById('viewNote').style.display = 'flex';
 }
 
 function openDeleteWarning() {
@@ -271,7 +299,7 @@ function deleteNote() {
             // Show success toast and delay redirect
             showToast('deleteSuccess', 1000);
             setTimeout(() => {
-                window.location.href = '/notekeeper/client/php/note-home-list.php';
+                window.location.href = '/notekeeper/client/php/note-home-tiles.php';
             }, 8000); // Delay redirect to match the toast display duration
         } else {
             showToast('deleteError', 1000); // Show error toast
@@ -285,4 +313,4 @@ function deleteNote() {
         closeWarning();
     });
 }
-// JavaScript to handle note deletion
+// for deletion and editing

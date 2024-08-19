@@ -308,7 +308,7 @@ if ($stmt = $conn->prepare($sql)) {
     <!-- DELETE WARNING -->
     </div>
     <!-- VIEW NOTE MODAL -->
-         <!--EDIT NOTE MODAL -->
+    <!--EDIT NOTE MODAL -->
     <div class="edit-note" id="editNote">
         <div class="edit-note-text">
             <div class="edit-note-icon">
@@ -344,8 +344,9 @@ if ($stmt = $conn->prepare($sql)) {
             <div class="edit-textpad">
                 <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
                 <input type="hidden" name="redirect" value="note-home-list.php">
+                <input type="hidden" name="note_id" id="note_id">
                     <h1>
-                        <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
+                        <input type="text" id="editNoteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
                     </h1>
                     <textarea id="editNoteContent" name="content" placeholder="Enter content..." required></textarea>
                     <footer>
