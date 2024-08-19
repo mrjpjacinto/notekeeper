@@ -531,8 +531,8 @@ input{
 }
 .word-count{
     text-align: left;
-    margin: 0 15px;
     font-size: 14px;
+    opacity: 0.2;
 
 }
 
@@ -1224,7 +1224,7 @@ p{
     }
 
     .note-list{
-        margin: 10px;
+        margin: 5px;
         margin-top: 20px;    
         position: relative;
         left: 6px;
@@ -1233,13 +1233,12 @@ p{
     .note-template{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 95%;
         height: 103px;
         border-radius: 10px;
         margin: 0;
         margin-bottom: 10px;
         padding: 0;
-        border-radius: 10px;
     }
 
     .note-heading{
@@ -1339,6 +1338,27 @@ p{
     .notif-template footer{
       margin-top: 15px;
     }
+    /* EDIT NOTE MODAL */
+    .edit-note h1{
+      margin-block-start: 10px;
+  }
+  .edit-note .edit-note-icon-left, .edit-note-icon-right{
+      padding: 5px;
+  }
+  .edit-note h1 input{
+      margin-left: 10px;
+  }
+  .edit-note .edit-note-icon span{
+      font-size: 20px;
+  }
+  .edit-note textarea{
+      margin: 0 15px 5px;
+  }
+  .edit-note .edit-note-text{
+      width: 90%;
+  }
+
+    /* EDIT NOTE MODAL */
 }
 /* MOBILE STYLE */
 
@@ -1446,6 +1466,10 @@ p{
     textarea{
         margin: 0 15px 5px;
     }
+
+    .note-text{
+      width: 90%;
+    }
     .note-text-pad footer{
         font-size: 15px;
     }
@@ -1456,7 +1480,7 @@ p{
      /* VIEW-NOTE-MODAL */
     .view-note-modal{
       width: 90%;
-      height: 470px;
+      height: 460px;
     }
 
     .view-heading{
@@ -1471,5 +1495,7 @@ p{
     }
 
     /* VIEW-NOTE-MODAL */
+
+
 }
 

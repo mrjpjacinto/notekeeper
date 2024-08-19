@@ -374,7 +374,7 @@ input{
 .note-heading{
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 85%;
   margin: 0;
   margin-inline: 15px;
 }
@@ -545,9 +545,8 @@ input:focus, textarea:focus {
 
 .word-count{
   text-align: left;
-  margin: 0 15px;
   font-size: 14px;
-
+  opacity: 0.2;
 }
 
 body.modal-open{
@@ -1321,31 +1320,46 @@ h1{
 /* NOTIFICATION */
 
 /* NOTE-TEXT-PAD */
-  .note-text{
-    width: 90%;
-  }  
+.note-text-pad h1{
+  margin-block-start: 10px;
+}
+.note-text-pad .textpad-icon-left, .textpad-icon-right{
+  padding: 5px;
+}
+.note-text-pad h1 input{
+  margin-left: 10px;
+}
+.note-text-pad .textpad-icon span{
+  font-size: 20px;
+}
+.note-text-pad textarea{
+  margin: 0 15px 5px;
+}
+.note-text-pad .note-text{
+  width: 90%;
+}
 
-  .word-count{
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    margin: 0;
-    margin-left: 10px;
+    /* EDIT NOTE MODAL */
+    .edit-note h1{
+      margin-block-start: 10px;
+  }
+  .edit-note .edit-note-icon-left, .edit-note-icon-right{
+      padding: 5px;
+  }
+  .edit-note h1 input{
+      margin-left: 10px;
+  }
+  .edit-note .edit-note-icon span{
+      font-size: 20px;
+  }
+  .edit-note textarea{
+      margin: 0 15px 5px;
+  }
+  .edit-note .edit-note-text{
+      width: 90%;
   }
 
-  .note-text footer{
-    padding: 0;
-    height: 40px;
-    margin-bottom: 10px;
-  } 
-
-  #saveButton{
-    font-size: 12px;
-    padding: 0;
-    margin-right: 10px;
-  }
-
-
+    /* EDIT NOTE MODAL */
 
 
 
@@ -1397,7 +1411,7 @@ h1{
 
   .note-heading{
     height: 30px;
-    width: 100%;
+    width: 80%;
     margin-inline: 20px;
     margin-top: 15px;
     margin-bottom: 17px;
@@ -1428,10 +1442,14 @@ h1{
     width: 350px;
   }
 
+  .note-text, .edit-note-text{
+    width: 90%;
+  }
+
   /* VIEW-NOTE-MODAL */
   .view-note-modal{
     width: 90%;
-    height: 470px;
+    height: 460px;
   }
 
   .view-heading{
