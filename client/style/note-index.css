@@ -31,15 +31,42 @@ html{
     justify-content: flex-end;
 }
 
-.option{
+.option1{
     text-decoration: none;
-    color: gray;
-    padding: 10px;
+    color: white;
+    padding: 0;
+    margin-right: 10px;
+    height: 25px;
+    width: 7%;
+    padding-top: 5px;
+    border-radius: 10%;
+    text-align: center;
+    background-color: #42C4FE;
 }
 
-a:hover{
-    color: black;
+.option2{
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    margin-left: 10px;
+    height: 25px;
+    width: 7%;
+    padding-top: 5px;
+    border-radius: 10%;
+    background-color: #42C4FE;
+    text-align: center;
 }
+
+.option1:hover{
+    color: white;
+    background-color: black;
+}
+
+.option2:hover{
+    color: white;
+    background-color: black;
+}
+
 /* NAVBAR */
 
 /* HERO-SECTION */
@@ -95,7 +122,7 @@ p{
 }
 
 .button{
-    background-color: black;
+    background-color: #42C4FE;;
     color: white;
     border: black;
     font-size: 30px;
@@ -106,7 +133,7 @@ p{
 }
 
 button:hover{
-    background-color: #42C4FE;
+    background-color: black;
     color: #f2f2f2;
 }
 
