@@ -223,24 +223,25 @@ function closeWarning() {
     document.getElementById('deleteNoteWarning').style.display = 'none';
 }
 
-function showToast(id) {
+function showToast(id, duration = 1000) {
     // Hide all toasts
     document.querySelectorAll('.toast').forEach(toast => {
         toast.style.display = 'none';
     });
 
     // Show the specific toast
-    document.getElementById(id).style.display = 'flex';
+    const toast = document.getElementById(id);
+    toast.style.display = 'flex';
 
-    // Hide the toast after 3 seconds
+    // Hide the toast after the specified duration
     setTimeout(() => {
-        document.getElementById(id).style.display = 'none';
-    }, 3000);
+        toast.style.display = 'none';
+    }, duration);
 }
 
 function deleteNote() {
     if (currentNoteId === null) {
-        showToast('deleteError'); // Show error toast if no note is selected
+        showToast('deleteError', 1000); // Show error toast if no note is selected
         return;
     }
 
@@ -256,23 +257,24 @@ function deleteNote() {
         if (data.trim() === 'success') { // Adjust based on the response from PHP
             // Remove note from the list
             document.querySelector(`.note-template[data-id='${currentNoteId}']`).remove();
-            showToast('deleteSuccess'); // Show success toast
-
-            // Redirect to the notes list page
-            window.location.href = '/notekeeper/client/php/note-home-tiles.php';
+            
+            // Show success toast and delay redirect
+            showToast('deleteSuccess', 1000);
+            setTimeout(() => {
+                window.location.href = '/notekeeper/client/php/note-home-tiles.php';
+            }, 8000); // Delay redirect to match the toast display duration
         } else {
-            showToast('deleteError'); // Show error toast
+            showToast('deleteError', 1000); // Show error toast
         }
         closeWarning();
         closeViewNote();
     })
     .catch(error => {
         console.error('Error:', error);
-        showToast('deleteError'); // Show error toast
+        showToast('deleteError', 1000); // Show error toast
         closeWarning();
     });
 }
-
 // JavaScript to handle note deletion
 
 

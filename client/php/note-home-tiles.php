@@ -66,6 +66,16 @@ if ($stmt = $conn->prepare($sql)) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+    <!-- SUCCESS/ERROR TOAST -->
+    <div class="toast delete-error-toast" id="deleteError">
+            <span class="material-symbols-outlined">error</span>
+            <h3>Failed to delete note!</h3>
+        </div>
+        <div class="toast delete-success-toast" id="deleteSuccess">
+            <span class="material-symbols-outlined">check_circle</span>
+            <h4>Note Successfully Deleted!</h4>
+        </div>
+      <!-- SUCCESS/ERROR TOAST -->
     <!-- NAVBAR -->
     <div class="main-container">
             <div class="topnav">
@@ -296,16 +306,6 @@ if ($stmt = $conn->prepare($sql)) {
             </div>
         </div>
         <!-- DELETE WARNING -->
-        <!-- SUCCESS/ERROR TOAST -->
-        <div class="toast delete-error-toast" id="deleteError">
-            <span class="material-symbols-outlined">error</span>
-            <h3>Failed to delete note!</h3>
-        </div>
-        <div class="toast delete-success-toast" id="deleteSuccess">
-            <span class="material-symbols-outlined">check_circle</span>
-            <h4>Note Successfully Deleted!</h4>
-        </div>
-      <!-- SUCCESS/ERROR TOAST -->
     </div>
     <!-- VIEW NOTE MODAL -->
          <!--EDIT NOTE MODAL -->
