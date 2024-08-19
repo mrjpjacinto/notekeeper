@@ -23,8 +23,8 @@
         
         <!-- RIGHT-NAV -->
             <div class="right-nav">
-                <a class="option" href="/notekeeper/client/php/note-login.php">LOG IN</a>
-                <a class="option" href="/notekeeper/client/php/note-signup.php">SIGN UP</a>
+                <a class="option1" href="/notekeeper/client/php/note-login.php">LOG IN</a>
+                <a class="option2" href="/notekeeper/client/php/note-signup.php">SIGN UP</a>
             </div>
         </div>
     <!-- NAVBAR -->
