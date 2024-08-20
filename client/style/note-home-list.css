@@ -198,6 +198,27 @@ a{
   padding-inline: 10px;
   font-size: 23px;
 }
+
+.note-template.selectable {
+  cursor: pointer; /* Indicates that the item is clickable */
+}
+
+.note-template.selected {
+  background-color: #96d3ff; /* Example style for selected notes */
+}
+.darkmode .note-template.selected {
+  background-color: #60bdff; /* Example style for selected notes */
+}
+
+.no-hover .note-template:hover {
+  background: #42c4fe;
+  cursor: default;
+}
+
+.darkmode .no-hover .note-template:hover {
+  background: #006edd;
+  cursor: default;
+}
 /* SELECT NOTE */
 
 

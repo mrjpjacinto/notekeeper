@@ -135,8 +135,8 @@ if ($stmt = $conn->prepare($sql)) {
                         </span>
                         <span class="tooltip-text">Reminders</span>
                     </button>
-                        <button class="tooltip">
-                        <span class="material-symbols-outlined" onclick="toggleDeleteButtons()">
+                        <button id="nav-icon" class="tooltip">
+                        <span class="material-symbols-outlined" onclick="selectNotes(), deleteSelected()">
                             select_check_box
                         </span>
                         <span class="tooltip-text">Select</span>
@@ -169,7 +169,7 @@ if ($stmt = $conn->prepare($sql)) {
                      // Format the date
                      $formattedDate = formatDate($row['date_created']);
                     
-                    echo '<div class="note-template" onclick="openViewNote(this)" data-id="' . htmlspecialchars($row['id']) . '" data-title="' . htmlspecialchars($row['title']) . '" data-content="' . htmlspecialchars($row['content']) . '">';
+                    echo '<div class="note-template" onclick="handleNoteClick(this, event)" data-id="' . htmlspecialchars($row['id']) . '" data-title="' . htmlspecialchars($row['title']) . '" data-content="' . htmlspecialchars($row['content']) . '">';
                     echo '<div class="note-content">';
                     echo '<div class="note-heading">';
                     echo '<h1 id="title-note">' . htmlspecialchars($row['title']) . '</h1>'; // Remove id attribute
@@ -397,7 +397,7 @@ if ($stmt = $conn->prepare($sql)) {
     </div>
       <!-- DELETE SELECTED -->
       <div class="delete" id="delete-selected-button">
-            <div class="delete-icon">Delete Selected</div>
+            <div class="delete-icon" onclick="confirmDeleteSelected()">Delete Selected</div>
         </div>
     </div>
     <!-- DELETE SELECTED -->
