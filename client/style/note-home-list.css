@@ -1142,6 +1142,23 @@ p{
     }
     /* NAVBAR-TOP */
 
+    /* NAV SELECT */
+    .nav-select{
+      height: 34px;
+      font-size: 15px;
+    }
+    .nav-select-left #cancelSelect{
+      padding-left: 0;
+      margin-top: 2px;
+      font-size: 20px;
+    }
+    .nav-select-left #selectCount{
+    font-size: 20px;
+    }
+    /* NAV SELECT */
+
+
+
     /* NAVBAR-BOTTOM */
     .topnav1{
         display: flex;
