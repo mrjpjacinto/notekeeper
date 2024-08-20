@@ -285,7 +285,7 @@ if ($stmt = $conn->prepare($sql)) {
                 <div class="view-content"><p id="note-content">Content...</p></div>
             <footer>
                 <div class="save-delete">
-                    <button id="deleteButton" onclick="deleteSelectedNotes()">Delete</button>
+                    <button id="deleteButton" onclick="openDeleteWarning()">Delete</button>
                 </div>
             </footer>
             </div>
