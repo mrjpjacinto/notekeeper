@@ -1228,6 +1228,8 @@ p{
         margin-top: 20px;    
         position: relative;
         left: 6px;
+        margin-left: 0;
+        margin-right: 13px;
     }
 
     .note-template{
@@ -1264,11 +1266,22 @@ p{
         margin-right: 6px;
     }
 
+
     /* NOTE-TEXT-PAD */
 
-    .note-text-pad h1{
-        margin-block-start: 10px;
+    #noteTitle{
+      width: 260px;
+      max-height: 60px;
+        margin-block: 3px;
     }
+
+    #noteContent{
+      padding: 0;
+      margin-top: 15px;
+      margin-left: 22px;
+      height: 280px;
+    }
+
     .note-text-pad .textpad-icon-left, .textpad-icon-right{
         padding: 5px;
     }
@@ -1283,6 +1296,10 @@ p{
     }
     .note-text-pad .note-text{
         width: 90%;
+    }
+
+    .note-text-pad footer{
+      margin-top: 20px;
     }
 
     /* VIEW-NOTE-MODAL */

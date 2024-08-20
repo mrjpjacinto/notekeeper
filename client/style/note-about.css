@@ -235,6 +235,7 @@ button{
 }
 
 .container1{
+    display: flex;
     height: 430px;
     background-color: #EBF4F6 ;
 }
@@ -244,13 +245,16 @@ button{
     font-size: 20px;
 }
 
-h1, p{
-    display: flex;
-    justify-content: center;
+.about-contents p{
+    font-size: 17px;
+    width: 90%;
+    margin-left: 50px;
 }
 
 h1{
     font-size: 50px;
+    margin-left: 50px;
+    margin-top: 60px;
 }
 
 /* ABOUT */
@@ -363,17 +367,20 @@ body {
     }
 
     .container1{
+        height: 600px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
     .container1 h1{
-        font-size: 20px;
+        font-size: 25px;
+        margin-inline: 20px;
     }
 
     .container1 p{
-        font-size: 13px;
+        font-size: 14px;
+        margin-inline: 20px;
     }
 
     .container2{
@@ -384,11 +391,37 @@ body {
     }
 
     .container2 h1{
-        font-size: 25px;
+        font-size: 30px;
+        margin-bottom: 0;
+        margin-left: 0;
     }
 
     .slideshow-container{
         height: 250px;
     }
 
+}
+
+/* TABLET STYLE */
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .topnav{
+        padding: 20px 25px 20px 20px;
+    }
+
+    .topnav1{
+        padding-inline: 25px;
+    }
+
+    .container1{
+        height: 500px;
+    }
+
+    .container1 h1{
+        font-size: 45px;
+    }
+
+    .container1 p{
+        font-size: 18px;
+    }
 }
