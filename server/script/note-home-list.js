@@ -358,7 +358,7 @@ function deleteNote() {
             // Show success toast and delay redirect
             showToast('deleteSuccess', 1000);
             setTimeout(() => {
-                window.location.href = '/notekeeper/client/php/note-home-tiles.php';
+                window.location.href = '/notekeeper/client/php/note-home-list.php';
             }, 8000); // Delay redirect to match the toast display duration
         } else {
             showToast('deleteError', 1000); // Show error toast
