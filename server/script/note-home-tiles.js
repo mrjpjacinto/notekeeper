@@ -125,18 +125,85 @@ document.getElementById('noteForm').addEventListener('submit', function(event) {
 });
 
 // Select to Delete Multiple Notes
+// Global flag to track if delete mode is active
+let deleteMode = false;
+
+// Activate delete mode
 function selectNotes() {
-  document.getElementById('selectNoteCount').style.display = 'flex';
+    deleteMode = true;
+    document.body.classList.add('no-hover'); // Add class to disable hover effect
+    document.getElementById('selectNoteCount').style.display = 'flex';
+    document.getElementById('delete-selected-button').style.display = 'flex';
+    document.querySelectorAll('.note-template').forEach(note => {
+        note.classList.add('selectable');
+        note.addEventListener('click', toggleSelection); // Add click event listener
+    });
 }
+
+// Cancel selection mode
 function cancelSelect() {
-  document.getElementById('selectNoteCount').style.display = 'none';
-  document.getElementById("delete-selected-button").style.display = 'none';
+    deleteMode = false;
+    document.body.classList.remove('no-hover'); // Remove class to enable hover effect
+    document.getElementById('selectNoteCount').style.display = 'none';
+    document.getElementById('delete-selected-button').style.display = 'none';
+    document.querySelectorAll('.note-template').forEach(note => {
+        note.classList.remove('selectable', 'selected');
+        note.removeEventListener('click', toggleSelection); // Remove click event listener
+    });
+    updateSelectedCount();
 }
 
+// Toggle note selection
+function toggleSelection(event) {
+    if (deleteMode) {
+        event.stopPropagation(); // Prevent the click event from propagating
+        this.classList.toggle('selected');
+        updateSelectedCount();
+    }
+}
+
+// Handle note click
+function handleNoteClick(noteElement, event) {
+    if (!deleteMode) {
+        openViewNote(noteElement); // Call openViewNote only if not in delete mode
+    }
+    event.stopPropagation(); // Prevent the event from propagating
+}
+
+// Update the selected notes count
+function updateSelectedCount() {
+    const selectedNotes = document.querySelectorAll('.note-template.selected');
+    document.getElementById('selectCount').textContent = selectedNotes.length;
+}
+
+// Function to delete selected notes
 function deleteSelected() {
-document.getElementById("delete-selected-button").style.display = 'flex';
+    const selectedNotes = document.querySelectorAll('.note-template.selected');
+    const ids = Array.from(selectedNotes).map(note => note.getAttribute('data-id'));
+
+    if (ids.length > 0) {
+        fetch('/notekeeper/server/db-conn-for-notes/deleting-multiple-notes.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                ids: ids.join(',')
+            })
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result);
+            location.reload(); // Reload the page to reflect changes
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
 }
 
+// Add an event listener to the delete button
+document.getElementById('delete-selected-button').addEventListener('click', deleteSelected);
 // Select to Delete Multiple Notes
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -304,3 +371,6 @@ function deleteNote() {
     });
 }
 // for deletion and editing
+
+
+
