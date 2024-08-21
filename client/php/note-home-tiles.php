@@ -222,9 +222,6 @@ if ($stmt = $conn->prepare($sql)) {
                     <button id="format">
                         <span class="material-symbols-outlined">format_color_text</span>
                     </button>
-                    <button id="reminderButton" onclick="setReminder()">
-                        <span class="material-symbols-outlined">add_alert</span>
-                    </button>
                 </div>
             </div>
             <div class="textpad">
@@ -345,7 +342,7 @@ if ($stmt = $conn->prepare($sql)) {
                         <span class="material-symbols-outlined">format_color_text</span>
                     </button>
                     <button id="reminderButton" onclick="setReminder()">
-                        <span class="material-symbols-outlined">add_alert</span>
+                        <span class="material-symbols-outlined">bookmark</span>
                     </button>
                 </div>
             </div>
