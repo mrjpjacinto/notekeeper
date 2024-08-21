@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2024 at 08:41 AM
+-- Generation Time: Aug 21, 2024 at 07:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,14 @@ CREATE TABLE `notes` (
   `user_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`id`, `title`, `content`, `color`, `date_created`, `user_id`) VALUES
+(346, 'wsssss', 'waeewawaeewa', 'default-color', '2024-08-21 13:55:56', 29),
+(347, 'dsadaa', 'asdada', 'default-color', '2024-08-21 13:54:52', 29);
+
 -- --------------------------------------------------------
 
 --
@@ -48,15 +56,17 @@ CREATE TABLE `user` (
   `passwd` varchar(255) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `uname` varchar(255) DEFAULT NULL
+  `uname` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `passwd`, `fname`, `lname`, `uname`) VALUES
-(21, 'khylle@gmail.com', '$2y$10$CpwMWCJv608WpIa2xkUD3ORM15iCeclStmvRBRFS16nECrV47.s62', 'Khylle', 'Dino', 'khylle');
+INSERT INTO `user` (`id`, `email`, `passwd`, `fname`, `lname`, `uname`, `img`) VALUES
+(29, 'khylle@gmail.com', '$2y$10$toviJCPnqK8ItnAMCNorYumB34ndvClpfbVFInWiNBLf2jJYXNTIS', 'khylle', 'khylle', 'khylle', 'Hinata-Hyuga.png'),
+(30, 'sa@gmail.com', '$2y$10$nOKk4P3Qli/es9VaEZ5TRe7sZ7t4BtsTxeN2nzsKMomE2JhuMFqd2', 'sa', 'sa', 'sa', '107725143_280312823247105_743926044497385942_n.jpg');
 
 --
 -- Indexes for dumped tables
@@ -85,13 +95,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=348;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables

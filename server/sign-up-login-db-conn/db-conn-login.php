@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['fname'] = $row['fname'];  // Store first name
                         $_SESSION['lname'] = $row['lname'];  // Store last name
                         $_SESSION['email'] = $row['email'];  // Store email
+                        $_SESSION['img'] = $row['img']; // Store image filename
                         $_SESSION['success'] = "Login successful!";
                         // Redirect to login page to handle the success toast
                         header("Location: /notekeeper/client/php/note-login.php");
