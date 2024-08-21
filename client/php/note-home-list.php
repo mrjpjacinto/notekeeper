@@ -83,14 +83,24 @@ if ($stmt = $conn->prepare($sql)) {
                     <img src="/notekeeper/client/assets/note-app-logo.png">
                 </div>
                 <div class="right-nav">
-                    <img src="<?php echo isset($_SESSION['img']) && !empty($_SESSION['img']) ? '/notekeeper/client/assets/' . $_SESSION['img'] : '/notekeeper/client/assets/Avatar-placeholder.png'; ?>" onclick="toggleMenu()" class="dropbtn">
+                    <img src="<?php
+                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
+                                ? $profileImgPath 
+                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                            ?>" onclick="toggleMenu()" class="dropbtn">
                 </div>
                 <!-- DROPDOWN -->
                 <div class="dropdown">
                     <div class="dropdown-content" id="myDropdown">
                         
                         <div class="dropdown-display">
-                            <img src="<?php echo isset($_SESSION['img']) && !empty($_SESSION['img']) ? '/notekeeper/client/assets/' . $_SESSION['img'] : '/notekeeper/client/assets/Avatar-placeholder.png'; ?>">
+                            <img src="<?php
+                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
+                                ? $profileImgPath 
+                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                            ?>">
                             <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
                             <p id="un"><?php echo ($email); ?></p>
                         </div>
@@ -130,10 +140,8 @@ if ($stmt = $conn->prepare($sql)) {
                             <span class="tooltip-text">Switch to Tiles</span>
                         </button>
                     <button id="nav-icon" onclick="openNotification()" class="tooltip">
-                        <span class="material-symbols-outlined" id="notif-message">
-                            notifications
-                        </span>
-                        <span class="tooltip-text">Reminders</span>
+                    <span class="material-symbols-outlined">bookmark</span>
+                        <span class="tooltip-text">Favorites</span>
                     </button>
                     <button id="nav-icon" class="tooltip">
                         <span class="material-symbols-outlined" onclick="selectNotes(), deleteSelected()">
@@ -196,26 +204,25 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="textpad-icon-right">
-                    <button id="undoButton">
+                    <button id="undoButton" class="tooltip">
                         <span class="material-symbols-outlined">undo</span>
+                        <span class="tooltip-text">undo</span>
                     </button>
-                    <button id="redoButton">
+                    <button id="redoButton" class="tooltip">
                         <span class="material-symbols-outlined"> redo </span>
+                        <span class="tooltip-text">redo</span>
                     </button>
-                    <button id="format"> 
+                    <button id="format" class="tooltip"> 
                         <span class="material-symbols-outlined"> format_bold </span>
+                        <span class="tooltip-text">bold</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_italic</span>
+                        <span class="tooltip-text">italic</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_underlined</span>
-                    </button>
-                    <button id="format">
-                        <span class="material-symbols-outlined">format_color_text</span>
-                    </button>
-                    <button id="reminderButton" onclick="setReminder()">
-                        <span class="material-symbols-outlined">add_alert</span>
+                        <span class="tooltip-text">underline</span>
                     </button>
                 </div>
             </div>
@@ -320,24 +327,27 @@ if ($stmt = $conn->prepare($sql)) {
                 <div class="edit-note-icon-right">
                     <button id="editUndoButton">
                         <span class="material-symbols-outlined">undo</span>
+                        <span class="tooltip-text">undo</span>
                     </button>
                     <button id="editRedoButton">
                         <span class="material-symbols-outlined"> redo </span>
+                        <span class="tooltip-text">redo</span>
                     </button>
-                    <button id="format"> 
+                    <button id="format" class="tooltip"> 
                         <span class="material-symbols-outlined"> format_bold </span>
+                        <span class="tooltip-text">bold</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_italic</span>
+                        <span class="tooltip-text">italic</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_underlined</span>
+                        <span class="tooltip-text">underline</span>
                     </button>
-                    <button id="format">
-                        <span class="material-symbols-outlined">format_color_text</span>
-                    </button>
-                    <button id="reminderButton" onclick="setReminder()">
-                        <span class="material-symbols-outlined">add_alert</span>
+                    <button id="reminderButton" onclick="setReminder()" class="tooltip">
+                        <span class="material-symbols-outlined">bookmark</span>
+                        <span class="tooltip-text">favorites</span>
                     </button>
                 </div>
             </div>
@@ -375,7 +385,7 @@ if ($stmt = $conn->prepare($sql)) {
     <div class="notification-window" id="notification">
         <div class="notif">
             <div class="notif-content">
-                <header><h2>Reminders</h2>  </header>
+                <header><h2>Favorites</h2>  </header>
                 <div class="notif-display">
                     <div class="notif-template">
                         <header><h4>Title</h4></header>
