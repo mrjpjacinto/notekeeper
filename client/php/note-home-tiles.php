@@ -318,10 +318,10 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="edit-note-icon-right">
-                    <button id="undoButton">
+                    <button id="editUndoButton">
                         <span class="material-symbols-outlined">undo</span>
                     </button>
-                    <button id="redoButton">
+                    <button id="editRedoButton">
                         <span class="material-symbols-outlined"> redo </span>
                     </button>
                     <button id="format"> 
@@ -355,10 +355,10 @@ if ($stmt = $conn->prepare($sql)) {
                         </div>
                         <div class="bottom-buttons">
                             <div class="undo-redo">
-                                <button id="undoButton1">
+                                <button id="editUndoButton1">
                                     <span class="material-symbols-outlined">undo</span>
                                 </button>
-                                <button id="redoButton1">
+                                <button id="editRedoButton1">
                                     <span class="material-symbols-outlined"> redo </span>
                                 </button>
                             </div>

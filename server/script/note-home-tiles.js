@@ -33,6 +33,99 @@ function closeNote() {
   document.body.classList.remove('modal-open');
 }
 
+// undo redo
+document.addEventListener('DOMContentLoaded', () => {
+  const undoButton = document.getElementById('undoButton');
+  const redoButton = document.getElementById('redoButton');
+  const undoButton1 = document.getElementById('undoButton1');
+  const redoButton1 = document.getElementById('redoButton1');
+  const editUndoButton = document.getElementById('editUndoButton');
+  const editRedoButton = document.getElementById('editRedoButton');
+  const editUndoButton1 = document.getElementById('editUndoButton1');
+  const editRedoButton1 = document.getElementById('editRedoButton1');
+  const noteContent = document.getElementById('noteContent');
+  const editNoteContent = document.getElementById('editNoteContent');
+
+  let undoStack = [];
+  let redoStack = [];
+  let undoStackEdit = [];
+  let redoStackEdit = [];
+
+  function saveState() {
+      if (noteContent) {
+          undoStack.push(noteContent.value);
+          redoStack = [];
+      }
+      if (editNoteContent) {
+          undoStackEdit.push(editNoteContent.value);
+          redoStackEdit = [];
+      }
+      updateButtonStates();
+  }
+
+  function undo() {
+      if (noteContent && undoStack.length > 0) {
+          redoStack.push(noteContent.value);
+          noteContent.value = undoStack.pop();
+          updateButtonStates();
+      }
+      if (editNoteContent && undoStackEdit.length > 0) {
+          redoStackEdit.push(editNoteContent.value);
+          editNoteContent.value = undoStackEdit.pop();
+          updateButtonStates();
+      }
+  }
+
+  function redo() {
+      if (noteContent && redoStack.length > 0) {
+          undoStack.push(noteContent.value);
+          noteContent.value = redoStack.pop();
+          updateButtonStates();
+      }
+      if (editNoteContent && redoStackEdit.length > 0) {
+          undoStackEdit.push(editNoteContent.value);
+          editNoteContent.value = redoStackEdit.pop();
+          updateButtonStates();
+      }
+  }
+
+  function updateButtonStates() {
+      const undoAvailable = undoStack.length > 0;
+      const redoAvailable = redoStack.length > 0;
+      const undoAvailableEdit = undoStackEdit.length > 0;
+      const redoAvailableEdit = redoStackEdit.length > 0;
+
+      function updateButtons(buttons, availableUndo, availableRedo) {
+          buttons.forEach(button => {
+              button.classList.toggle('button-disabled', !availableUndo && !availableRedo);
+              button.disabled = !availableUndo && !availableRedo;
+          });
+      }
+
+      updateButtons([undoButton, redoButton], undoAvailable, redoAvailable);
+      updateButtons([undoButton1, redoButton1], undoAvailable, redoAvailable);
+      updateButtons([editUndoButton, editRedoButton], undoAvailableEdit, redoAvailableEdit);
+      updateButtons([editUndoButton1, editRedoButton1], undoAvailableEdit, redoAvailableEdit);
+  }
+
+  if (noteContent) noteContent.addEventListener('input', saveState);
+  if (editNoteContent) editNoteContent.addEventListener('input', saveState);
+
+  [undoButton, redoButton, undoButton1, redoButton1, editUndoButton, editRedoButton, editUndoButton1, editRedoButton1].forEach(button => {
+    if (button) {
+      button.addEventListener('click', () => {
+        if (button === undoButton || button === undoButton1 || button === editUndoButton || button === editUndoButton1) {
+          undo();
+        } else if (button === redoButton || button === redoButton1 || button === editRedoButton || button === editRedoButton1) {
+          redo();
+        }
+      });
+    }
+  });
+});
+
+// undo redo
+
 // for viewing the note
 function openViewNote(element) {
   const title = element.getAttribute('data-title');
