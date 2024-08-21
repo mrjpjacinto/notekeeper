@@ -130,10 +130,8 @@ if ($stmt = $conn->prepare($sql)) {
                             <span class="tooltip-text">Switch to Tiles</span>
                         </button>
                     <button id="nav-icon" onclick="openNotification()" class="tooltip">
-                        <span class="material-symbols-outlined" id="notif-message">
-                            notifications
-                        </span>
-                        <span class="tooltip-text">Reminders</span>
+                    <span class="material-symbols-outlined">bookmark</span>
+                        <span class="tooltip-text">Favorites</span>
                     </button>
                     <button id="nav-icon" class="tooltip">
                         <span class="material-symbols-outlined" onclick="selectNotes(), deleteSelected()">
@@ -375,7 +373,7 @@ if ($stmt = $conn->prepare($sql)) {
     <div class="notification-window" id="notification">
         <div class="notif">
             <div class="notif-content">
-                <header><h2>Reminders</h2>  </header>
+                <header><h2>Favorites</h2>  </header>
                 <div class="notif-display">
                     <div class="notif-template">
                         <header><h4>Title</h4></header>
