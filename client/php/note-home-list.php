@@ -83,14 +83,24 @@ if ($stmt = $conn->prepare($sql)) {
                     <img src="/notekeeper/client/assets/note-app-logo.png">
                 </div>
                 <div class="right-nav">
-                    <img src="<?php echo isset($_SESSION['img']) && !empty($_SESSION['img']) ? '/notekeeper/client/assets/' . $_SESSION['img'] : '/notekeeper/client/assets/Avatar-placeholder.png'; ?>" onclick="toggleMenu()" class="dropbtn">
+                    <img src="<?php
+                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
+                                ? $profileImgPath 
+                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                            ?>" onclick="toggleMenu()" class="dropbtn">
                 </div>
                 <!-- DROPDOWN -->
                 <div class="dropdown">
                     <div class="dropdown-content" id="myDropdown">
                         
                         <div class="dropdown-display">
-                            <img src="<?php echo isset($_SESSION['img']) && !empty($_SESSION['img']) ? '/notekeeper/client/assets/' . $_SESSION['img'] : '/notekeeper/client/assets/Avatar-placeholder.png'; ?>">
+                            <img src="<?php
+                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
+                                ? $profileImgPath 
+                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                            ?>">
                             <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
                             <p id="un"><?php echo ($email); ?></p>
                         </div>

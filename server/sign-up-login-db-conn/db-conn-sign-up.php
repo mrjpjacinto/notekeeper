@@ -4,7 +4,7 @@ session_start();
 include '../db-conn.php'; 
 
 // Define the upload directory using the absolute path
-$uploadDir = '/xampp/htdocs/notekeeper/client/assets/'; // Set the absolute path to your assets folder
+$uploadDir = '/xampp/htdocs/notekeeper/client/assets/profilepictures/'; // Set the absolute path to your profile pictures folder
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['uname']) && isset($_POST['email']) && isset($_POST['passwd'])) {
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $passwd = password_hash($_POST['passwd'], PASSWORD_BCRYPT);
 
-         // Handle image upload
+           // Handle image upload
         $imgPath = null;
         if (isset($_FILES['img']) && $_FILES['img']['error'] == UPLOAD_ERR_OK) {
             $img = $_FILES['img'];
