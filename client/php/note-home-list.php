@@ -325,11 +325,11 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="edit-note-icon-right">
-                    <button id="undoButton" class="tooltip">
+                    <button id="editUndoButton">
                         <span class="material-symbols-outlined">undo</span>
                         <span class="tooltip-text">undo</span>
                     </button>
-                    <button id="redoButton" class="tooltip">
+                    <button id="editRedoButton">
                         <span class="material-symbols-outlined"> redo </span>
                         <span class="tooltip-text">redo</span>
                     </button>
@@ -353,7 +353,7 @@ if ($stmt = $conn->prepare($sql)) {
             </div>
             <div class="edit-textpad">
                 <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
-                <input type="hidden" name="redirect" value="note-home-list.php">
+                <input type="hidden" name="redirect" value="note-home-tiles.php">
                 <input type="hidden" name="note_id" id="note_id">
                     <h1>
                         <input type="text" id="editNoteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
@@ -365,10 +365,10 @@ if ($stmt = $conn->prepare($sql)) {
                         </div>
                         <div class="bottom-buttons">
                             <div class="undo-redo">
-                                <button id="undoButton1">
+                                <button id="editUndoButton1">
                                     <span class="material-symbols-outlined">undo</span>
                                 </button>
-                                <button id="redoButton1">
+                                <button id="editRedoButton1">
                                     <span class="material-symbols-outlined"> redo </span>
                                 </button>
                             </div>
@@ -380,8 +380,8 @@ if ($stmt = $conn->prepare($sql)) {
                 </form>
             </div>
         </div>
-       <!-- EDIT NOTE MODAL -->
     </div>
+       <!-- EDIT NOTE MODAL -->
     <div class="notification-window" id="notification">
         <div class="notif">
             <div class="notif-content">

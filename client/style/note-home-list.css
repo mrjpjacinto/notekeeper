@@ -526,7 +526,12 @@ input{
     border-style: solid;
     outline: none;
   }
-
+  .button-disabled {
+    color: gray;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
 
   #undoButton1, #redoButton1{
     display: none;
