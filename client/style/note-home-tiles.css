@@ -486,7 +486,7 @@ input{
   margin-left: 10px;
 }
 .textpad-icon-right{
-  margin-right: 10px;
+  margin-right: 40px;
 }
 
 button{
@@ -1044,7 +1044,7 @@ font-size: 10px;
   margin-left: 10px;
 }
 .edit-note-icon-right{
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .edit-textpad{
   background-color: #EBF4F6;

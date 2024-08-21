@@ -204,23 +204,25 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="textpad-icon-right">
-                    <button id="undoButton">
+                    <button id="undoButton" class="tooltip">
                         <span class="material-symbols-outlined">undo</span>
+                        <span class="tooltip-text">undo</span>
                     </button>
-                    <button id="redoButton">
+                    <button id="redoButton" class="tooltip">
                         <span class="material-symbols-outlined"> redo </span>
+                        <span class="tooltip-text">redo</span>
                     </button>
-                    <button id="format"> 
+                    <button id="format" class="tooltip"> 
                         <span class="material-symbols-outlined"> format_bold </span>
+                        <span class="tooltip-text">bold</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_italic</span>
+                        <span class="tooltip-text">italic</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_underlined</span>
-                    </button>
-                    <button id="format">
-                        <span class="material-symbols-outlined">format_color_text</span>
+                        <span class="tooltip-text">underline</span>
                     </button>
                 </div>
             </div>
@@ -323,26 +325,31 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="edit-note-icon-right">
-                    <button id="undoButton">
-                        <span class="material-symbols-outlined">undo</span>
+                    <button id="undoButton" class="tooltip">
+                        <span class="material-symbols-outlined"> undo </span>
+                        <span class="tooltip-text">undo</span>
                     </button>
-                    <button id="redoButton">
+                    <button id="redoButton" class="tooltip">
                         <span class="material-symbols-outlined"> redo </span>
+                        <span class="tooltip-text">redo</span>
                     </button>
-                    <button id="format"> 
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined"> format_bold </span>
+                        <span class="tooltip-text">bold</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_italic</span>
+                        <span class="tooltip-text">italic</span>
                     </button>
-                    <button id="format">
+                    <button id="format" class="tooltip">
                         <span class="material-symbols-outlined">format_underlined</span>
+                        <span class="tooltip-text">underline</span>
                     </button>
-                    <button id="format">
-                        <span class="material-symbols-outlined">format_color_text</span>
+                    <button id="format" class="tooltip">
+                        <span class="material-symbols-outlined">bookmark</span>
+                        <span class="tooltip-text">favorites</span>
                     </button>
                     <button id="reminderButton" onclick="setReminder()">
-                        <span class="material-symbols-outlined">bookmark</span>
                     </button>
                 </div>
             </div>
