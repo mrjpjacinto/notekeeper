@@ -533,7 +533,7 @@ input{
   }
   
 
-  #undoButton1, #redoButton1{
+  #undoButton1, #redoButton1, #editUndoButton1, #editRedoButton1{
     display: none;
 }
 .note-text-pad footer{
