@@ -1,3 +1,18 @@
+<?php
+session_start();
+include '/xampp/htdocs/notekeeper/server/db-conn.php';
+
+// Check if the user is logged in
+if (!isset($_SESSION['uname'])) {
+    header("Location: /notekeeper/client/php/note-login.php");
+    exit();
+}
+
+$fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : 'fname';
+$lname = isset($_SESSION['lname']) ? $_SESSION['lname'] : 'lname';
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,14 +34,24 @@
                 <img src="/notekeeper/client/assets/note-app-logo.png">
             </div>
             <div class="right-nav">
-                <img src="/notekeeper/client/assets/Avatar-placeholder.png" onclick="toggleMenu()" class="dropbtn">
+                <img src="<?php
+                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
+                                ? $profileImgPath 
+                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                            ?>" onclick="toggleMenu()" class="dropbtn">
             </div>
             <!-- DROPDOWN -->
             <div class="dropdown">
                 <div class="dropdown-content" id="myDropdown">
                     
                     <div class="dropdown-display">
-                        <img src="/notekeeper/client/assets/Avatar-placeholder.png">
+                        <img src="<?php
+                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
+                                ? $profileImgPath 
+                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                            ?>">
                         <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
                         <p id="un"><?php echo ($email); ?></p>
                     </div>
