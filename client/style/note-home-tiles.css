@@ -59,6 +59,7 @@ a{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: rgb(136, 136, 136) 2px solid;
 }
 
 /* DROPDOWN */
@@ -83,10 +84,11 @@ a{
   }
   
   .dropdown-content img{
-    width: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-bottom: 13px;
-  
+    border: rgb(136, 136, 136) 2px solid;
   }
   .dropdown-display{
     padding-top: 15px;
@@ -314,11 +316,24 @@ input{
 #close-icon {
   position: absolute;
   display: flex;
-  margin-left: 230px;
+  margin-left: 325px;
   opacity: 40%;
 }
 
+.search-bar{
+  width: 300px;
+  height: 40px;
+}
+
 /* NAVBAR */
+
+.darkmode .dropdown-content img{
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.darkmode .right-nav img{
+  border: 2px solid rgb(255, 255, 255);
+}
 
 .darkmode{
     background-color: #3d3d3d;
@@ -420,7 +435,7 @@ input{
 }
 .note-template{
   width: 250px;
-  height: 210px;
+  height: 215px;
   border-radius: 15px;
   border: 2px solid rgb(218, 218, 218);
   margin: 8px;
@@ -433,6 +448,7 @@ input{
   width: 85%;
   margin: 0;
   margin-inline: 15px;
+  height: 50px;
 }
 
 #title-note{
@@ -456,7 +472,7 @@ input{
 .note-body{
   display: flex;
   width: 200px;
-  height: 100px;
+  height: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-inline: 25px;
@@ -467,7 +483,7 @@ input{
   align-items: flex-end;
   margin-top: 15px;
   margin-left: 25px;
-  font-size: 10px;
+  font-size: 13px;
   opacity: 50%;
   height: 18px;
 }
@@ -1070,27 +1086,59 @@ h1{
     .nav-select{
       height: 34px;
       font-size: 15px;
+      padding-left: 20px;
     }
+
+    .nav-select h3{
+      font-size: 17px;
+    }
+
     .nav-select-left #cancelSelect{
+      display: flex;
+      align-items: center;
       padding-left: 0;
       margin-top: 2px;
       font-size: 20px;
+      padding-right: 0;
+    }
+
+    #cancelSelect span{
+      width: 20px;
+      height: 20px;
+      margin-bottom: 7px;
     }
     .nav-select-left #selectCount{
-    font-size: 20px;
+    font-size: 17px;
+    padding-right: 5px;
     }
     /* NAV SELECT */
+
         /* NAV FAVES */
         .nav-faves{
           height: 34px;
           font-size: 15px;
-        }
-        .nav-faves-left{
           padding-left: 0;
+        }
+
+        .nav-faves h3{
+          font-size: 20px;  
+        }    
+
+        .nav-faves-left{
+          padding: 0;
           margin-top: 2px;
           font-size: 20px;
+          margin-left: 25px;
         }
         /* NAV FAVES */
+
+        .delete-icon{
+          font-size: 10px;
+          margin: 20px;
+          margin-bottom: 40px;
+          top: 90%;
+        }
+
   /* NAVBAR-BOTTOM */
   .topnav1{
     display: flex;
@@ -1174,7 +1222,7 @@ h1{
 
   #title-note{
     margin: 0;
-    font-size: 20px;
+    font-size: 15px;
     height: 25px;
   }
 
@@ -1183,7 +1231,7 @@ h1{
     height: 20px;
     margin-inline: 15px;
     margin-top: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   .note-content{
@@ -1205,11 +1253,9 @@ h1{
 
   .note-footer{
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding-left: 28%;
+    padding-left: 15px;
     padding-right: 20px;
-    padding-top: 10px;
+    padding-top: 7px;
     font-size: 8px;
     margin: 0;
   }
@@ -1315,6 +1361,22 @@ h1{
     opacity: 40%;
 }
 
+  .nav-select h3{
+    font-size: 20px;
+  }
+
+  #cancelSelect{
+    margin: 0;
+  }
+
+  .nav-faves{
+    padding-left: 0;
+  }
+
+  .nav-faves-left{
+    margin-left: 30px;
+  }
+
   /* HERO CONTAINER */
   .note-card{
     margin-inline: 20px;
@@ -1331,7 +1393,7 @@ h1{
     width: 80%;
     margin-inline: 20px;
     margin-top: 15px;
-    margin-bottom: 17px;
+    margin-bottom: 10px;
   }
 
   .note-content{
@@ -1340,7 +1402,6 @@ h1{
 
   #title-note{
     margin: 0;
-    font-size: 28px;
   }
 
   .note-body{
@@ -1351,8 +1412,9 @@ h1{
   }
 
   .note-footer{
+    display: flex;
     margin-top: 15px;
-    margin-left: 105px;
+    margin-left: 20px;
     font-size: 10px;
   }
 

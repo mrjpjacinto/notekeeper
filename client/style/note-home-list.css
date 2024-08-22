@@ -57,6 +57,7 @@ a{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: rgb(136, 136, 136) 2px solid;
 }
 
 /* DROPDOWN */
@@ -81,7 +82,9 @@ a{
 }
   
 .dropdown-content img{
-    width: 60px;
+    border: rgb(136, 136, 136) 2px solid;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-bottom: 13px;
 }
@@ -160,6 +163,12 @@ a{
 .show {
     display: block;
 } 
+
+.search-bar{
+  width: 300px;
+  height: 40px;
+}
+
 /* DROPDOWN DISPLAY */
 /* SELECT NAV */
 .nav-select-count{
@@ -178,7 +187,7 @@ a{
   height: 74px;
   display: none;
   justify-content: space-between;
-  box-shadow: 0 1px 10px #7aa6bb;
+
 }
 .darkmode .nav-select{
   box-shadow: 0 1px 10px #242424;
@@ -303,13 +312,21 @@ input{
 #close-icon {
     position: absolute;
     display: flex;
-    margin-left: 230px;
+    margin-left: 325px;
     opacity: 40%;
 }
 
 
 
 /* NAVBAR */
+
+.darkmode .dropdown-content img{
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.darkmode .right-nav img{
+  border: 2px solid rgb(255, 255, 255);
+}
 
 .darkmode{
     background-color: #3d3d3d;
@@ -1023,7 +1040,7 @@ body.modal-open{
     }
 
     .right-nav img{
-        width: auto;
+        width: 40px;
         height: 40px;
     }
 
@@ -1039,28 +1056,59 @@ body.modal-open{
     .nav-select{
       height: 34px;
       font-size: 15px;
+      padding-left: 20px;
     }
+
+    .nav-select h3{
+      font-size: 17px;
+    }
+
     .nav-select-left #cancelSelect{
+      display: flex;
+      align-items: center;
       padding-left: 0;
       margin-top: 2px;
       font-size: 20px;
+      padding-right: 0;
+    }
+
+    #cancelSelect span{
+      width: 20px;
+      height: 20px;
+      margin-bottom: 7px;
     }
     .nav-select-left #selectCount{
-    font-size: 20px;
+      font-size: 17px;
+      padding-right: 5px;
     }
     /* NAV SELECT */
+
     /* NAV FAVES */
     .nav-faves{
+      display: none;
       height: 34px;
       font-size: 15px;
+      padding-left: 0;
     }
+
+    .nav-faves h3{
+      font-size: 20px;  
+    }
+
     .nav-faves-left{
       padding-left: 0;
       margin-top: 2px;
       font-size: 20px;
+      margin-left: 25px;
     }
     /* NAV FAVES */
 
+    .delete-icon{
+      font-size: 10px;
+      margin: 20px;
+      margin-bottom: 40px;
+      top: 90%;
+    }
 
     /* NAVBAR-BOTTOM */
     .topnav1{
@@ -1177,6 +1225,7 @@ body.modal-open{
 
     #title-note{
       margin-top: 12px;
+      font-size: 15px;
     }
 
     .note-footer{
@@ -1314,6 +1363,23 @@ body.modal-open{
   }
     /* NAVBAR */
 
+    .nav-select h3{
+      font-size: 20px;
+    }
+
+    #cancelSelect{
+      margin: 0;
+    }
+  
+
+    .nav-faves-left{
+      margin-left: 30px;
+    }
+
+    .nav-faves{
+      padding-left: 0;
+    }
+
     /* HERO-SECTION */
     
     /* NOTE BODY */
@@ -1366,6 +1432,7 @@ body.modal-open{
     }
 
     .note-footer{
+        display: flex;
         font-size: 10px;
         margin-top: 8px;
     }
