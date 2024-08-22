@@ -139,7 +139,7 @@ if ($stmt = $conn->prepare($sql)) {
                             </span>
                             <span class="tooltip-text">Switch to List</span>
                         </button>
-                        <button onclick="openNotification()" class=tooltip>
+                        <button onclick="sortFavorites()" class=tooltip>
                         <span class="material-symbols-outlined">bookmark</span>
                         <span class="tooltip-text">Favorites</span>
                     </button>
@@ -256,22 +256,6 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
        <!-- NOTEPAD MODAL -->
     </div>
-        <!--SET REMINDER -->
-        <div class="reminder-modal" id="reminderModal">
-        <div class="reminder-input">
-            <label for="setReminder">Set Reminder:</label>
-            <input type="datetime-local" id="setReminder" name="setReminder">
-            <div class="reminder-buttons">
-                <button type="submit" id="confirmSet">
-                    Set
-                </button>
-                <button id="cancel" onclick="closeReminder()">
-                    Cancel
-                </button>
-            </div>
-        </div>
-    </div>
-    <!--SET REMINDER -->
     <!-- VIEW NOTE MODAL -->
     <div class="view-note" id="viewNote">
         <div class="view-note-modal">
@@ -282,6 +266,10 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="view-note-icon-right">
+                <button id="favorites" class="tooltip" onclick="addtoFavorites()">
+                        <span class="material-symbols-outlined">bookmark</span>
+                        <span class="tooltip-text">Favorites</span>
+                    </button>
                     <button onclick="openEditNote(), closeViewNote()">
                         <span class="material-symbols-outlined"> edit </span>
                     </button>
@@ -345,12 +333,6 @@ if ($stmt = $conn->prepare($sql)) {
                         <span class="material-symbols-outlined">format_underlined</span>
                         <span class="tooltip-text">underline</span>
                     </button>
-                    <button id="format" class="tooltip">
-                        <span class="material-symbols-outlined">bookmark</span>
-                        <span class="tooltip-text">favorites</span>
-                    </button>
-                    <button id="reminderButton" onclick="setReminder()">
-                    </button>
                 </div>
             </div>
             <div class="edit-textpad">
@@ -384,29 +366,6 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
        <!-- EDIT NOTE MODAL -->
-       <div class="notification-window" id="notification">
-        <div class="notif">
-            <div class="notif-content">
-                <header><h2>Favorites</h2>  </header>
-                <div class="notif-display">
-                    <div class="notif-template">
-                        <header><h4>Title</h4></header>
-                        <p>Content</p>
-                        <footer id="date-time"> <p> date and time </p> </footer>
-                    </div>
-                    <div class="notif-template">
-                    </div>
-                    <div class="notif-template">
-                    </div>
-                    <div class="notif-template">
-                    </div>
-                </div>    
-                <p id="info"> Notes with upcoming Reminders <br> appear here </p>
-                <span id="notif-message"></span>
-                <footer><button onclick="closeNotification()">Close</button></footer>
-            </div>
-        </div>
-    </div>
       <!-- DELETE SELECTED -->
       <div class="delete" id="delete-selected-button">
             <div class="delete-icon" onclick="confirmDeleteSelected()">Delete Selected</div>
@@ -428,6 +387,18 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
     <!-- NAV SELECT COUNT -->
+                <!-- NAV FAVES -->
+    <div class="nav-favorites">
+        <div class="nav-faves" id="navFavorites">
+            <div class="nav-faves-left">
+                <h3>Favorites</h3>
+            </div>
+            <div class="nav-faves-right">
+
+            </div>
+        </div>
+    </div>
+    <!-- NAV FAVES -->
 </body>
 </html>
 <?php
