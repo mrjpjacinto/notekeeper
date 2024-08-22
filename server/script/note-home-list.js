@@ -148,22 +148,7 @@ function closeEditNote() {
   document.getElementById('viewNote').style.display = 'flex';
 }
 
-function openNotification() {
-  document.getElementById("notification").style.display = "flex";
-  document.body.classList.add("modal-open");
-}
 
-function closeNotification() {
-  document.getElementById("notification").style.display = "none";
-  document.body.classList.remove("modal-open");
-}
-
-window.addEventListener("click", function(event) {
-  var modal = document.getElementById("notification");
-  if (event.target === modal) {
-      closeNotification();
-  }
-});
 
 function toggleMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -243,6 +228,15 @@ function cancelSelect() {
         note.removeEventListener('click', toggleSelection); // Remove click event listener
     });
     updateSelectedCount();
+}
+
+function sortFavorites() {
+  const navFavorites = document.getElementById('navFavorites');
+  if (navFavorites.style.display === 'flex') {
+    navFavorites.style.display = 'none';
+  } else {
+    navFavorites.style.display = 'flex';
+  }
 }
 
 // Toggle note selection
@@ -325,38 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-var modal = document.getElementById('reminderModal');
-
-function setReminder() {
-    modal.style.display = 'flex';
-}
-
-function closeReminder() {
-    modal.style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-};
-
-document.addEventListener('DOMContentLoaded', function () {
-  const reminderInput = document.getElementById('setReminder');
-  const confirmSetButton = document.getElementById('confirmSet');
-
-  function checkReminder() {
-    if (reminderInput.value.trim() === '') {
-      confirmSetButton.disabled = true;
-    } else {
-      confirmSetButton.disabled = false;
-    }
-  }
-
-  checkReminder();
-
-  reminderInput.addEventListener('input', checkReminder);
-});
 
 // for deletion and editing
 let currentNoteId = null;

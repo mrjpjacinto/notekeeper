@@ -220,7 +220,36 @@ a{
   cursor: default;
 }
 /* SELECT NOTE */
-
+/* FAVES NAV */
+.nav-favorites{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #EBF4F6;
+  z-index: 11;
+}
+.darkmode .nav-faves{
+  background-color: #3d3d3d;
+}
+.nav-faves{
+  padding: 20px;
+  padding-inline: 40px;
+  height: 74px;
+  display: none;
+  justify-content: space-between;
+  box-shadow: 0 1px 10px #7aa6bb;
+}
+.darkmode .nav-faves{
+  box-shadow: 0 1px 10px #242424;
+}
+.nav-faves-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 50px;
+  font-size: 20px;
+}
+/* FAVES NAV */
 
 /* TOPNAV1 */
 .topnav1{
@@ -611,77 +640,7 @@ body.modal-open{
 
 
   /* NOTEPAD MODAL */
-  /* SET REMINDER */
-  .reminder-modal{
-    position: fixed;
-    display: none;
-    z-index: 25;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .reminder-input{
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .reminder-input input{
-    font-family: 'Inter';
-    background: none;
-}
-
-  .reminder-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 15px;
-  }
-
-  .reminder-buttons button{
-    font-family: 'Inter';
-    background-color: #42C4FE;
-    margin: 10px;
-    width: 100px;
-    height: 30px;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-  }
-
-  #confirmSet:disabled {
-        background-color: #ccc;
-        color: #3f3f3f;
-        cursor: not-allowed;
-  }
-  
-  .darkmode .reminder-input{
-    background-color: #3d3d3d;
-    color: white;
-  }
-
-  .darkmode .reminder-input input{
-    background-color: #3d3d3d;
-    color: white;
-  }
-
-  .darkmode .reminder-buttons button{
-    background-color: #006edd;
-    color: white;
-  }  
-
-  .darkmode   #confirmSet:disabled {
-    background-color: #636363;
-    color: #ccc;
-    cursor: not-allowed;
-}
-  /* SET REMINDER */
+  /* VIEW NOTE */
   .view-note{
     display: none;
     position: fixed;
@@ -793,144 +752,6 @@ body.modal-open{
   }
   /* VIEW NOTE MODAL */
 
-/* NOTIFICATION */
-.notification-window {
-    display: none;
-    position: fixed;
-    z-index: 20;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    outline: none;
-  }
-  
-  .notif {
-    background-color: #f2f2f2;
-    border: 1px solid #888;
-    max-width: 50%;
-    border-radius: 15px;
-    padding: 20px;
-  }
-  
-  .notif-icon {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .notif-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 500px;
-    height: 500px;
-  }
-  
-  .notif-content h2{
-    margin: 0;
-  }
-  
-  .notif-content header, .notif-content footer{
-    width: 80%;
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .notif-display {
-    width: 100%;
-    height: 450px;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-  
-  /* NOTIF TEMPLATE */
-.notif-template{
-  background-color:#cacaca;
-  border-radius: 5px;
-  width: 150px;
-  height: 100px;
-  margin-block: 10px;
-  margin-inline: 8px;
-  text-align: left;
-  font-size: 13px;
-}
-
-.notif-template header{
-  text-align: left;
-  margin-top: 10px;
-}
-.notif-template h4{
-  margin-block: 8px ;
-  width: 100%;
-  margin-left: 10px;
-  font-size: 16px;
-}
-
-.notif-template p{
-  width: 80%;
-  margin-block: 10px;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.notif-template footer{
-  width: 100%;
-  text-align: right;
-  margin-top: 22px;
-  font-size: 10px;
-}
-p{
-  margin-right: 15px;
-  font-size: 10px;
-}
-  /* NOTIF TEMPLATE */
-  
-  .notif-content #info{
-    width: 100%;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  .notif-content button {
-    width: 50%;
-    background-color: #f44336;
-    border-radius: 15px;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .notif-content button:hover {
-    background-color: #d32f2f;
-  }
-  
-  .darkmode .notif {
-    background-color: #212121;
-    color: #fefefe;
-  }
-  
-  .darkmode .notif-template{
-    background-color: #646464;
-  }
-  
   .darkmode h1 input {
     background: none;
     font-weight: normal;
@@ -941,7 +762,6 @@ p{
     background-color: #3d3d3d;
     color: white;
   }
-  /* NOTIFICATION */
 
 
 
@@ -1229,7 +1049,17 @@ p{
     font-size: 20px;
     }
     /* NAV SELECT */
-
+    /* NAV FAVES */
+    .nav-faves{
+      height: 34px;
+      font-size: 15px;
+    }
+    .nav-faves-left{
+      padding-left: 0;
+      margin-top: 2px;
+      font-size: 20px;
+    }
+    /* NAV FAVES */
 
 
     /* NAVBAR-BOTTOM */
@@ -1423,28 +1253,7 @@ p{
     }
 
 
-    /* NOTIFICATION */
-    .notif{
-      max-width: 80%;
-    }
-    .notif-content{
-      width: 200px;
-      height: 550px;
-    }
-    .notif-content p{
-      font-size: 10px;
-  }
-    .notif-display{
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .notif-template{
-      height: 80px;
-    }
-    .notif-template footer{
-      margin-top: 15px;
-    }
+
     /* EDIT NOTE MODAL */
     .edit-note h1{
       margin-block-start: 10px;
@@ -1579,9 +1388,6 @@ p{
     }
     .note-text-pad footer{
         font-size: 15px;
-    }
-    .notif-content{
-      width: 350px;
     }
 
      /* VIEW-NOTE-MODAL */
