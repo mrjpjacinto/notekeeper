@@ -20,8 +20,8 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoteKeeper</title>
     <link rel="icon" href="/notekeeper/client/assets/note-app-logo.png">
-    <link rel="stylesheet" href="/notekeeper/client/style/note-about.css">
-    <script src="/notekeeper/server/script/note-about.js" defer></script>
+    <link rel="stylesheet" href="/notekeeper/client/style/note-help.css">
+    <script src="/notekeeper/server/script/note-help.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">   
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -32,6 +32,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         <div class="topnav">
             <div class="left-nav">
                 <img src="/notekeeper/client/assets/note-app-logo.png">
+                <h3></h3>
             </div>
             <div class="right-nav">
                 <img src="<?php
@@ -58,7 +59,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
                     <div class="dropdown-option">
                         <div class="option-1"> 
-                            <a href="#">
+                            <a href="/notekeeper/client/php/note-about.php">
                                 <span class="material-symbols-outlined"> info </span>
                             <p> About </p></a>
                         </div>
@@ -81,60 +82,48 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                     arrow_back
                     </span>
                 </button>
+                <h2>NoteKeeper Help</h2>
             </div>
         </div>
         <!-- NAV -->
 
-        <!-- ABOUT CONTENTS -->
+        <!-- HELP CONTENTS -->
+        <div class="help-container">
+            <div class="help">
+                <h1>How to Use NoteKeeper</h1>
+                <p>Take notes, save ideas, make concepts. </p>
 
-        <!-- ABOUT NOTEKEEPER -->
-        <div class="container">
-            <div class="container1">   
-
-                <div class="about-contents">
-                    <h1>About NoteKeeper</h1>
-
-                    <p>NoteKeeper is a note-taking website designed to help you jot down ideas, keep track of tasks, and remind 
-            you of things to do. It's a powerful tool that organizes your thoughts, tasks, and important information in one convenient 
-              place. Acting as a digital notebook, NoteKeeper ensures that your information is stored in a structured, easy to access 
-              format.</p>
-                    
-                    <p> Designed to be intuitive and easy to use, NoteKeeper is perfect 
-              for anyone from students to professionals who wants to take notes quickly and without hassle. This website is designed with 
-                  the user in mind, offering an intuitive and user-friendly interface that anyone can navigate with ease. From students 
-                needing a reliable place to store class notes to professionals managing multiple projects, NoteKeeper adapts to your needs. 
-                    The clean design and straightforward functionality make it easy to quickly capture and organize your 
-                                                        thoughts without any hassle.</p>
-                                                        
-                </div>
-
-            </div>
-            <!-- ABOUT NOTEKEEPER -->
-
-            <!-- MEET THE TEAM -->
-            <div class="container2">
-
-            <h1> Meet the Team</h1>
-                <div class="slideshow-container">
-
-                    <div class="slideshow">
-                        <div class="slide"><img src="/notekeeper/client/assets/image1.png" alt="Image 1"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image3.png" alt="Image 2"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image2.png" alt="Image 3"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image4.png" alt="Image 4"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image5.png" alt="Image 5"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image1.png" alt="Image 1"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image3.png" alt="Image 2"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image2.png" alt="Image 3"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image4.png" alt="Image 4"></div>
-                        <div class="slide"><img src="/notekeeper/client/assets/image5.png" alt="Image 5"></div>
-                    </div>
-
-                </div>
+                <h3>Creating a new note</h3>
+                    <ol>
+                        <li>To begin, open Notekeeper(notekeeperurl)</li>
+                        <li>Click the plus button <span class="material-symbols-outlined">add_circle</span> to make a new note.</li>
+                        <li>Write down anything you want.</li>
+                        <li>If you sometimes make a mistake, you can click the <span class="material-symbols-outlined">undo</span>undo and <span class="material-symbols-outlined">redo</span>redo buttons.</li>
+                        <ul>
+                            <li>The <span class="material-symbols-outlined">undo</span>undo button reverts the most recent input.</li>
+                            <li>The <span class="material-symbols-outlined">redo</span>redo button reapplies the input that was recently undone.</li>
+                        </ul>
+                        <li>Click the Save button.</li>
+                    </ol>
+                <h3>Editing a note</h3>
+                <ol>
+                    <li>Open an existing note.</li>
+                    <li>Click the edit button <span class="material-symbols-outlined">edit</span> on the top right.</li>
+                    <li>Make any changes to your note.</li>
+                    <li>Click the Save button</li>
+                </ol>
+                <h3>Deleting a Note</h3>
+                <ol>
+                    <li>Open an existing note.</li>
+                    <li>Click the Delete Button.</li>
+                    <li>You can delete multiple notes by selecting this button <span class="material-symbols-outlined">select_check_box</span> on the top, and click the Delete Selected button.</li>
+                    <strong>WARNING: This will delete the note forever.</strong>
+                </ol>
             </div>
         </div>
-            <!-- MEET THE TEAM -->
-        <!-- ABOUT CONTENTS -->
+        <!-- HELP CONTENTS -->
+
+        
     </div>
 </body>
 <html>
