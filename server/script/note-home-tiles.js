@@ -207,7 +207,9 @@ let deleteMode = false;
 
 // Activate delete mode
 function selectNotes() {
-    deleteMode = true;
+  deleteMode = !deleteMode;
+  // Added if else
+  if (deleteMode){
     document.body.classList.add('no-hover'); // Add class to disable hover effect
     document.getElementById('selectNoteCount').style.display = 'flex';
     document.getElementById('delete-selected-button').style.display = 'flex';
@@ -215,6 +217,9 @@ function selectNotes() {
         note.classList.add('selectable');
         note.addEventListener('click', toggleSelection); // Add click event listener
     });
+  } else{
+    cancelSelect();
+  }
 }
 
 // Cancel selection mode
