@@ -94,18 +94,19 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                 <div class="about-contents">
                     <h1>About NoteKeeper</h1>
 
-                    <p>
-                    NoteKeeper is a note-taking website designed to help you jot down ideas, keep track of tasks, and remind 
+                    <p>NoteKeeper is a note-taking website designed to help you jot down ideas, keep track of tasks, and remind 
             you of things to do. It's a powerful tool that organizes your thoughts, tasks, and important information in one convenient 
               place. Acting as a digital notebook, NoteKeeper ensures that your information is stored in a structured, easy to access 
               format. The app also includes a feature that allows users to set reminders for time sensitive tasks, making it a useful 
-            personal organizer for daily to dos or important deadlines. Designed to be intuitive and easy to use, NoteKeeper is perfect 
+            personal organizer for daily to dos or important deadlines.</p>
+                    
+                    <p> Designed to be intuitive and easy to use, NoteKeeper is perfect 
               for anyone from students to professionals who wants to take notes quickly and without hassle. This website is designed with 
                   the user in mind, offering an intuitive and user-friendly interface that anyone can navigate with ease. From students 
                 needing a reliable place to store class notes to professionals managing multiple projects, NoteKeeper adapts to your needs. 
                     The clean design and straightforward functionality make it easy to quickly capture and organize your 
-                                                        thoughts without any hassle.
-                    </p>
+                                                        thoughts without any hassle.</p>
+                                                        
                 </div>
 
             </div>
