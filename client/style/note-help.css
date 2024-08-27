@@ -296,6 +296,15 @@ p, li{
         margin: 0;
     }
 
+    .help-container{
+        margin: 20px;
+    }
+    .help{
+        width: 85%;
+        padding: 10px 20px 10px;
+        font-size: 13px;
+    }
+
 
     /* BODY CONTAINER */
 
@@ -323,4 +332,11 @@ p, li{
     .container1 p{
         font-size: 18px;
     }
+    .help-container{
+        margin: 30px;
+    }
+    .help{
+    padding: 10px 50px 10px;
+    }
+
 }
