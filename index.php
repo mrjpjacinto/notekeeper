@@ -39,7 +39,7 @@
             <div class="overlay-text">
                 <h1> Welcome to NoteKeeper!</h1>
                 <p> Write it down before you forget it.</p>
-                <p>Take notes, save ideas, and make a reminders </p>
+                <p>Take notes, save ideas, and make concepts </p>
             </div>
 
             </div>  

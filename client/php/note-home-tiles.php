@@ -139,6 +139,12 @@ if ($stmt = $conn->prepare($sql)) {
                             </span>
                             <span class="tooltip-text">Switch to List</span>
                         </button>
+                        <button class="tooltip">
+                        <span class="material-symbols-outlined">
+                            <a href="/notekeeper/client/php/note-help.php">help</a>
+                            </span>
+                            <span class="tooltip-text">Help</span>
+                        </button>
                         <button id="nav-icon" class="tooltip">
                         <span class="material-symbols-outlined" onclick="selectNotes(), deleteSelected()">
                             select_check_box
