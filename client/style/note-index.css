@@ -1,0 +1,284 @@
+body{
+    display: flex;
+    font-family: Inter;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #EBF4F6;
+    width: 100%;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+
+/* NAVBAR */
+.navbar{
+    padding: 20px;
+    padding-inline: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-nav img{
+    width: 70px;
+    height: 70px;
+}
+
+.right-nav{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.option1{
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    margin-right: 10px;
+    height: 25px;
+    width: 7%;
+    padding-top: 5px;
+    border-radius: 10%;
+    text-align: center;
+    background-color: #42C4FE;
+}
+
+.option2{
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    margin-left: 10px;
+    height: 25px;
+    width: 7%;
+    padding-top: 5px;
+    border-radius: 10%;
+    background-color: #42C4FE;
+    text-align: center;
+}
+
+.option1:hover{
+    color: white;
+    background-color: black;
+}
+
+.option2:hover{
+    color: white;
+    background-color: black;
+}
+
+/* NAVBAR */
+
+/* HERO-SECTION */
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1{
+    margin: 10px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    font-size: 60px;
+}
+p{
+    margin: 5px;
+    font-size: 20px;
+}
+
+.hero-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.hero-container img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-right: 60px;
+    margin-top: 15px;
+}
+
+.overlay-text{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 35%;
+    left: 2%;
+    margin-left: 60px;
+}
+
+.hero-bottom { 
+    display: flex;
+    position: absolute;
+    top: 70%;
+    align-items: flex-start;
+    margin-left:30px;
+}
+
+.button{
+    background-color: #42C4FE;;
+    color: white;
+    border: black;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 350px;
+    margin-left: 60px;
+}
+
+button:hover{
+    background-color: black;
+    color: #f2f2f2;
+}
+
+/* MOBILE STYLE */
+@media only screen and (max-width: 600px){
+    html{
+        width: 100%;
+        height: 100%;
+    }
+
+    body{
+        width: 100%;
+        height: 100%;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .left-nav img{
+        height: 50px;
+        width: 50px;
+    }
+    
+    .option{
+        padding-right: 0;
+        font-size: 13px;
+    }
+
+    /* HERO-SECTION */
+    .hero-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+
+    .content img{
+        position: relative;
+        right: 29%;
+        margin: 0;
+        margin-top: 20%;
+    }
+
+    h1{
+        font-size: 23px;
+        margin: 10px;
+    }
+
+    p{
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .overlay-text{
+        position: static;
+        display: flex;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-bottom{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        margin: 0;
+        width: 100%;
+        top: 80%;
+    }
+    
+    .button{ 
+        width: 250px;
+        font-size: 15px;
+        border-radius: 10px;
+        margin: 0;
+    }
+
+}
+
+/* TABLET STYLE */
+@media only screen and (min-width: 601px) and (max-width: 1024px){
+    html{
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar{
+        width: 95vw;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    h1{
+        font-size: 60px;
+    }
+    p{
+        font-size: 25px;
+    }
+
+    .content{
+        display: flex;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        right: 28%;
+        align-items: center;
+    }
+
+    .hero-container img{
+        margin: 0;
+        margin-top: 10%;
+    }
+
+    .overlay-text{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 26%;
+        right: 2%;
+        margin: 0;
+    }
+
+    .hero-bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 85%;
+        width: 100%;
+        margin: 0;
+
+    }
+
+    .button{ 
+        font-size: 30px;
+        border-radius: 10px;
+        width: 400px;
+        margin: 0%;
+    }
+
+}
