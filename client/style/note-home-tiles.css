@@ -233,36 +233,6 @@ a{
   cursor: default;
 }
 /* SELECT NOTE */
-/* FAVES NAV */
-.nav-favorites{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #EBF4F6;
-  z-index: 11;
-}
-.darkmode .nav-faves{
-  background-color: #3d3d3d;
-}
-.nav-faves{
-  padding: 20px;
-  padding-inline: 40px;
-  height: 74px;
-  display: none;
-  justify-content: space-between;
-  box-shadow: 0 1px 10px #7aa6bb;
-}
-.darkmode .nav-faves{
-  box-shadow: 0 1px 10px #242424;
-}
-.nav-faves-left{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 50px;
-  font-size: 20px;
-}
-/* FAVES NAV */
 
   /* TOPNAV1 */
 .topnav1{
@@ -1113,24 +1083,6 @@ h1{
     }
     /* NAV SELECT */
 
-        /* NAV FAVES */
-        .nav-faves{
-          height: 34px;
-          font-size: 15px;
-          padding-left: 0;
-        }
-
-        .nav-faves h3{
-          font-size: 20px;  
-        }    
-
-        .nav-faves-left{
-          padding: 0;
-          margin-top: 2px;
-          font-size: 20px;
-          margin-left: 25px;
-        }
-        /* NAV FAVES */
 
         .delete-icon{
           font-size: 10px;
@@ -1279,9 +1231,6 @@ h1{
   /* VIEW-NOTE-MODAL */
   
 
-  #format{
-    display: none;
-  }
 /* NOTE-TEXT-PAD */
 .note-text-pad h1{
   margin-block-start: 10px;
@@ -1367,14 +1316,6 @@ h1{
 
   #cancelSelect{
     margin: 0;
-  }
-
-  .nav-faves{
-    padding-left: 0;
-  }
-
-  .nav-faves-left{
-    margin-left: 30px;
   }
 
   /* HERO CONTAINER */

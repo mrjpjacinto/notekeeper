@@ -235,14 +235,6 @@ function cancelSelect() {
     updateSelectedCount();
 }
 
-function sortFavorites() {
-  const navFavorites = document.getElementById('navFavorites');
-  if (navFavorites.style.display === 'flex') {
-    navFavorites.style.display = 'none';
-  } else {
-    navFavorites.style.display = 'flex';
-  }
-}
 
 // Toggle note selection
 function toggleSelection(event) {
