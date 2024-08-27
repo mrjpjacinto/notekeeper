@@ -139,10 +139,6 @@ if ($stmt = $conn->prepare($sql)) {
                             </span>
                             <span class="tooltip-text">Switch to List</span>
                         </button>
-                        <button onclick="sortFavorites()" class=tooltip>
-                        <span class="material-symbols-outlined">bookmark</span>
-                        <span class="tooltip-text">Favorites</span>
-                    </button>
                         <button id="nav-icon" class="tooltip">
                         <span class="material-symbols-outlined" onclick="selectNotes(), deleteSelected()">
                             select_check_box
@@ -212,18 +208,6 @@ if ($stmt = $conn->prepare($sql)) {
                         <span class="material-symbols-outlined"> redo </span>
                         <span class="tooltip-text">redo</span>
                     </button>
-                    <button id="format" class="tooltip"> 
-                        <span class="material-symbols-outlined"> format_bold </span>
-                        <span class="tooltip-text">bold</span>
-                    </button>
-                    <button id="format" class="tooltip">
-                        <span class="material-symbols-outlined">format_italic</span>
-                        <span class="tooltip-text">italic</span>
-                    </button>
-                    <button id="format" class="tooltip">
-                        <span class="material-symbols-outlined">format_underlined</span>
-                        <span class="tooltip-text">underline</span>
-                    </button>
                 </div>
             </div>
             <div class="textpad">
@@ -266,10 +250,6 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                 </div>
                 <div class="view-note-icon-right">
-                <button id="favorites" class="tooltip" onclick="addtoFavorites()">
-                        <span class="material-symbols-outlined">bookmark</span>
-                        <span class="tooltip-text">Favorites</span>
-                    </button>
                     <button onclick="openEditNote(), closeViewNote()">
                         <span class="material-symbols-outlined"> edit </span>
                     </button>
@@ -320,18 +300,6 @@ if ($stmt = $conn->prepare($sql)) {
 
                         <span class="material-symbols-outlined"> redo </span>
                         <span class="tooltip-text">redo</span>
-                    </button>
-                    <button id="format" class="tooltip">
-                        <span class="material-symbols-outlined"> format_bold </span>
-                        <span class="tooltip-text">bold</span>
-                    </button>
-                    <button id="format" class="tooltip">
-                        <span class="material-symbols-outlined">format_italic</span>
-                        <span class="tooltip-text">italic</span>
-                    </button>
-                    <button id="format" class="tooltip">
-                        <span class="material-symbols-outlined">format_underlined</span>
-                        <span class="tooltip-text">underline</span>
                     </button>
                 </div>
             </div>
@@ -387,18 +355,6 @@ if ($stmt = $conn->prepare($sql)) {
         </div>
     </div>
     <!-- NAV SELECT COUNT -->
-                <!-- NAV FAVES -->
-    <div class="nav-favorites">
-        <div class="nav-faves" id="navFavorites">
-            <div class="nav-faves-left">
-                <h3>Favorites</h3>
-            </div>
-            <div class="nav-faves-right">
-
-            </div>
-        </div>
-    </div>
-    <!-- NAV FAVES -->
 </body>
 </html>
 <?php
