@@ -91,7 +91,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
         <div class="help-container">
             <div class="help">
                 <h1>How to Use NoteKeeper</h1>
-                <p>Take notes, save ideas, make concepts. </p>
+                <p id="firstp">Take notes, save ideas, make concepts. </p>
 
                 <h3>Creating a new note</h3>
                     <ol>
@@ -116,7 +116,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                 <ol>
                     <li>Open an existing note.</li>
                     <li>Click the Delete Button.</li>
-                    <li>You can delete multiple notes by selecting this button <span class="material-symbols-outlined">select_check_box</span> on the top, and click the Delete Selected button.</li>
+                    <li id="lastline">You can delete multiple notes by selecting this button <span class="material-symbols-outlined">select_check_box</span> on the top, and click the Delete Selected button.</li>
                     <strong>WARNING: This will delete the note forever.</strong>
                 </ol>
             </div>
