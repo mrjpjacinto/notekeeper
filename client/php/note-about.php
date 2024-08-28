@@ -128,6 +128,16 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                         <div class="slide"><img src="/notekeeper/client/assets/image2.png" alt="Image 3"></div>
                         <div class="slide"><img src="/notekeeper/client/assets/image4.png" alt="Image 4"></div>
                         <div class="slide"><img src="/notekeeper/client/assets/image5.png" alt="Image 5"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image1.png" alt="Image 1"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image3.png" alt="Image 2"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image2.png" alt="Image 3"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image4.png" alt="Image 4"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image5.png" alt="Image 5"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image1.png" alt="Image 1"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image3.png" alt="Image 2"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image2.png" alt="Image 3"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image4.png" alt="Image 4"></div>
+                        <div class="slide"><img src="/notekeeper/client/assets/image5.png" alt="Image 5"></div>
                     </div>
 
                 </div>

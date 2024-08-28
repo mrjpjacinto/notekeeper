@@ -377,7 +377,7 @@ body {
     }
 
     .container1{
-        height: 600px;
+        height: 620px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -386,6 +386,7 @@ body {
     .container1 h1{
         font-size: 25px;
         margin-inline: 20px;
+        margin-top: 0;
     }
 
     .container1 p{
@@ -394,7 +395,7 @@ body {
     }
 
     .container2{
-        height: 300px;
+        height: 350px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -404,11 +405,21 @@ body {
         font-size: 30px;
         margin-bottom: 0;
         margin-left: 0;
+        margin-top: 30px;
     }
 
-    .slideshow-container{
-        height: 250px;
+    .slide img {
+        height: 150px;
+        width: auto;
     }
+    
+    .slide-active img {
+        height: 180px;
+        width: auto;
+
+    }
+    
+    
 
 }
 
