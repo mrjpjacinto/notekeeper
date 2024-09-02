@@ -1,0 +1,36 @@
+services:
+  web:
+    image: notekeeper:spusm
+    container_name: notekeeper_app
+    ports:
+      - "8989:80" # Map port 8989 on the host to port 80 in the container
+    depends_on:
+      - db
+    networks:
+      - notekeeper_network
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: notepad_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: comfac123
+
+  db:
+    image: mysql:8.0
+    container_name: notekeeper_db
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: comfac123
+      MYSQL_DATABASE: notepad_db
+    ports:
+      - "3306:3306" # Expose MySQL port
+    networks:
+      - notekeeper_network
+
+networks:
+  notekeeper_network:
+    driver: bridge
+
+volumes:
+  db_data:
