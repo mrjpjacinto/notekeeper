@@ -12,7 +12,8 @@ WORKDIR /var/www/html
 
 COPY . /var/www/html/
 
-RUN echo "Listen 80" >> /etc/apache2/ports.conf \
+# Add Listen 80 to ports.conf and ensure no conflicts
+RUN echo "Listen 80" > /etc/apache2/ports.conf \
     && sed -i 's/VirtualHost \*:80/VirtualHost \*:80/' /etc/apache2/sites-available/000-default.conf \
     && a2enmod rewrite \
     && echo "ServerName localhost" >> /etc/apache2/apache2.conf
