@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '/xampp/htdocs/notekeeper/server/db-conn.php'; // Ensure this path is correct
+include '/var/www/html/server/db-conn.php'; // Ensure this path is correct
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) { // Note the change to 'id'
     $noteId = $_POST['id']; // The key is now 'id' to match the FormData in JavaScript

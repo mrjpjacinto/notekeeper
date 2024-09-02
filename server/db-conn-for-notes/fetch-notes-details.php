@@ -1,5 +1,5 @@
 <?php
-include('/xampp/htdocs/notekeeper/server/db-conn.php');
+include('/var/www/html/server/db-conn.php');
 
 $id = intval($_GET['id']);
 $query = "SELECT title, content FROM notes WHERE id = ?";

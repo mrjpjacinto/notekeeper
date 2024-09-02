@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '/xampp/htdocs/notekeeper/server/db-conn.php';
+include '/var/www/html/server/db-conn.php';
 
 // Define the formatDate function
 function formatDate($date) {
@@ -11,7 +11,7 @@ function formatDate($date) {
 
 // Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
-    header("Location: /notekeeper/client/php/note-login.php");
+    header("Location: /client/php/note-login.php");
     exit();
 }
 
@@ -59,9 +59,9 @@ if ($stmt = $conn->prepare($sql)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoteKeeper</title>
-    <link rel="icon" href="/notekeeper/client/assets/note-app-logo.png">
-    <link rel="stylesheet" href="/notekeeper/client/style/note-home-list.css">
-    <script src="/notekeeper/server/script/note-home-list.js" defer></script>
+    <link rel="icon" href="/client/assets/note-app-logo.png">
+    <link rel="stylesheet" href="/client/style/note-home-list.css">
+    <script src="/server/script/note-home-list.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -80,14 +80,14 @@ if ($stmt = $conn->prepare($sql)) {
     <div class="main-container">
             <div class="topnav">
                 <div class="left-nav">
-                    <img src="/notekeeper/client/assets/note-app-logo.png">
+                    <img src="/client/assets/note-app-logo.png">
                 </div>
                 <div class="right-nav">
                     <img src="<?php
-                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            $profileImgPath = '/client/assets/profilepictures/' . $_SESSION['img'];
                             echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
                                 ? $profileImgPath 
-                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                                : '/client/assets/Avatar-placeholder.png'; 
                             ?>" onclick="toggleMenu()" class="dropbtn">
                 </div>
                 <!-- DROPDOWN -->
@@ -96,10 +96,10 @@ if ($stmt = $conn->prepare($sql)) {
                         
                         <div class="dropdown-display">
                             <img src="<?php
-                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            $profileImgPath = '/client/assets/profilepictures/' . $_SESSION['img'];
                             echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
                                 ? $profileImgPath 
-                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                                : '/client/assets/Avatar-placeholder.png'; 
                             ?>">
                             <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
                             <p id="un"><?php echo ($email); ?></p>
@@ -107,13 +107,13 @@ if ($stmt = $conn->prepare($sql)) {
 
                         <div class="dropdown-option">
                             <div class="option-1"> 
-                                <a href="/notekeeper/client/php/note-about.php">
+                                <a href="/client/php/note-about.php">
                                     <span class="material-symbols-outlined"> info </span>
                                 <p> About </p></a>
                             </div>
                             
                             <div class="option-2"> 
-                                <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
+                                <a href="/server/sign-up-login-db-conn/log-out.php">
                                     <span class="material-symbols-outlined"> logout </span>
                                 <p> Log Out </p></a>
                             </div>
@@ -135,13 +135,13 @@ if ($stmt = $conn->prepare($sql)) {
                     </button>
                     <button class="tooltip">
                         <span class="material-symbols-outlined">
-                            <a id="nav-icon" href="/notekeeper/client/php/note-home-tiles.php">grid_view</a>
+                            <a id="nav-icon" href="/client/php/note-home-tiles.php">grid_view</a>
                             </span>
                             <span class="tooltip-text">Switch to Tiles</span>
                         </button>
                         <button class="tooltip">
                         <span class="material-symbols-outlined">
-                            <a href="/notekeeper/client/php/note-help.php">help</a>
+                            <a href="/client/php/note-help.php">help</a>
                             </span>
                             <span class="tooltip-text">Help</span>
                         </button>
@@ -217,7 +217,7 @@ if ($stmt = $conn->prepare($sql)) {
                 </div>
             </div>
             <div class="textpad">
-                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
+                <form id="noteForm" action="/server/db-conn-for-notes/save-note.php" method="post">
                 <input type="hidden" name="redirect" value="note-home-list.php">
                     <h1>
                         <input type="text" id="noteTitle" name="title" placeholder="Enter title.." maxlength="50" required>
@@ -310,7 +310,7 @@ if ($stmt = $conn->prepare($sql)) {
                 </div>
             </div>
             <div class="edit-textpad">
-                <form id="noteForm" action="/notekeeper/server/db-conn-for-notes/save-note.php" method="post">
+                <form id="noteForm" action="/server/db-conn-for-notes/save-note.php" method="post">
                 <input type="hidden" name="redirect" value="note-home-tiles.php">
                 <input type="hidden" name="note_id" id="note_id">
                     <h1>

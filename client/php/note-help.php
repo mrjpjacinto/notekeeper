@@ -1,10 +1,10 @@
 <?php
 session_start();
-include '/xampp/htdocs/notekeeper/server/db-conn.php';
+include '/var/www/html/server/db-conn.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['uname'])) {
-    header("Location: /notekeeper/client/php/note-login.php");
+    header("Location: /client/php/note-login.php");
     exit();
 }
 
@@ -19,9 +19,9 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoteKeeper</title>
-    <link rel="icon" href="/notekeeper/client/assets/note-app-logo.png">
-    <link rel="stylesheet" href="/notekeeper/client/style/note-help.css">
-    <script src="/notekeeper/server/script/note-help.js" defer></script>
+    <link rel="icon" href="/client/assets/note-app-logo.png">
+    <link rel="stylesheet" href="/client/style/note-help.css">
+    <script src="/server/script/note-help.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">   
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -31,15 +31,15 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
     <div class="main-container">
         <div class="topnav">
             <div class="left-nav">
-                <img src="/notekeeper/client/assets/note-app-logo.png">
+                <img src="/client/assets/note-app-logo.png">
                 <h3></h3>
             </div>
             <div class="right-nav">
                 <img src="<?php
-                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            $profileImgPath = '/client/assets/profilepictures/' . $_SESSION['img'];
                             echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
                                 ? $profileImgPath 
-                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                                : '/client/assets/Avatar-placeholder.png'; 
                             ?>" onclick="toggleMenu()" class="dropbtn">
             </div>
             <!-- DROPDOWN -->
@@ -48,10 +48,10 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
                     
                     <div class="dropdown-display">
                         <img src="<?php
-                            $profileImgPath = '/notekeeper/client/assets/profilepictures/' . $_SESSION['img'];
+                            $profileImgPath = '/client/assets/profilepictures/' . $_SESSION['img'];
                             echo (isset($_SESSION['img']) && !empty($_SESSION['img']) && file_exists($_SERVER['DOCUMENT_ROOT'] . $profileImgPath)) 
                                 ? $profileImgPath 
-                                : '/notekeeper/client/assets/Avatar-placeholder.png'; 
+                                : '/client/assets/Avatar-placeholder.png'; 
                             ?>">
                         <p id="un"> <?php echo ($fname); ?> <?php echo ($lname); ?></p>
                         <p id="un"><?php echo ($email); ?></p>
@@ -59,13 +59,13 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : 'email';
 
                     <div class="dropdown-option">
                         <div class="option-1"> 
-                            <a href="/notekeeper/client/php/note-about.php">
+                            <a href="/client/php/note-about.php">
                                 <span class="material-symbols-outlined"> info </span>
                             <p> About </p></a>
                         </div>
                          
                         <div class="option-2"> 
-                            <a href="/notekeeper/server/sign-up-login-db-conn/log-out.php">
+                            <a href="/server/sign-up-login-db-conn/log-out.php">
                                 <span class="material-symbols-outlined"> logout </span>
                             <p> Log Out </p></a>
                         </div>

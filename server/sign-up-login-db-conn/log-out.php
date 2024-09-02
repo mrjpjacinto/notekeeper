@@ -5,6 +5,6 @@
 
     session_destroy();
 
-    header("Location: /notekeeper/client/php/note-login.php");
+    header("Location: /client/php/note-login.php");
     exit();
 ?>

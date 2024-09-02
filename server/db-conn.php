@@ -1,8 +1,8 @@
 <?php
     //db_config
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
-    $password = "";
+    $password = "comfac123";
     $dbname = "notepad_db";
 
     //to create a connection

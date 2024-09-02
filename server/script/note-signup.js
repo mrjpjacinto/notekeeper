@@ -30,7 +30,7 @@ function showPassword() {
         successToast.style.display = 'flex';
         setTimeout(() => {
             successToast.style.display = 'none';
-            window.location.href = "/notekeeper/client/php/note-login.php"; 
+            window.location.href = "/client/php/note-login.php"; 
         }, 2000); 
     }
 

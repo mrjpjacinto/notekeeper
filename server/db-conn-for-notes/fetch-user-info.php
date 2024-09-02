@@ -1,9 +1,9 @@
 <?php
-include '/xampp/htdocs/notekeeper/server/db-conn.php';
+include '/var/www/html/server/db-conn.php';
 
 // Ensure the user is logged in
 if (!isset($_SESSION['uname'])) {
-    header("Location: /notekeeper/client/php/note-login.php");
+    header("Location: /client/php/note-login.php");
     exit();
 }
 

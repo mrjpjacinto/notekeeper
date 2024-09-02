@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '/xampp/htdocs/notekeeper/server/db-conn.php'; // Adjust the path if necessary
+include '/var/www/html/server/db-conn.php'; // Adjust the path if necessary
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($stmt->execute()) {
                     // Redirect after successful update
                     $redirectPage = isset($_POST['redirect']) ? $_POST['redirect'] : 'note-home-list.php';
-                    header("Location: /notekeeper/client/php/$redirectPage");
+                    header("Location: /client/php/$redirectPage");
                     exit();
                 } else {
                     // Output error message
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($stmt->execute()) {
                     // Redirect after successful insert
                     $redirectPage = isset($_POST['redirect']) ? $_POST['redirect'] : 'note-home-list.php';
-                    header("Location: /notekeeper/client/php/$redirectPage");
+                    header("Location: /client/php/$redirectPage");
                     exit();
                 } else {
                     // Output error message

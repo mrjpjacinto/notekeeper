@@ -265,7 +265,7 @@ function deleteSelected() {
     const ids = Array.from(selectedNotes).map(note => note.getAttribute('data-id'));
 
     if (ids.length > 0) {
-        fetch('/notekeeper/server/db-conn-for-notes/deleting-multiple-notes.php', {
+        fetch('/server/db-conn-for-notes/deleting-multiple-notes.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -396,7 +396,7 @@ function deleteNote() {
     let formData = new FormData();
     formData.append('id', currentNoteId);
 
-    fetch('/notekeeper/server/db-conn-for-notes/for-deletion.php', {
+    fetch('/server/db-conn-for-notes/for-deletion.php', {
         method: 'POST',
         body: formData, // Send the FormData object
     })
@@ -409,7 +409,7 @@ function deleteNote() {
             // Show success toast and delay redirect
             showToast('deleteSuccess', 1000);
             setTimeout(() => {
-                window.location.href = '/notekeeper/client/php/note-home-list.php';
+                window.location.href = '/client/php/note-home-list.php';
             }, 8000); // Delay redirect to match the toast display duration
         } else {
             showToast('deleteError', 1000); // Show error toast

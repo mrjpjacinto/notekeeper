@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION['img'] = $row['img']; // Store image filename
                         $_SESSION['success'] = "Login successful!";
                         // Redirect to login page to handle the success toast
-                        header("Location: /notekeeper/client/php/note-login.php");
+                        header("Location: /client/php/note-login.php");
                         exit();
                     } else {
                         $_SESSION['error'] = "Invalid password";
@@ -54,6 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 
 // Redirect to login page if there's an error or success message
-header("Location: /notekeeper/client/php/note-login.php");
+header("Location: /client/php/note-login.php");
 exit();
 ?>

@@ -4,7 +4,7 @@ session_start();
 include '../db-conn.php'; 
 
 // Define the upload directory using the absolute path
-$uploadDir = '/xampp/htdocs/notekeeper/client/assets/profilepictures/'; // Set the absolute path to your profile pictures folder
+$uploadDir = '/xampp/htdocs/client/assets/profilepictures/'; // Set the absolute path to your profile pictures folder
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['uname']) && isset($_POST['email']) && isset($_POST['passwd'])) {
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $imgPath = $imgName;
             } else {
                 $_SESSION['error'] = "Error uploading image.";
-                header("Location: /notekeeper/client/php/note-signup.php");
+                header("Location: /client/php/note-signup.php");
                 exit();
             }
         }
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($check_uname_stmt->num_rows > 0) {
                 $_SESSION['error'] = "Username is already taken.";
                 $check_uname_stmt->close();
-                header("Location: /notekeeper/client/php/note-signup.php");
+                header("Location: /client/php/note-signup.php");
                 exit();
             }
             $check_uname_stmt->close();
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($check_email_stmt->num_rows > 0) {
                 $_SESSION['error'] = "Email is already taken.";
                 $check_email_stmt->close();
-                header("Location: /notekeeper/client/php/note-signup.php");
+                header("Location: /client/php/note-signup.php");
                 exit();
             }
             $check_email_stmt->close();
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt->execute()) { 
                 $_SESSION['success'] = "Sign up successful!"; 
                 $stmt->close();
-                header("Location: /notekeeper/client/php/note-signup.php");
+                header("Location: /client/php/note-signup.php");
                 exit(); 
             } else {
                 $_SESSION['error'] = "Error executing query: " . $stmt->error; 
@@ -87,6 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close(); 
-header("Location: /notekeeper/client/php/note-signup.php"); 
+header("Location: /client/php/note-signup.php"); 
 exit();
 ?>

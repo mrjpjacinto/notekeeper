@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoteKeeper</title>
-    <link rel="icon" href="/notekeeper/client/assets/note-app-logo.png">
-    <link rel="stylesheet" href="/notekeeper/client/style/note-signup.css">
-    <script src="/notekeeper/server/script/note-signup.js"></script>
+    <link rel="icon" href="/client/assets/note-app-logo.png">
+    <link rel="stylesheet" href="/client/style/note-signup.css">
+    <script src="/server/script/note-signup.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,10 +28,10 @@
     <!-- for toast notification -->
     <div class="main-container">
         <div class="signup">
-            <a href="/notekeeper/index.php">
-            <img src="/notekeeper/client/assets/note-app-logo.png"></a>
+            <a href="/index.php">
+            <img src="/client/assets/note-app-logo.png"></a>
             <h2>Sign Up</h2>
-            <form action="/notekeeper/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post" enctype="multipart/form-data">
+            <form action="/server/sign-up-login-db-conn/db-conn-sign-up.php" method="post" enctype="multipart/form-data">
                     <div class="input-left">
 
                         <div class="input-a">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="signup-button">
                         <button class="click" type="submit">Sign Up</button>
-                        <p>Already have an account? <a href="/notekeeper/client/php/note-login.php">Log in!</a></p>
+                        <p>Already have an account? <a href="/client/php/note-login.php">Log in!</a></p>
                     </div>
             </form>
         </div>

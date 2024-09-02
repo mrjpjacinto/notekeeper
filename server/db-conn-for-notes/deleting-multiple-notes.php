@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Connect to the database
-include('/xampp/htdocs/notekeeper/server/db-conn.php'); // Replace with your database connection file
+include('/var/www/html/server/db-conn.php'); // Replace with your database connection file
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['ids'])) {
     // Sanitize and prepare the IDs for deletion
