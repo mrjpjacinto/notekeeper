@@ -1,9 +1,9 @@
 services:
   web:
-    image: notekeeper:spusm
+    image: mrjpjacinto13/notekeeper:spusm
     container_name: notekeeper_app
     ports:
-      - "8989:80" # Map port 8989 on the host to port 80 in the container
+      - "80:80" # Map port 8989 on the host to port 80 in the container
     depends_on:
       - db
     networks:
