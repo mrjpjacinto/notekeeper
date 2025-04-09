@@ -1,0 +1,385 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    font-family: Inter;
+    font-size: 15px;
+    background-color: #EBF4F6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.signup img{
+    width: 80px;
+}
+
+.signup{
+    height: 625px;
+    width: 650px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: fixed;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+}
+
+.input-a{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    margin-top: 5px;
+    gap: 20px;
+}
+.input-b{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    margin-top: 5px;
+    gap: 20px;
+}
+
+.input-c{
+    margin-top: 5px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    padding-bottom: 0;
+    position: absolute;
+    gap: 20px;
+}
+
+
+.input{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+    width: 275px;
+    height: 40px;
+}
+
+.input label{
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+input{
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.input-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.input-right{
+    gap: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.image{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    flex-direction: column;
+    margin-top: 36px;
+    margin-left: 10px;
+    border: 1px solid gray ;
+    width: 73%;
+}
+
+.image label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 15px;
+    padding: 10px;
+}
+
+#img{
+    background: none;
+}
+
+.show-password{
+    padding-top: 5px;
+}
+
+.signup-button{
+    position: relative;
+    top: 300px;
+    right: 175px;
+}
+
+.click{
+    color: #f2f2f2;
+    margin-top: 100px;
+}
+
+button{
+    border: none;
+    background-color:#27AAFF;
+    border-radius: 10px;
+    margin-top: 100px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+}
+
+button:hover{
+    background-color: #6fc6ff;
+}
+
+.hidden{
+    display: none;
+}
+
+.success-toast {
+    top: 20px; 
+    background-color: #27AAFF;
+    color: #fff;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    display: none; 
+    z-index: 1000; 
+}
+
+.error-toast {
+    top: 20px; 
+    background-color: red;
+    color: #fff;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    display: none; 
+    z-index: 1000; 
+}
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+
+    body {
+        font-size: 13px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+    }
+
+    .main-container{
+        width: 320px;
+    }
+
+    .signup img {
+        width: 50px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        margin: 10px 0;
+    }
+
+    .signup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        background: none;
+        border-radius: 15px;
+        box-shadow: none;
+        position: relative;
+        padding: 0;
+        margin: 10px;
+        margin-top: 200px;
+    }
+
+    .signup form{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .input-left{
+        display: flex;
+        flex-direction: column;
+        font-size: 12px; 
+        gap: 0;
+    }
+    
+    .input-a, .input-b {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .input-c{
+        display: flex;
+        position: absolute;
+        width: 92%;
+    }
+
+    .image{
+        width: 93%;
+    }
+
+
+    .signup-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin-top: 300px;
+    }
+
+    .show-password input {
+        width: auto;
+        height: auto;
+    }
+
+    .click {
+        width: 280px;
+        padding: 10px; 
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    p {
+        margin: 10px;
+    }
+}
+
+/* TABLET */
+@media only screen and (min-width: 601px) and (max-width: 1024px){
+    html{
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        font-family: Inter;
+        font-size: 13px;
+        background-color: #EBF4F6;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        top: 0;
+        left: 0;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .signup img{
+        width: 60px;
+    }
+    
+    .signup{
+        height: 550px;
+        width: 600px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 15px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        position: fixed;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    form{
+        display: flex;
+        justify-content: space-between;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px;
+    }
+    
+    .input label{
+        padding-left: 5px;
+    }
+    
+    input{
+        border: none;
+        border-radius: 10px;
+        padding: 8px;
+        background-color: #f2f2f2;
+    }
+    
+    .show-password{
+        padding-top: 5px;
+    }
+    
+    .click{
+        color: #f2f2f2;
+        margin-top: 50px;
+    }
+    
+    button{
+        border: none;
+        background-color: #27AAFF;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        color: white;
+    }
+    
+    button:hover{
+        background-color: #6fc6ff;
+    }
+}
+/* TABLET */
